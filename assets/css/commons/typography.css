@@ -1,0 +1,44 @@
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-text-color);
+}
+
+p,
+span,
+.text-primary {
+  color: var(--primary-text-color);
+}
+
+.text-secondary {
+  color: var(--secondary-text-color);
+}
+
+.text-disabled {
+  color: var(--disabled-text-color);
+}
+
+.text-on-surface {
+  color: var(--on-surface-color);
+}
+
+/* On dark surfaces */
+.text-on-surface-dark {
+  color: var(--on-surface-color-light);
+}
+
+a {
+  color: var(--primary-text-color);
+  text-decoration: none;
+}

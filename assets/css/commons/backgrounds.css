@@ -1,0 +1,18 @@
+/* Surface and Backgrounds */
+.surface {
+  background-color: var(--surface-color);
+  color: var(--on-surface-color);
+}
+
+.surface-dark {
+  background-color: var(--surface-color-dark);
+  color: var(--on-surface-color-light);
+}
+
+.background {
+  background-color: var(--background-color);
+}
+
+.background-dark {
+  background-color: var(--background-dark-color);
+}

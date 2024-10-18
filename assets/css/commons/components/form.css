@@ -1,0 +1,70 @@
+.form-group input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+  width: 100%;
+  padding: var(--spacing-unit);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-unit);
+  transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: var(--spacing-unit);
+  color: var(--color-text);
+}
+
+.form-group input[type="checkbox"] {
+  margin-right: var(--spacing-unit);
+}
+
+.form-group input[type="checkbox"]:checked + label {
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.form-group select {
+  width: 100%;
+  padding: var(--spacing-unit);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-unit);
+  transition: border-color 0.3s ease;
+}
+
+.form-group select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: var(--spacing-unit);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-unit);
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}

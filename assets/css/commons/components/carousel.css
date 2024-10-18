@@ -1,0 +1,91 @@
+/* Define carousel container dimensions */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: var(
+    --carousel-max-width,
+    600px
+  ); /* Set max-width using a variable */
+  overflow: hidden;
+  border: var(
+    --carousel-border,
+    2px solid #ddd
+  ); /* Add a customizable border */
+  border-radius: var(
+    --carousel-border-radius,
+    8px
+  ); /* Border radius with variable */
+  box-shadow: var(
+    --carousel-box-shadow,
+    0 0 10px rgba(0, 0, 0, 0.1)
+  ); /* Box shadow */
+}
+
+/* Carousel slide wrapper */
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Individual items */
+.carousel-item {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Carousel controls */
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.carousel-controls span {
+  cursor: pointer;
+  font-size: var(--carousel-control-font-size, 24px);
+  color: var(--carousel-control-color, white);
+  padding: var(--carousel-control-padding, 10px);
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-controls span:hover {
+  transform: scale(1.15);
+}
+
+.carousel-controls .prev {
+  left: 10px;
+}
+
+.carousel-controls .next {
+  right: 10px;
+}
+
+/* Define the CSS for the auto-slide feature (if enabled) */
+.carousel-slide-auto {
+  animation: slideAnimation var(--carousel-slide-speed, 3s) infinite;
+}
+
+@keyframes slideAnimation {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  33% {
+    transform: translateX(-100%);
+  }
+  66% {
+    transform: translateX(-200%);
+  }
+}
