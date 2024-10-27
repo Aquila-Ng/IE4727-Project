@@ -1,18 +1,32 @@
-/* Surface and Backgrounds */
-.surface {
-  background-color: var(--surface-color);
-  color: var(--on-surface-color);
+html,
+body {
+  height: 100%;
+  font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
 }
 
-.surface-dark {
-  background-color: var(--surface-color-dark);
-  color: var(--on-surface-color-light);
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.background {
-  background-color: var(--background-color);
-}
-
-.background-dark {
-  background-color: var(--background-dark-color);
+.animated-gradient {
+  background: linear-gradient(
+    45deg,
+    var(--beige-100),
+    var(--beige-300),
+    var(--beige-500),
+    var(--beige-700),
+    var(--beige-900)
+  );
+  background-size: 300% 300%;
+  animation: gradientAnimation 8s ease infinite;
 }

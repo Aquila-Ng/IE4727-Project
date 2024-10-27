@@ -8,14 +8,15 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--spacing-unit);
+  padding: 0 var(--spacing-xs);
 }
+
 /* Container Fluid */
 .container-fluid {
   width: 100% !important;
   max-width: 100% !important;
-  padding-right: var(--spacing-unit);
-  padding-left: var(--spacing-unit);
+  padding-right: var(--spacing-xs);
+  padding-left: var(--spacing-xs);
   margin-right: auto;
   margin-left: auto;
   box-sizing: border-box;
@@ -33,79 +34,89 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 calc(-1 * var(--spacing-unit));
+  margin: var(--spacing-none) var(--spacing-xs);
 }
 
 /* Columns */
+.col {
+  flex: 1; /* Make columns equal width */
+  margin-right: 1rem; /* Space between columns */
+}
+
 .col-1 {
   flex: 0 0 8.33%;
-  padding: 0 var(--spacing-unit);
+  padding: var(--spacing-none) var(--spacing-xs);
 }
 .col-2 {
   flex: 0 0 16.66%;
-  padding: 0 var(--spacing-unit);
+  padding: var(--spacing-none) var(--spacing-xs);
 }
 .col-3 {
   flex: 0 0 25%;
-  padding: 0 var(--spacing-unit);
+  padding: var(--spacing-none) var(--spacing-xs);
 }
 .col-4 {
   flex: 0 0 33.33%;
-  padding: 0 var(--spacing-unit);
+  padding: var(--spacing-none) var(--spacing-xs);
 }
 .col-5 {
   flex: 0 0 41.66%;
-  padding: 0 var(--spacing-unit);
+  padding: var(--spacing-none) var(--spacing-xs);
 }
 .col-6 {
   flex: 0 0 50%;
-  padding: 0 var(--spacing-unit);
+  padding: var(--spacing-none) var(--spacing-xs);
 }
 .col-7 {
   flex: 0 0 58.33%;
-  padding: 0 var(--spacing-unit);
+  padding: var(--spacing-none) var(--spacing-xs);
 }
 .col-8 {
   flex: 0 0 66.66%;
-  padding: 0 var(--spacing-unit);
+  padding: var(--spacing-none) var(--spacing-xs);
 }
 .col-9 {
   flex: 0 0 75%;
-  padding: 0 var(--spacing-unit);
+  padding: var(--spacing-none) var(--spacing-xs);
 }
 .col-10 {
   flex: 0 0 83.33%;
-  padding: 0 var(--spacing-unit);
+  padding: var(--spacing-none) var(--spacing-xs);
 }
 .col-11 {
   flex: 0 0 91.66%;
-  padding: 0 var(--spacing-unit);
+  padding: var(--spacing-none) var(--spacing-xs);
 }
 .col-12 {
   flex: 0 0 100%;
-  padding: 0 var(--spacing-unit);
+  padding: var(--spacing-none) var(--spacing-xs);
+}
+
+.col-flex {
+  display: flex;
+  flex: 1 0 0 !important;
 }
 
 /* Gutter Control */
 .gap-small .row {
-  margin: 0 calc(-0.5 * var(--spacing-unit));
+  margin: var(--spacing-none) calc(-0.5 * var(--spacing-xs));
 }
 .gap-small .col {
-  padding: 0 calc(0.5 * var(--spacing-unit));
+  padding: var(--spacing-none) calc(0.5 * var(--spacing-xs));
 }
 
 .gap-medium .row {
-  margin: 0 calc(-1 * var(--spacing-unit));
+  margin: var(--spacing-none) calc(-1 * var(--spacing-xs));
 }
 .gap-medium .col {
-  padding: 0 var(--spacing-unit);
+  padding: var(--spacing-none) var(--spacing-xs);
 }
 
 .gap-large .row {
-  margin: 0 calc(-2 * var(--spacing-unit));
+  margin: var(--spacing-none) calc(-2 * var(--spacing-xs));
 }
 .gap-large .col {
-  padding: 0 calc(2 * var(--spacing-unit));
+  padding: var(--spacing-none) calc(2 * var(--spacing-xs));
 }
 
 /* Offset Classes */

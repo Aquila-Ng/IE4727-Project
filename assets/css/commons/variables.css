@@ -1,159 +1,192 @@
+@import url("./fonts/fonts.css");
+/* Primitives */
+:root {
+  /* Color */
+  /* Gray */
+  --gray-100: #f8f9fa;
+  --gray-200: #eaecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #acb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+  /* Beige */
+  --beige-100: #f9f6f4;
+  --beige-200: #f4edea;
+  --beige-300: #ede2d8;
+  --beige-400: #e6d8c6;
+  --beige-500: #dccfba;
+  --beige-600: #d6b48b;
+  --beige-700: #c4a57f;
+  --beige-800: #b69976;
+  --beige-900: #998062;
+  /* Base Color */
+  --base-white: #ffffff;
+  --base-black: #1e1f20;
+  --base-red: #ff3b2f;
+  --base-orange: #ff9500;
+  --base-yellow: #ffcc02;
+  --base-green: #35c759;
+  --base-mint: #04c7be;
+  --base-teal: #30b0c7;
+  --base-cyan: #31ade6;
+  --base-blue: #007aff;
+  --base-indigo: #5856d7;
+  /* Basic Spacing Unit */
+  --spacing-0: 0px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 28px;
+  --spacing-8: 32px;
+  --spacing-9: 36px;
+  --spacing-10: 40px;
+  --spacing-11: 44px;
+  --spacing-12: 48px;
+}
+
+/* Typography */
+:root {
+  /* Text Style */
+  /* font */
+  --font-size-base: 16px;
+  --font-display: "SF Pro Display", sans-serif;
+  --font-text: "SF Pro Text", serif;
+  --font-rounded: "SF Pro Rounded", sans-serif;
+
+  /* Large Title */
+  --large-title-font-size: 26px;
+  --large-title-line-height: 32px;
+  --large-title-font-weight: 400; /* Regular */
+  --large-title-font-weight-bold: 700; /* Bold (emphasized) */
+
+  /* Title 1 */
+  --title1-font-size: 22px;
+  --title1-line-height: 26px;
+  --title1-font-weight: 400; /* Regular */
+  --title1-font-weight-bold: 700; /* Bold (emphasized) */
+
+  /* Title 2 */
+  --title2-font-size: 17px;
+  --title2-line-height: 22px;
+  --title2-font-weight: 400; /* Regular */
+  --title2-font-weight-bold: 700; /* Bold (emphasized) */
+
+  /* Title 3 */
+  --title3-font-size: 15px;
+  --title3-line-height: 20px;
+  --title3-font-weight: 400; /* Regular */
+  --title3-font-weight-semibold: 600; /* Semibold (emphasized) */
+
+  /* Headline */
+  --headline-font-size: 13px;
+  --headline-line-height: 16px;
+  --headline-font-weight: 700; /* Bold */
+  --headline-font-weight-heavy: 900; /* Heavy (emphasized) */
+
+  /* Body */
+  --body-font-size: 13px;
+  --body-line-height: 16px;
+  --body-font-weight: 400; /* Regular */
+  --body-font-weight-semibold: 600; /* Semibold (emphasized) */
+
+  /* Callout */
+  --callout-font-size: 12px;
+  --callout-line-height: 15px;
+  --callout-font-weight: 400; /* Regular */
+  --callout-font-weight-semibold: 600; /* Semibold (emphasized) */
+
+  /* Subheadline */
+  --subheadline-font-size: 11px;
+  --subheadline-line-height: 14px;
+  --subheadline-font-weight: 400; /* Regular */
+  --subheadline-font-weight-semibold: 600; /* Semibold (emphasized) */
+
+  /* Footnote */
+  --footnote-font-size: 10px;
+  --footnote-line-height: 13px;
+  --footnote-font-weight: 400; /* Regular */
+  --footnote-font-weight-semibold: 600; /* Semibold (emphasized) */
+
+  /* Caption 1 */
+  --caption1-font-size: 10px;
+  --caption1-line-height: 13px;
+  --caption1-font-weight: 400; /* Regular */
+  --caption1-font-weight-medium: 500; /* Medium (emphasized) */
+
+  /* Caption 2 */
+  --caption2-font-size: 10px;
+  --caption2-line-height: 13px;
+  --caption2-font-weight: 500; /* Medium */
+  --caption2-font-weight-semibold: 600; /* Semibold (emphasized) */
+}
+
+/* Token */
 :root {
   /* Primary Colors */
-  --primary-color: #6200ea; /* Purple 500 */
-  --primary-color-light: #9c47ff; /* Light Purple */
-  --primary-color-dark: #3700b3; /* Dark Purple */
-
-  /* On Primary Colors */
-  --on-primary-color: #ffffff; /* White on Primary */
-
-  /* Surface Colors */
-  --surface-color: #e0e0e0; /* White Surface */
-  --surface-color-dark: #121212; /* Dark Surface for dark mode */
-
-  /* On Surface Colors */
-  --on-surface-color: #000000; /* Black Text on Surface */
-  --on-surface-color-light: #ffffff; /* Light Text on Dark Surface */
-
-  /* Error Colors */
-  --error-color: #b00020;
-  --on-error-color: #ffffff;
+  --primary-color: var(--beige-800);
+  --primary-color-light: var(--beige-400); /* Light Beige for hover effects */
+  --primary-color-dark: var(--beige-900); /* Dark Indigo for active states */
+  --on-primary-color: var(--base-white);
 
   /* Secondary Colors */
-  --secondary-color: #03dac6; /* Teal */
-  --on-secondary-color: #000000;
-  --secondary-color-dark: #03dac5;
+  --secondary-color: var(--gray-500);
+  --secondary-color-light: var(--gray-300); /* Light Gray for hover effects */
+  --secondary-color-dark: var(--gray-700); /* Dark Gray for active states */
+
+  /* Neutral Colors */
+  --background-color: var(--base-white); /* White for card backgrounds */
+  --secondary-background-color: var(
+    --beige-300
+  ); /* Light Gray for the main background */
+  --border-color: var(--gray-300); /* Light Gray for borders */
+  --border-color-dark: var(--gray-900);
+  --divider-color: var(--gray-200); /* Lighter Gray for dividers */
 
   /* Text Colors */
-  --primary-text-color: #000000; /* Primary text (Black) */
-  --secondary-text-color: #616161; /* Secondary text (Gray) */
-  --disabled-text-color: #9e9e9e; /* Disabled text */
-  --hint-text-color: #8e8e8e; /* Hint text */
+  --primary-text-color: var(--base-black); /* Black for primary text */
+  --secondary-text-color: var(
+    --gray-600
+  ); /* Medium Dark Gray for secondary text */
+  --hint-text-color: var(--gray-500); /* Dark Gray for hints and placeholders */
+  --disabled-text-color: var(--gray-400); /* Medium Gray for disabled text */
 
-  /* Background Colors */
-  --background-color: #f5f5f5; /* Light Gray Background */
-  --background-dark-color: #303030; /* Dark Gray Background for Dark Mode */
+  /* Logo Color */
+  --logo-color: var(--beige-800); /* Gold Color */
 
-  /* Button & Interactive Elements */
-  --button-color: #6200ea;
-  --button-text-color: #ffffff;
+  /* Alert and Status Colors */
+  --success-color: var(--base-green); /* Green for success messages */
+  --error-color: var(--base-red); /* Red for error messages */
+  --warning-color: var(--base-yellow); /* Yellow for warnings */
 
-  --success-color: #28a745; /* Green for success */
-  --on-success-color: #ffffff; /* White text on success */
+  /* Link Colors */
+  --link-color: var(--base-blue); /* Base Blue for links */
+  --link-hover-color: var(--base-indigo); /* Indigo for link hover states */
 
-  --error-color: #dc3545; /* Red for danger */
-  --on-error-color: #ffffff; /* White text on error */
+  /* Special Colors */
+  --promo-color: var(
+    --base-orange
+  ); /* Bright Orange for promotional highlights */
+  --sale-color: var(--base-red); /* Red for sale tags */
 
-  --disabled-color: #d6d6d6; /* Light gray for disabled state */
-
-  /* Border & Divider Colors */
-  --divider-color: #e0e0e0;
-
-  --navbar-bg-color: #333;
-  --navbar-text-color: white;
-  --navbar-hover-color: #f0f0f0;
-  --navbar-padding: 10px 20px;
-  --navbar-border-bottom: 2px solid #444;
-  --logo-font-size: 24px;
-  --nav-item-font-size: 18px;
-  --mobile-menu-bg: #333;
-  --mobile-menu-bar-color: #fff;
-
-  /* font */
-  --font-family: "SF Display", sans-serif;
-  --font-size-base: 16px;
-
-  --spacing-unit: 8px; /* Base spacing unit */
-  --spacing-unit-2x: 16px; /* Double the base unit */
-  --spacing-unit-3x: 24px; /* Triple the base unit */
-  --spacing-unit-4x: 32px; /* Quadruple the base unit */
+  /* Spacing Unit */
+  --spacing-none: var(--spacing-0);
+  --spacing-xs: var(--spacing-2);
+  --spacing-sm: var(--spacing-4);
+  --spacing-md: var(--spacing-6);
+  --spacing-lg: var(--spacing-8);
+  --spacing-xl: var(--spacing-10);
+  --spacing-2xl: var(--spacing-12);
 
   /* Border Radii */
-  --border-radius-small: 4px; /* Small radius */
-  --border-radius-medium: 8px; /* Medium radius */
-  --border-radius-large: 16px; /* Large radius */
+  --border-radius-small: var(--spacing-1); /* Small radius */
+  --border-radius-medium: var(--spacing-2); /* Medium radius */
+  --border-radius-large: var(--spacing-4); /* Large radius */
+  --border-radius-xl: var(--spacing-8);
   --border-radius-circle: 50%; /* Circular radius (for circles) */
-
-  /* Sizing Units (Width, Height, etc.) */
-  --size-2xsmall: 4px;
-  --size-xsmall: 8px;
-  --size-small: 12px;
-  --size-medium: 16px;
-  --size-large: 24px;
-  --size-xlarge: 28px;
-  --size-2xlarge: 32px;
-  --size-3xlarge: 36px;
-  --size-4xlarge: 40px;
-  --size-5xlarge: 48px;
-  --size-6xlarge: 52px;
-}
-
-/* SF Pro Display Fonts */
-@font-face {
-  font-family: "SF Display";
-  src: url("../fonts/sf-pro-display/SFProDisplayBlackItalic.otf")
-    format("opentype");
-  font-weight: 900;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "SF Display";
-  src: url("../fonts/sf-pro-display/SFProDisplayBold.otf") format("opentype");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SF Display";
-  src: url("../fonts/sf-pro-display/SFProDisplayHeavyItalic.otf")
-    format("opentype");
-  font-weight: 800;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "SF Display";
-  src: url("../fonts/sf-pro-display/SFProDisplayLightItalic.otf")
-    format("opentype");
-  font-weight: 300;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "SF Display";
-  src: url("../fonts/sf-pro-display/SFProDisplayMedium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SF Display";
-  src: url("../fonts/sf-pro-display/SFProDisplayRegular.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SF Display";
-  src: url("../fonts/sf-pro-display/SFProDisplaySemiBoldItalic.otf")
-    format("opentype");
-  font-weight: 600;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "SF Display";
-  src: url("../fonts/sf-pro-display/SFProDisplayThinItalic.otf")
-    format("opentype");
-  font-weight: 100;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "SF Display";
-  src: url("../fonts/sf-pro-display/SFProDisplayUltraLightItalic.otf")
-    format("opentype");
-  font-weight: 200;
-  font-style: italic;
 }

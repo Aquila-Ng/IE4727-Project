@@ -1,91 +1,61 @@
-/* Define carousel container dimensions */
 .carousel {
   position: relative;
   width: 100%;
-  max-width: var(
-    --carousel-max-width,
-    600px
-  ); /* Set max-width using a variable */
   overflow: hidden;
-  border: var(
-    --carousel-border,
-    2px solid #ddd
-  ); /* Add a customizable border */
-  border-radius: var(
-    --carousel-border-radius,
-    8px
-  ); /* Border radius with variable */
-  box-shadow: var(
-    --carousel-box-shadow,
-    0 0 10px rgba(0, 0, 0, 0.1)
-  ); /* Box shadow */
 }
 
-/* Carousel slide wrapper */
-.carousel-slide {
+.carousel-inner {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease;
 }
 
-/* Individual items */
-.carousel-item {
+.carousel-image {
   min-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 600px; /* Set a fixed height for the carousel items */
+  background-size: cover; /* Cover the entire area with the image */
+  background-position: bottom; /* Center the image */
+  position: relative; /* Set position relative for text positioning */
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-.carousel-item img {
-  width: 100%;
-  height: auto;
-  display: block;
+.carousel-image.active {
+  opacity: 1; /* Only show the active image */
 }
 
-/* Carousel controls */
-.carousel-controls {
+/* Centered caption styles */
+.carousel-caption {
+  position: absolute; /* Absolute position to center the text */
+  top: 70%; /* Center vertically */
+  left: 25%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Offset for perfect centering */
+  color: var(--background-color); /* Text color */
+  text-align: left; /* Center the text */
+  z-index: 5; /* Ensure caption is above the image */
+}
+
+/* Button styles */
+.carousel-control-prev,
+.carousel-control-next {
   position: absolute;
   top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
   transform: translateY(-50%);
-}
-
-.carousel-controls span {
+  background-color: transparent;
+  color: var(--background-color);
+  border: none;
   cursor: pointer;
-  font-size: var(--carousel-control-font-size, 24px);
-  color: var(--carousel-control-color, white);
-  padding: var(--carousel-control-padding, 10px);
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+.carousel-control-next svg,
+.carousel-control-prev svg {
+  width: var(--spacing-md);
+  height: var(--spacing-md);
+  fill: var(--background-color);
+}
+.carousel-control-prev {
+  left: var(--spacing-md); /* Position for previous button */
 }
 
-.carousel-controls span:hover {
-  transform: scale(1.15);
-}
-
-.carousel-controls .prev {
-  left: 10px;
-}
-
-.carousel-controls .next {
-  right: 10px;
-}
-
-/* Define the CSS for the auto-slide feature (if enabled) */
-.carousel-slide-auto {
-  animation: slideAnimation var(--carousel-slide-speed, 3s) infinite;
-}
-
-@keyframes slideAnimation {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  33% {
-    transform: translateX(-100%);
-  }
-  66% {
-    transform: translateX(-200%);
-  }
+.carousel-control-next {
+  right: var(--spacing-md); /* Position for next button */
 }

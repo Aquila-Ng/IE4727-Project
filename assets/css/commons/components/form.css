@@ -1,70 +1,98 @@
+.form-container {
+  margin: var(--spacing-lg) auto; /* Center the form horizontally */
+  border-radius: var(--border-radius-xl); /* Rounded corners */
+  background-color: var(--background-color); /* White background */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden;
+}
+
+form {
+  box-sizing: border-box;
+  width: 100%;
+  margin: var(--spacing-none) auto; /* Center the form horizontally */
+  padding: var(--spacing-lg); /* Inner padding for the form */
+  background-color: var(--primary-background-color); /* White background */
+}
+
+form a {
+  text-decoration: none;
+  color: var(--primary-color);
+  position: relative;
+}
+
+/* Create the underline effect using ::after */
+form a::after {
+  content: "";
+  position: absolute;
+  left: var(--spacing-none);
+  bottom: -4px; /* Position the line just below the text */
+  width: var(--spacing-none); /* Start with no width */
+  height: 2px; /* Line thickness */
+  background-color: var(--primary-color); /* Line color */
+  transition: width 0.3s ease; /* Animate the width */
+}
+
+/* On hover, expa nd the line from left to right */
+form a:hover::after {
+  width: 100%; /* Expand the line to full width */
+}
+
+.form-image {
+  width: 100%;
+  background-size: cover; /* Cover the entire area with the image */
+  background-position: center; /* Center the image */
+}
+
+/* Input fields styling */
 .form-group input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"] {
-  width: 100%;
-  padding: var(--spacing-unit);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  font-size: var(--font-size-base);
-  margin-bottom: var(--spacing-unit);
-  transition: border-color 0.3s ease;
-}
-
-.form-group input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="number"]:focus {
-  border-color: var(--color-primary);
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-.form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: var(--spacing-unit);
-  color: var(--color-text);
-}
-
-.form-group input[type="checkbox"] {
-  margin-right: var(--spacing-unit);
-}
-
-.form-group input[type="checkbox"]:checked + label {
-  font-weight: bold;
-  color: var(--color-primary);
-}
-
-.form-group select {
-  width: 100%;
-  padding: var(--spacing-unit);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  font-size: var(--font-size-base);
-  margin-bottom: var(--spacing-unit);
-  transition: border-color 0.3s ease;
-}
-
-.form-group select:focus {
-  border-color: var(--color-primary);
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group input[type="tel"],
+.form-group select,
 .form-group textarea {
   width: 100%;
-  padding: var(--spacing-unit);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  font-size: var(--font-size-base);
-  margin-bottom: var(--spacing-unit);
-  resize: vertical;
-  transition: border-color 0.3s ease;
+  padding: var(--spacing-xs); /* Adjusted padding similar to Bootstrap */
+  border: 1px solid var(--border-color);
+  border-radius: var(
+    --border-radius-medium
+  ); /* Rounded borders consistent with Bootstrap */
+  margin-bottom: var(--spacing-xs); /* Space below each field */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
 }
 
+/* Focus state for input fields */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus,
 .form-group textarea:focus {
-  border-color: var(--color-primary);
+  border-color: var(--secondary-background-color);
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Softer shadow similar to Bootstrap */
+}
+
+/* Label styling */
+.form-group label {
+  display: block;
+  color: var(--primary-text-color);
+}
+
+/* Textarea specific styling */
+.form-group textarea {
+  resize: vertical; /* Allow vertical resizing */
+}
+
+/* Optional: Add custom error/success styles */
+.form-group input.is-invalid,
+.form-group select.is-invalid,
+.form-group textarea.is-invalid {
+  border-color: var(--error-color); /* Bootstrap error color */
+}
+
+.form-group input.is-valid,
+.form-group select.is-valid,
+.form-group textarea.is-valid {
+  border-color: var(--success-color); /* Bootstrap success color */
 }

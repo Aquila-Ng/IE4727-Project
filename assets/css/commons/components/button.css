@@ -1,37 +1,26 @@
 /* Base Button Styles */
-button,
+
 .btn {
-  padding: var(--spacing-unit) var(--spacing-unit-2x);
-  font-size: var(--font-size-base);
+  padding: var(--spacing-xs) var(--spacing-sm);
   border: none;
-  border-radius: 4px;
+  border-radius: var(--border-radius-small);
   cursor: pointer;
   background-color: var(--primary-color); /* Default Primary Color */
   color: var(--on-primary-color); /* White text on Primary color */
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover,
 .btn:hover {
   background-color: var(--primary-color-dark); /* Darker shade on hover */
-  transform: scale(
-    1.05
-  ); /* Button slightly scales up on hover for better user interaction */
+}
+.btn.full {
+  width: 100%;
 }
 
 /* Primary Button */
 .btn-primary {
-  background-color: var(--color-primary);
+  background-color: var(--primary-color);
   color: var(--on-primary-color);
-  padding: var(--spacing-unit) var(--spacing-unit-2x);
-  border: none;
-  border-radius: var(--border-radius);
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-color-dark);
 }
 
 /* Secondary Button */

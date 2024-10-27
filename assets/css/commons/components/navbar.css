@@ -1,100 +1,136 @@
 /* General navbar styling */
 .navbar {
-  background-color: var(
-    --surface-color
-  ); /* Light grey background similar to the image */
-  padding: var(--spacing-unit) var(--spacing-unit-3x);
-  position: sticky;
-  top: 0;
+  background-color: var(--background-color);
+  position: sticky; /* Sticky positioning */
+  top: 0; /* Stick to the top */
   width: 100%;
   z-index: 10;
-}
-.navbar-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.navbar-logo {
-  font-weight: bold;
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar a {
+  text-decoration: none;
+}
+
+/* Column styling */
+.navbar .col-left,
+.navbar .col-middle,
+.navbar .col-right {
+  flex: 0 0 33.33%;
+  display: flex;
+  align-items: center;
+}
+
+/* Left column styling */
+.navbar .col-left {
+  justify-content: flex-start;
+}
+
+.navbar .logo-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--logo-color);
+}
+
+/* Middle column styling */
+.navbar .col-middle {
+  justify-content: center;
 }
 
 .navbar-menu {
-  list-style-type: none;
   display: flex;
-  gap: var(--spacing-unit-3x);
+  gap: var(--spacing-xl);
+  padding: var(--spacing-none);
+  justify-content: center; /* Centering the list items */
 }
-
 .navbar-menu li {
-  display: inline;
+  list-style: none;
 }
-
+/* Style for the links */
 .navbar-menu a {
-  text-decoration: none;
+  position: relative; /* Required for positioning the pseudo-element */
   color: var(--primary-text-color);
 }
 
-.navbar-menu a:hover {
-  color: var(--primary-text-color);
-  font-weight: bold;
+/* Create the underline effect using ::after */
+.navbar-menu a::after {
+  content: "";
+  position: absolute;
+  left: var(--spacing-none);
+  bottom: -4px; /* Position the line just below the text */
+  width: var(--spacing-none); /* Start with no width */
+  height: 2px; /* Line thickness */
+  background-color: var(--primary-text-color); /* Line color */
+  transition: width 0.3s ease; /* Animate the width */
 }
 
-.navbar-left-column {
-  display: flex;
-  gap: var(--spacing-unit-3x);
-  align-items: center;
+/* On hover, expa nd the line from left to right */
+.navbar-menu a:hover::after {
+  width: 100%; /* Expand the line to full width */
+}
+
+/* Right column styling */
+.navbar .col-right {
+  justify-content: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.navbar .icon-button {
+  flex-shrink: 0;
+  width: var(--spacing-lg);
+  height: var(--spacing-lg);
+  padding: var(--spacing-xs);
+  border-radius: var(--border-radius-large);
+  border: 1px solid var(--border-color-dark);
+  background: none;
+  cursor: pointer;
+}
+
+.navbar .icon-button:hover {
+  border-color: var(--logo-color);
+}
+
+.navbar .icon-button:hover svg {
+  fill: var(--logo-color);
 }
 
 .navbar-search {
   display: flex;
   align-items: center;
-  border: 1px solid #333;
-  border-radius: 50px;
-  padding: 5px 10px;
+  border: 1px solid var(--border-color-dark);
+  border-radius: var(--border-radius-large);
+  padding: var(--spacing-xs);
+  gap: var(--spacing-xs);
+  flex: 1;
+  min-width: 0;
 }
 
 .navbar-search input {
   border: none;
   outline: none;
-  padding: var(--size-2xsmall);
-  border-radius: var(--border-radius-large);
   background-color: transparent;
+  width: 100%;
 }
 
-.navbar-search button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.navbar-icons {
-  display: flex;
-  gap: var(--spacing-unit-2x);
-}
-
-.navbar-icons i {
-  font-size: var(--size-large);
-  cursor: pointer;
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
   }
-
-  .navbar-menu {
-    flex-direction: column;
-    gap: var(--spacing-unit);
+  .navbar .col-left,
+  .navbar .col-middle,
+  .navbar .col-right {
+    flex: 1;
+    justify-content: center;
   }
-
   .navbar-search {
     width: 100%;
-    margin-top: var(--spacing-unit);
-  }
-
-  .navbar-icons {
-    margin-top: var(--spacing-unit);
   }
 }

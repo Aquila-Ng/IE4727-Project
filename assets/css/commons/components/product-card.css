@@ -14,31 +14,24 @@
   max-height: 400px;
 }
 
-.product-card:hover {
+.product-card:hover .product-image {
   transform: scale(1.05);
 }
 
+/* Product Image Wrapper */
+.product-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1;
+}
+
+/* Image inside the Wrapper */
 .product-image {
   width: 100%;
-  aspect-ratio: 1;
+  height: 100%;
   object-fit: cover;
-}
-
-/* Carousel Styles */
-.product-image-carousel {
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  overflow: hidden;
-  margin-bottom: var(--spacing-unit, 12px);
-}
-
-/* Color Variants */
-.product-variants {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-unit, 8px);
-  margin-bottom: var(--spacing-unit, 12px);
+  transition: transform 0.3s ease;
 }
 
 .variant-option {
@@ -53,20 +46,12 @@
 }
 
 .variant-option.selected {
-  border: 2px solid var(--on-surface-color); /* Ensure color variable is correct */
-  transition: var(--on-surface-color) 0.3s ease-in-out;
+  border: 2px solid var(--border-color); /* Ensure color variable is correct */
+  transition: var(--primary-color) 0.3s ease-in-out;
 }
 
 /* Product Name and Price */
 .product-title {
-  font-size: var(--font-size-large, 18px);
-  font-weight: bold;
-  margin: 0 0 var(--spacing-unit, 8px) 0;
-  color: var(--primary-text-color);
-}
-
-.product-price {
-  font-size: var(--font-size-medium, 16px);
-  color: var(--primary-color);
-  font-weight: bold;
+  margin: var(--spacing-none) var(--spacing-none) var(--spacing-2xs)
+    var(--spacing-none);
 }
