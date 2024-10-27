@@ -42,59 +42,56 @@ function authForm($formType) {
     $alternateText = $isLogin ? 'Do not have an account?' : 'Already have an account?';
     $alternateLinkText = $isLogin ? 'Sign Up' : 'Login';
     $alternateLinkHref = $isLogin ? 'sign-up.php' : 'login.php';
+    ?>
+    <div class="row form-container">
+        <?php if ($isLogin): ?>
+            <div class="col form-image m-0" style="background-image: url('<?php echo $backgroundUrl; ?>');"></div>
+        <?php endif; ?>
 
-    // Form structure
-    echo '<div class="row form-container">';
-    
-    if ($isLogin) {
-        echo '<div class="col form-image m-0" style="background-image: url(\'' . $backgroundUrl . '\');"></div>';
-    } 
-    
-    // Open form tag with action
-    echo '<div class="col">
-            <form action="' . ($isLogin ? 'login.php' : 'sign-up.php') . '" method="POST">
-                <h2 class="emphasized">' . $title . '</h2>';
+        <div class="col">
+            <form action="<?php echo $isLogin ? 'login.php' : 'sign-up.php'; ?>" method="POST">
+                <h2 class="emphasized"><?php echo $title; ?></h2>
+                
+                <?php if (!$isLogin): ?>
+                    <?php renderInputFieldRow([
+                        ['id' => 'first_name', 'type' => 'text', 'label' => 'First Name', 'placeholder' => 'Enter first name', 'value' => '', 'required' => true],
+                        ['id' => 'last_name', 'type' => 'text', 'label' => 'Last Name', 'placeholder' => 'Enter last name', 'value' => '', 'required' => true],
+                    ]); ?>
+                <?php endif; ?>
 
-    if (!$isLogin) {
-        // Sign-up specific fields
-        echo renderInputFieldRow([
-            ['id' => 'first_name', 'type' => 'text', 'label' => 'First Name', 'placeholder' => 'Enter first name', 'value' => '', 'required' => true],
-            ['id' => 'last_name', 'type' => 'text', 'label' => 'Last Name', 'placeholder' => 'Enter last name', 'value' => '', 'required' => true],
-        ]);
-    }
+                <?php renderInputFieldRow([
+                    ['id' => 'email', 'type' => 'email', 'label' => 'Email address', 'placeholder' => 'Enter email', 'value' => '', 'required' => true],
+                ]); ?>
 
-    // Shared fields
-    echo renderInputFieldRow([
-        ['id' => 'email', 'type' => 'email', 'label' => 'Email address', 'placeholder' => 'Enter email', 'value' => '', 'required' => true],
-    ]);
+                <?php renderInputFieldRow([
+                    ['id' => 'password', 'type' => 'password', 'label' => 'Password', 'placeholder' => 'Enter your password', 'value' => '', 'required' => true],
+                ]); ?>
 
-    echo renderInputFieldRow([
-        ['id' => 'password', 'type' => 'password', 'label' => 'Password', 'placeholder' => 'Enter your password', 'value' => '', 'required' => true],
-    ]);
+                <?php if (!$isLogin): ?>
+                    <?php renderInputFieldRow([
+                        ['id' => 'confirm_password', 'type' => 'password', 'label' => 'Confirm Password', 'placeholder' => 'Confirm your new password', 'value' => '', 'required' => true],
+                    ]); ?>
+                <?php endif; ?>
 
-    if (!$isLogin) {
-        // Sign-up specific fields
-        echo renderInputFieldRow([
-            ['id' => 'confirm_password', 'type' => 'password', 'label' => 'Confirm Password', 'placeholder' => 'Confirm your new password', 'value' => '', 'required' => true],
-        ]);
-    }
-
-    echo '<div class="form-group row">
-            <button type="submit" class="btn btn-primary full mt-2"><h3 class="m-0">' . $submitButtonText . '</h3></button>
+                <div class="form-group row">
+                    <button type="submit" class="btn btn-primary full mt-2">
+                        <h3 class="m-0"><?php echo $submitButtonText; ?></h3>
+                    </button>
+                </div>
+                <div class="form-group row mt-3">
+                    <p class="mr-1"><?php echo $alternateText; ?></p>
+                    <p class="emphasized"><a href="<?php echo $alternateLinkHref; ?>"><?php echo $alternateLinkText; ?></a></p>
+                </div>
+            </form>
         </div>
-        <div class="form-group row mt-3">
-            <p class="mr-1">' . $alternateText . '</p> 
-            <p class="emphasized"><a href="' . $alternateLinkHref . '">' . $alternateLinkText . '</a></p>
-        </div>
-    </form>
-    </div>';
 
-    if (!$isLogin) {
-        echo '<div class="col form-image m-0" style="background-image: url(\'' . $backgroundUrl . '\');"></div>';
-    }
-    
-    echo '</div>'; // End of form-container
+        <?php if (!$isLogin): ?>
+            <div class="col form-image m-0" style="background-image: url('<?php echo $backgroundUrl; ?>');"></div>
+        <?php endif; ?>
+    </div>
+    <?php
 }
+
 
 
 
