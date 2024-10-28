@@ -26,11 +26,23 @@
   aspect-ratio: 1;
 }
 
+.cart-image-wrapper {
+  width: 40%;
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1;
+}
+
 /* Image inside the Wrapper */
+.cart-image,
 .product-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.product-image {
   transition: transform 0.3s ease;
 }
 
@@ -54,4 +66,48 @@
 .product-title {
   margin: var(--spacing-none) var(--spacing-none) var(--spacing-2xs)
     var(--spacing-none);
+}
+
+.cart .icon-button {
+  background-color: transparent;
+  border: none;
+  padding: var(--spacing-none);
+}
+
+.cart .icon-button:hover svg {
+  fill: var(--logo-color);
+}
+.cart .quantity-container {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--border-radius-medium);
+  border: 1px solid var(--border-color);
+}
+
+.cart .quantity-container .quantity-btns {
+  display: flex;
+  flex-direction: column;
+}
+.cart .quantity-container .quantity-btns button {
+  border-radius: var(--spacing-none);
+  border: none;
+  border-left: 1px solid var(--border-color);
+  background-color: transparent;
+  width: auto;
+  aspect-ratio: 1;
+}
+
+.cart .quantity-container .quantity-btns .increase {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cart .quantity-container .quantity-input {
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  padding: var(--spacing-xs);
+  min-width: var(--spacing-lg); /* Prevent it from shrinking too much */
+  max-width: var(--spacing-xl); /* Limit the maximum width */
+  margin: 0; /* Reset margin to avoid excess width */
 }

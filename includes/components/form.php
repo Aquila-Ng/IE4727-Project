@@ -10,7 +10,7 @@ function renderColInputField($id, $type, $label, $placeholder, $value = '', $req
     <?php
 }
 
-// Function to render a row of input fields
+// Function to render a row of column input fields
 function renderInputFieldRow($fields) {
     ?>
     <div class="form-group row gap-4">
@@ -23,7 +23,7 @@ function renderInputFieldRow($fields) {
     <?php
 }
 
-// Function to render a section with a title and description
+// Function to render a section with a title and description for profile details form
 function renderSectionDescription($title, $description) {
     ?>
         <div class="col">
@@ -33,11 +33,12 @@ function renderSectionDescription($title, $description) {
     <?php
 }
 
+//Function to generate both sign up and login form
 function authForm($formType) {
     $isLogin = $formType === 'login';
 
     $title = $isLogin ? 'Login' : 'Create Account';
-    $backgroundUrl = './assets/images/hero-banner-image-1.png'; // Update if needed for different backgrounds
+    $backgroundUrl = $isLogin ? '../assets/images/hero-banner-image-1.png': '../assets/images/hero-banner-image-7.png'; // Update if needed for different backgrounds
     $submitButtonText = $isLogin ? 'Login' : 'Sign Up';
     $alternateText = $isLogin ? 'Do not have an account?' : 'Already have an account?';
     $alternateLinkText = $isLogin ? 'Sign Up' : 'Login';
@@ -92,11 +93,7 @@ function authForm($formType) {
     <?php
 }
 
-
-
-
-
-// Function to generate the profile update form
+// Function to generate the profile detail form
 function profileForm($userDetails) {
     ?>
     <div class="row form-container">
@@ -173,6 +170,45 @@ function profileForm($userDetails) {
             </div>
         </form>
     </div>
+    <?php
+}
+
+// Function to generate the checkout form
+function checkoutForm($userDetails) {
+    ?>
+        <div class="col-9">
+            <form action="checkout.php" method="POST">
+                <h2 class="emphasized my-1">Shipping Information</h2>
+                <input type="hidden" name="form_type" value="checkout">
+                <?php   
+                    renderInputFieldRow([
+                        ['id' => 'first_name', 'type' => 'text', 'label' => 'First Name', 'placeholder' => 'Enter first name', 'value' => $userDetails['first_name']],
+                        ['id' => 'last_name', 'type' => 'text', 'label' => 'Last Name', 'placeholder' => 'Enter last name', 'value' => $userDetails['last_name']],
+                    ]);
+                    renderInputFieldRow([
+                        ['id' => 'email', 'type' => 'email', 'label' => 'Email address', 'placeholder' => 'Enter email', 'value' => $userDetails['email']],
+                    ]);
+                    renderInputFieldRow([
+                        ['id' => 'contact_number', 'type' => 'tel', 'label' => 'Contact Number', 'placeholder' => 'Enter contact number', 'value' => $userDetails['contact_number']],
+                    ]);
+                ?>
+                <?php   
+                    renderInputFieldRow([
+                        ['id' => 'address_first_line', 'type' => 'text', 'label' => 'Address', 'placeholder' => 'Enter address line 1', 'value' => $userDetails['address_line1']],
+                    ]);
+                    renderInputFieldRow([
+                        ['id' => 'address_second_line', 'type' => 'text', 'label' => '', 'placeholder' => 'Enter address line 2', 'value' => $userDetails['address_line2']],
+                    ]);
+                    renderInputFieldRow([
+                        ['id' => 'country', 'type' => 'text', 'label' => 'Country', 'placeholder' => 'Enter country', 'value' => $userDetails['country']],
+                        ['id' => 'postal_code', 'type' => 'number', 'label' => 'Postal Code', 'placeholder' => 'Enter postal code', 'value' => $userDetails['postal_code']],
+                    ]);
+                ?>
+                <div class="form-group row">
+                    <button type="submit" class="btn btn-primary full mt-2"><h3 class="m-0">Place Order</h3></button>
+                </div>
+            </form>
+        </div>
     <?php
 }
 ?>

@@ -1,22 +1,27 @@
 <?php
- include('includes/components/navbar.php');
-include('includes/components/product-card.php');
-include('includes/components/carousel.php');
-include('includes/components/footer.php');
+ include('../includes/components/navbar.php');
+include('../includes/components/product-card.php');
+include('../includes/components/carousel.php');
+include('../includes/components/footer.php');
 
 $carouselItems = [
     [
-        'image' => './assets/images/hero-banner-image-3.png',
-        'title' => 'Chic Crossbody Bag',
+        'image' => '../assets/images/hero-banner-image-3.png',
+        'title' => 'Chica Crossbody Bag',
         'description' => 'Versatile crossbody handbag for both casual and formal looks',
     ],
     [
-        'image' => './assets/images/hero-banner-image-4.png',
+        'image' => '../assets/images/hero-banner-image-4.png',
         'title' => 'Pamo Tote Bag',
         'description' => 'Patterned tote bag with motif and leather accents',
     ],
     [
-        'image' => './assets/images/hero-banner-image-2.png',
+        'image' => '../assets/images/hero-banner-image-6.png',
+        'title' => 'Emua Watch',
+        'description' => 'Classic sleek watch with golden accents',
+    ],
+    [
+        'image' => '../assets/images/hero-banner-image-2.png',
         'title' => 'Dolla Shoulder Bag',
         'description' => 'Timeless sophistication with the sleek black shoulder bag',
     ]
@@ -29,7 +34,7 @@ $productItems = [
         'price' => '$19.99',
         'variantId' => ['1', '2', '3'],
         'colors' => ['#ff0000', '#00ff00', '#0000ff'],
-        'images' => ['./assets/product-image.png', './assets/product-image-1.png', './assets/product-image-2.png'],
+        'images' => ['../assets/product-image.png', '../assets/product-image-1.png', '../assets/product-image-2.png'],
     ],
     [
         'id' => '2',
@@ -37,7 +42,7 @@ $productItems = [
         'price' => '$19.99',
         'variantId' => ['4', '5', '6'],
         'colors' => ['#ff0000', '#00ff00', '#0000ff'],
-        'images' => ['./assets/product-image.png', './assets/product-image-1.png', './assets/product-image-2.png'],
+        'images' => ['../assets/product-image.png', '../assets/product-image-1.png', '../assets/product-image-2.png'],
     ],
     [
         'id' => '3',
@@ -45,7 +50,7 @@ $productItems = [
         'price' => '$19.99',
         'variantId' => ['7', '8', '9'],
         'colors' => ['#ff0000', '#00ff00', '#0000ff'],
-        'images' => ['./assets/product-image.png', './assets/product-image-1.png', './assets/product-image-2.png'],
+        'images' => ['../assets/product-image.png', '../assets/product-image-1.png', '../assets/product-image-2.png'],
     ],
     [
         'id' => '4',
@@ -53,7 +58,7 @@ $productItems = [
         'price' => '$19.99',
         'variantId' => ['10', '11', '12'],
         'colors' => ['#ff0000', '#00ff00', '#0000ff'],
-        'images' => ['./assets/product-image.png', './assets/product-image-1.png', './assets/product-image-2.png'],
+        'images' => ['../assets/product-image.png', '../assets/product-image-1.png', '../assets/product-image-2.png'],
     ],
     [
         'id' => '5',
@@ -61,7 +66,7 @@ $productItems = [
         'price' => '$19.99',
         'variantId' => ['13', '14', '15'],
         'colors' => ['#ff0000', '#00ff00', '#0000ff'],
-        'images' => ['./assets/product-image.png', './assets/product-image-1.png', './assets/product-image-2.png'],
+        'images' => ['../assets/product-image.png', '../assets/product-image-1.png', '../assets/product-image-2.png'],
     ],
     [
         'id' => '6',
@@ -69,7 +74,7 @@ $productItems = [
         'price' => '$19.99',
         'variantId' => ['16', '17', '18'],
         'colors' => ['#ff0000', '#00ff00', '#0000ff'],
-        'images' => ['./assets/product-image.png', './assets/product-image-1.png', './assets/product-image-2.png'],
+        'images' => ['../assets/product-image.png', '../assets/product-image-1.png', '../assets/product-image-2.png'],
     ],
     [
         'id' => '7',
@@ -77,7 +82,7 @@ $productItems = [
         'price' => '$19.99',
         'variantId' => ['19', '20', '21'],
         'colors' => ['#ff0000', '#00ff00', '#0000ff'],
-        'images' => ['./assets/product-image.png', './assets/product-image-1.png', './assets/product-image-2.png'],
+        'images' => ['../assets/product-image.png', '../assets/product-image-1.png', '../assets/product-image-2.png'],
     ],
     [
         'id' => '8',
@@ -85,7 +90,7 @@ $productItems = [
         'price' => '$19.99',
         'variantId' => ['22', '23', '24'],
         'colors' => ['#ff0000', '#00ff00', '#0000ff'],
-        'images' => ['./assets/product-image.png', './assets/product-image-1.png', './assets/product-image-2.png'],
+        'images' => ['../assets/product-image.png', '../assets/product-image-1.png', '../assets/product-image-2.png'],
     ],
 ];
 
@@ -99,7 +104,7 @@ $productItems = [
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
 <body class="m-0">
     <?php
@@ -123,7 +128,7 @@ $productItems = [
     <?php
         footer(true);
     ?>
-    <script type="module" src="./assets/js/main.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
 </body>
 </html>
 
