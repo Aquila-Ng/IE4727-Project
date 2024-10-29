@@ -52,9 +52,11 @@ $prices = [
                     checkoutForm($userDetails);
                 ?>
                 <div class="col">
+                    <div class="short-content">
                     <?php
                         orderSummary(true, $prices);
                     ?>
+                    </div>
                  </div>
             </div>
         </div>

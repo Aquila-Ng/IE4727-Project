@@ -1,5 +1,5 @@
 <?php
-    include('color-variants.php')
+    include('color-variants.php');
     function product_card($id, $name, $price, $variantId, $colors, $images) {
         ?>
         <div class="product-card m-3" data-id="<?php echo htmlspecialchars($id); ?>">

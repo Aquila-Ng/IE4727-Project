@@ -177,37 +177,39 @@ function profileForm($userDetails) {
 function checkoutForm($userDetails) {
     ?>
         <div class="col-9">
-            <form action="checkout.php" method="POST">
-                <h2 class="emphasized my-1">Shipping Information</h2>
-                <input type="hidden" name="form_type" value="checkout">
-                <?php   
-                    renderInputFieldRow([
-                        ['id' => 'first_name', 'type' => 'text', 'label' => 'First Name', 'placeholder' => 'Enter first name', 'value' => $userDetails['first_name']],
-                        ['id' => 'last_name', 'type' => 'text', 'label' => 'Last Name', 'placeholder' => 'Enter last name', 'value' => $userDetails['last_name']],
-                    ]);
-                    renderInputFieldRow([
-                        ['id' => 'email', 'type' => 'email', 'label' => 'Email address', 'placeholder' => 'Enter email', 'value' => $userDetails['email']],
-                    ]);
-                    renderInputFieldRow([
-                        ['id' => 'contact_number', 'type' => 'tel', 'label' => 'Contact Number', 'placeholder' => 'Enter contact number', 'value' => $userDetails['contact_number']],
-                    ]);
-                ?>
-                <?php   
-                    renderInputFieldRow([
-                        ['id' => 'address_first_line', 'type' => 'text', 'label' => 'Address', 'placeholder' => 'Enter address line 1', 'value' => $userDetails['address_line1']],
-                    ]);
-                    renderInputFieldRow([
-                        ['id' => 'address_second_line', 'type' => 'text', 'label' => '', 'placeholder' => 'Enter address line 2', 'value' => $userDetails['address_line2']],
-                    ]);
-                    renderInputFieldRow([
-                        ['id' => 'country', 'type' => 'text', 'label' => 'Country', 'placeholder' => 'Enter country', 'value' => $userDetails['country']],
-                        ['id' => 'postal_code', 'type' => 'number', 'label' => 'Postal Code', 'placeholder' => 'Enter postal code', 'value' => $userDetails['postal_code']],
-                    ]);
-                ?>
-                <div class="form-group row">
-                    <button type="submit" class="btn btn-primary full mt-2"><h3 class="m-0">Place Order</h3></button>
-                </div>
-            </form>
+            <div class="long-content">
+                <form action="checkout.php" method="POST">
+                    <h2 class="emphasized my-1">Shipping Information</h2>
+                    <input type="hidden" name="form_type" value="checkout">
+                    <?php   
+                        renderInputFieldRow([
+                            ['id' => 'first_name', 'type' => 'text', 'label' => 'First Name', 'placeholder' => 'Enter first name', 'value' => $userDetails['first_name']],
+                            ['id' => 'last_name', 'type' => 'text', 'label' => 'Last Name', 'placeholder' => 'Enter last name', 'value' => $userDetails['last_name']],
+                        ]);
+                        renderInputFieldRow([
+                            ['id' => 'email', 'type' => 'email', 'label' => 'Email address', 'placeholder' => 'Enter email', 'value' => $userDetails['email']],
+                        ]);
+                        renderInputFieldRow([
+                            ['id' => 'contact_number', 'type' => 'tel', 'label' => 'Contact Number', 'placeholder' => 'Enter contact number', 'value' => $userDetails['contact_number']],
+                        ]);
+                    ?>
+                    <?php   
+                        renderInputFieldRow([
+                            ['id' => 'address_first_line', 'type' => 'text', 'label' => 'Address', 'placeholder' => 'Enter address line 1', 'value' => $userDetails['address_line1']],
+                        ]);
+                        renderInputFieldRow([
+                            ['id' => 'address_second_line', 'type' => 'text', 'label' => '', 'placeholder' => 'Enter address line 2', 'value' => $userDetails['address_line2']],
+                        ]);
+                        renderInputFieldRow([
+                            ['id' => 'country', 'type' => 'text', 'label' => 'Country', 'placeholder' => 'Enter country', 'value' => $userDetails['country']],
+                            ['id' => 'postal_code', 'type' => 'number', 'label' => 'Postal Code', 'placeholder' => 'Enter postal code', 'value' => $userDetails['postal_code']],
+                        ]);
+                    ?>
+                    <div class="form-group row">
+                        <button type="submit" class="btn btn-primary full mt-2"><h3 class="m-0">Place Order</h3></button>
+                    </div>
+                </form>
+            </div>
         </div>
     <?php
 }

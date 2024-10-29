@@ -79,24 +79,28 @@ $cartItems = [
             </div>  
             <div class="row">
                 <div class="col-9">
-                    <?php
-                       cart_table($cartItems);
-                    ?>
+                    <div class="long-content">
+                        <?php
+                        cart_table($cartItems);
+                        ?>
+                    </div>
                 </div> 
                 <div class="col">
-                    <?php
-                        orderSummary(true, $prices);
-                    ?>
-                    <a href="checkout.php">                    
-                        <button class="btn btn-primary full my-2">
-                            <h4 class="my-1">Checkout</h4>
-                        </button>
-                    </a>
-                    <a href="index.php">                    
-                        <button class="btn btn-transparent full">
-                            <h4 class="my-1">Continue Shopping</h4>
-                        </button>
-                    </a>
+                    <div class="short-content">
+                        <?php
+                            orderSummary(true, $prices);
+                        ?>
+                        <a href="checkout.php">                    
+                            <button class="btn btn-primary full my-2">
+                                <h4 class="my-1">Checkout</h4>
+                            </button>
+                        </a>
+                        <a href="index.php">                    
+                            <button class="btn btn-transparent full">
+                                <h4 class="my-1">Continue Shopping</h4>
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
