@@ -96,7 +96,7 @@ $emptyOrderList = [];
                 <h2 class="emphasized">Order History</h2>
             </div>  
             <?php
-                allOrder($allOrderItems);
+                allOrderHistory($allOrderItems);
             ?>
             </div>
         </div>

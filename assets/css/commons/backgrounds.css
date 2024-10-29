@@ -1,7 +1,7 @@
 html,
 body {
   height: 100%;
-  font-family: var(--font-family);
+  font-family: var(--font-text);
   display: flex;
   flex-direction: column;
 }
@@ -22,9 +22,7 @@ body {
   background: linear-gradient(
     45deg,
     var(--beige-100),
-    var(--beige-300),
     var(--beige-500),
-    var(--beige-700),
     var(--beige-900)
   );
   background-size: 300% 300%;

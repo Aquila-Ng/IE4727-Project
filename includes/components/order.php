@@ -31,7 +31,7 @@ function orderSummary($isCheckout,$prices) {
     <?php
 }
 
-function orderRow($orderId, $name, $price, $variantId, $quantity, $image, $variantName) {
+function orderHistoryRow($orderId, $name, $price, $variantId, $quantity, $image, $variantName) {
     ?>
     <div class="row gap-3 my-3">
         <div class="col-2">
@@ -51,15 +51,15 @@ function orderRow($orderId, $name, $price, $variantId, $quantity, $image, $varia
                     <h4 class="emphasized">Subtotal: $<?php echo htmlspecialchars(number_format($price * $quantity, 2)); ?></h4>
                 </div>
             </div>
-            <div class="row d-flex justify-end">
-                <h4 class="emphasized">View Product</h4>
+            <div class="row d-flex justify-end mb-0">
+                <button class="btn btn-transparent"><h4 class="emphasized my-0">View Product</h4></button>
             </div>
         </div>
     </div>
     <?php
 }
 
-function order($orderItems, $orderId, $date, $totalAmt) {
+function orderHistory($orderItems, $orderId, $date, $totalAmt) {
     if (empty($orderItems)) {
         echo '<p>No items in the order.</p>'; // Better to indicate empty cart
     } else {
@@ -80,7 +80,7 @@ function order($orderItems, $orderId, $date, $totalAmt) {
         </div>
         
         <?php foreach ($orderItems as $item) {
-            orderRow(
+            orderHistoryRow(
                 $item['orderId'],
                 $item['name'],
                 $item['price'],
@@ -94,13 +94,13 @@ function order($orderItems, $orderId, $date, $totalAmt) {
     }
 }
 
-function allOrder($allOrderItems) {
+function allOrderHistory($allOrderItems) {
     if (empty($allOrderItems)) {
         echo '<h4>No items are previously purchased.</h4>';
     } else {
         foreach ($allOrderItems as $orderData) {
             // Make sure to define $orderId, $date, $totalAmt for each order
-            order($orderData['items'], $orderData['orderId'], $orderData['date'], $orderData['totalAmt']);
+            orderHistory($orderData['items'], $orderData['orderId'], $orderData['date'], $orderData['totalAmt']);
         }
     }
 }

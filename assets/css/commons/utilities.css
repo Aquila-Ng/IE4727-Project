@@ -439,3 +439,13 @@
 .flex-basis-1 {
   flex-basis: 1px !important;
 }
+
+/* scroll utilities */
+.long-content {
+  flex: 1;
+}
+
+.short-content {
+  position: sticky;
+  top: 20px; /* Starts sticking at 20px from the top */
+}

@@ -113,7 +113,7 @@ $productItems = [
     <div class="content">
         <div class="container-fluid p-0">
         <?php
-            bannerCarousel($carouselItems);
+            carousel(true, $carouselItems);
             ?>
         </div>
         <div class="container pt-2">

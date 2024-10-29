@@ -1,0 +1,34 @@
+.quantity-container {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--border-radius-medium);
+  border: 1px solid var(--border-color);
+}
+
+.quantity-container .quantity-btns {
+  display: flex;
+  flex-direction: column;
+}
+.quantity-container .quantity-btns button {
+  border-radius: var(--spacing-none);
+  border: none;
+  border-left: 1px solid var(--border-color);
+  background-color: transparent;
+  width: auto;
+  aspect-ratio: 1;
+}
+
+.quantity-container .quantity-btns .increase {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.quantity-container .quantity-input {
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  padding: var(--spacing-xs);
+  min-width: var(--spacing-lg); /* Prevent it from shrinking too much */
+  max-width: var(--spacing-xl); /* Limit the maximum width */
+  margin: 0; /* Reset margin to avoid excess width */
+}

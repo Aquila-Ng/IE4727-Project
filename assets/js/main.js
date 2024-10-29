@@ -1,13 +1,13 @@
-import {
-  productCard,
-  updateQuantity,
-  updateSubtotal,
-} from "./components/product-card.js";
+import { productCard } from "./components/product-card.js";
 import { carousel } from "./components/carousel.js";
 import { navbar } from "./components/navbar.js";
+import {
+  productDescriptionGallery,
+  productDescription,
+} from "./pages/product-description.js";
 
 productCard();
-updateQuantity();
-updateSubtotal();
 carousel();
 navbar();
+productDescriptionGallery();
+productDescription();

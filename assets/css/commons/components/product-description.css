@@ -1,0 +1,24 @@
+.gallery-option {
+  width: 10%;
+  aspect-ratio: 1; /* Maintains a square aspect ratio */
+  border-radius: var(--border-radius-small);
+  position: relative; /* Keep this for positioning if needed */
+  overflow: hidden; /* Ensures that the image does not overflow the container */
+  opacity: 0.5; /* Set default opacity */
+}
+
+.gallery-option img {
+  width: 100%; /* Make the image fill the container */
+  height: 100%; /* Make the image fill the container */
+  object-fit: cover; /* Ensures the image covers the container without distorting */
+}
+
+.gallery-option:hover,
+.gallery-option.active {
+  opacity: 1; /* Full opacity on hover or when active */
+}
+
+.product-description .variant-option {
+  width: var(--spacing-xl);
+  height: var(--spacing-xl);
+}

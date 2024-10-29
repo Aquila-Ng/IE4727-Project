@@ -4,39 +4,36 @@ export function carousel() {
     const images = document.querySelectorAll(".carousel-image");
     const prevButton = document.querySelector(".carousel-control-prev");
     const nextButton = document.querySelector(".carousel-control-next");
-    let currentIndex = 0;
+    window.carouselCurrentIndex = 0; // Initialize global index
 
     function updateCarousel() {
-      // Update the transform property to slide the images
-      const offset = -currentIndex * 100; // Assuming each image takes 100% width
+      const offset = -window.carouselCurrentIndex * 100;
       carouselImages.style.transform = `translateX(${offset}%)`;
 
-      // Update active class for images
       images.forEach((image, index) => {
         image.classList.remove("active");
-        if (index === currentIndex) {
+        if (index === window.carouselCurrentIndex) {
           image.classList.add("active");
         }
       });
     }
 
     function showNextImage() {
-      currentIndex = (currentIndex + 1) % images.length; // Loop back to first image
+      window.carouselCurrentIndex =
+        (window.carouselCurrentIndex + 1) % images.length;
       updateCarousel();
     }
 
     function showPrevImage() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop to last image
+      window.carouselCurrentIndex =
+        (window.carouselCurrentIndex - 1 + images.length) % images.length;
       updateCarousel();
     }
 
     nextButton.addEventListener("click", showNextImage);
     prevButton.addEventListener("click", showPrevImage);
 
-    // Optional: Auto-slide feature (uncomment to enable)
-    // setInterval(showNextImage, 5000); // Change image every 5 seconds
-
-    // Initial update to show the first image
     updateCarousel();
+    window.updateCarousel = updateCarousel;
   });
 }

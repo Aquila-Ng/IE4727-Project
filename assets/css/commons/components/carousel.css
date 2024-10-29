@@ -9,22 +9,8 @@
   transition: transform 0.5s ease;
 }
 
-.carousel-image {
-  min-width: 100%;
-  height: 600px; /* Set a fixed height for the carousel items */
-  background-size: cover; /* Cover the entire area with the image */
-  background-position: bottom; /* Center the image */
-  position: relative; /* Set position relative for text positioning */
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.carousel-image.active {
-  opacity: 1; /* Only show the active image */
-}
-
 /* Centered caption styles */
-.carousel-caption {
+.banner-caption {
   position: absolute; /* Absolute position to center the text */
   top: 70%; /* Center vertically */
   left: 25%; /* Center horizontally */
@@ -58,4 +44,33 @@
 
 .carousel-control-next {
   right: var(--spacing-md); /* Position for next button */
+}
+
+.carousel-image.banner-image {
+  min-width: 100%;
+  background-size: cover; /* Cover the entire area with the image */
+  position: relative; /* Set position relative for text positioning */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  aspect-ratio: 3/ 1;
+  background-position: bottom; /* Center the image */
+}
+
+.carousel-image.product-description-image {
+  min-width: 100%; /* Ensure the item takes full width */
+  position: relative; /* Position relative for child positioning */
+  opacity: 0; /* Start as invisible */
+  transition: opacity 0.5s ease; /* Smooth transition for visibility */
+  aspect-ratio: 1; /* Maintain a square aspect ratio */
+  overflow: hidden; /* Hide overflow for the img elements */
+  border-radius: var(--border-radius-xl);
+}
+
+.carousel-image.product-description-image img {
+  width: 100%; /* Make the image fill the container */
+  height: 100%; /* Make the image fill the container */
+  object-fit: cover; /* Ensures the image covers the container without distorting */
+}
+.carousel-image.active {
+  opacity: 1; /* Only show the active image */
 }

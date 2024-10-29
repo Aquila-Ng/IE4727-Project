@@ -2,7 +2,7 @@
  include('../includes/components/navbar.php');
  include('../includes/components/form.php');
  include('../includes/components/order.php');
- include('../includes/components/product-card.php');
+ include('../includes/components/cart-table.php');
  include('../includes/components/footer.php');
 
 
@@ -104,6 +104,6 @@ $cartItems = [
     <?php
         footer(true);
     ?>
-    <script type="module" src="../assets/js/main.js"></script>
+    <script type="module" src="../assets/js/pages/cart.js"></script>
 </body>
 </html>
