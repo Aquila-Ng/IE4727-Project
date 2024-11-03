@@ -480,7 +480,8 @@ $allProductItems = [
         ],
     ],
 ];
-
+$inValid=true;
+$errorMessage="error Message";
 
 ?>
 
@@ -502,7 +503,7 @@ $allProductItems = [
     <?php
        navbar(true);
     ?>
-    <main>
+    <main class="content">
         <div id="overlay">
         </div>
         <div class="container pt-2">
@@ -511,6 +512,15 @@ $allProductItems = [
                     filterAndSort(100,6000);
                 ?>
         </div>
+        <?php
+            if($inValid){
+                ?>
+                <div class="container pt-2">
+                    <h3 class="danger emphasized m-0 py-1 pl-3" style="border: none; border-radius: var(--spacing-xs); overflow: hidden;"><?php echo htmlspecialchars($errorMessage)?></h3>
+                </div>
+                <?php
+            }
+        ?>
         <div id="product-container" class="container d-flex flex-wrap justify-start pb-2 ma">
             <?php
                 all_product_cards(false, $allProductItems);

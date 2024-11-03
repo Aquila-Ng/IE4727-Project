@@ -110,8 +110,12 @@ function authForm($formType) {
 function profileForm($userDetails) {
     $isInvalid=false;
     $isSuccessful=true;
-    $errorMessage="Password is not in the correct format.";
-    $successMessage="Password has been changed successfully.";
+    $errorMessage="Details is not in the correct format.";
+    $successMessage="Details has been changed successfully.";
+    $isPasswordInvalid=false;
+    $isPasswordSuccessful=true;
+    $passwordErrorMessage="Password is not in the correct format.";
+    $passwordSuccessMessage="Password has been changed successfully.";
     ?>
     <div class="row form-container">
         <div class="row px-4 pt-4">
@@ -124,7 +128,16 @@ function profileForm($userDetails) {
                     renderSectionDescription('Personal Information', 'Here you can update your personal information such as your contact number and email address.');
                 ?>
                 <div class="col">
+                    <?php if($isInvalid||$isSuccessful){
+                        $class=$isInvalid?"danger":"success";
+                        $message=$isInvalid?$errorMessage:$successMessage;
+                    
+                    ?>
+                    <div class="row mt-2 p-1 <?php echo $class?>">
+                        <p class="m-0"><?php echo $message?></p>
+                    </div>
                     <?php   
+                    }
                         renderInputFieldRow([
                             ['id' => 'first_name', 'type' => 'text', 'label' => 'First Name', 'placeholder' => 'Enter first name', 'value' => $userDetails['first_name']],
                             ['id' => 'last_name', 'type' => 'text', 'label' => 'Last Name', 'placeholder' => 'Enter last name', 'value' => $userDetails['last_name']],
@@ -169,12 +182,12 @@ function profileForm($userDetails) {
                     <p>Here you can change your password.</p>
                 </div>
                 <div class="col">
-                    <?php if($isInvalid||$isSuccessful){
-                        $class=$isInvalid?"danger":"success";
-                        $message=$isInvalid?$errorMessage:$successMessage;
+                    <?php if($isPasswordInvalid||$isPasswordSuccessful){
+                        $passwordClass=$isPasswordInvalid?"danger":"success";
+                        $passwordMessage=$isPasswordInvalid?$passwordErrorMessage:$passwordSuccessMessage;
                         ?>
-                        <div class="row mt-2 p-1 <?php echo $class?>">
-                            <p class="m-0"><?php echo $message?></p>
+                        <div class="row mt-2 p-1 <?php echo $passwordClass?>">
+                            <p class="m-0"><?php echo $passwordMessage?></p>
                         </div>
                     <?php
                     }
@@ -201,11 +214,22 @@ function profileForm($userDetails) {
 
 // Function to generate the checkout form
 function checkoutForm($userDetails) {
+    $isInvalid=true;
+    $errorMessage="Details is not in the correct format.";
     ?>
         <div class="col-9">
             <div class="long-content">
                 <form action="checkout.php" method="POST">
                     <h2 class="emphasized my-1">Shipping Information</h2>
+                    <?php
+                        if($isInvalid){
+                            ?>
+                            <div class="row mt-2 p-1 danger">
+                                <p class="m-0"><?php echo $errorMessage?></p>
+                            </div>
+                            <?php
+                        }
+                    ?>
                     <input type="hidden" name="form_type" value="checkout">
                     <?php   
                         renderInputFieldRow([

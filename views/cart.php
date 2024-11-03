@@ -59,6 +59,8 @@ $cartItems = [
     ]
 ];
 
+$isInValid=true;
+$errorMessage="Nothing in the cart.";
 ?>
 
 <!DOCTYPE html>
@@ -84,6 +86,15 @@ $cartItems = [
             <div class="row">
                 <h2 class="emphasized">Shopping Cart</h2>
             </div>  
+            <?php
+                if($isInValid){
+                    ?>
+                    <div class="row">
+                        <h3 class="danger emphasized m-0 py-1 px-3 full" style="border: none; border-radius: var(--spacing-xs); overflow: hidden;"><?php echo htmlspecialchars($errorMessage)?></h3>
+                    </div>
+                    <?php
+                }
+            ?>
             <div class="row">
                 <div class="col-9">
                     <div class="long-content">

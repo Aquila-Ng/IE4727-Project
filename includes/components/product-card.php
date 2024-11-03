@@ -23,7 +23,8 @@
 <?php
     function all_product_cards($isAnimated, $productItems) {
         if (empty($productItems)) {
-            return ''; // Return an empty string if no items are provided
+            echo '<h3 class="ml-3">No items match the search.</h3>';
+            return ""; // Return an empty string if no items are provided
         }
 
         $productCards = ''; // Initialize an empty string to hold all product cards
