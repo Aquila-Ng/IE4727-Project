@@ -102,6 +102,373 @@ INSERT INTO variants (id, product_id, name, color, quantity, image) VALUES
 (47, 15, 'Dark Brown', '#5a4036', 25, '../assets/images/products/bag/heritage-aura-shoulder-bag/dark-brown/main.png'),
 (48, 16, 'Army Green', '#4a4532', 32, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/army-green/main.png'),
 (49, 16, 'Grey Blue', '#85878e', 0, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/grey-blue/main.png'),  -- Quantity 0
-(50, 16, 'Navy Blue', '#004678', 20, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/navy-blue/main.png');
+(50, 16, 'Blueberry', '#2063a4', 20, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/blueberry/main.png');
+
+INSERT INTO variant_images (variant_id, image) VALUES
+-- Variant 1: Classic Elegance - Legacy Lunar Heritage
+(1, '../assets/images/products/watch/legacy-lunar-heritage/classic-elegance/main.png'),
+(1, '../assets/images/products/watch/legacy-lunar-heritage/classic-elegance/front.png'),
+(1, '../assets/images/products/watch/legacy-lunar-heritage/classic-elegance/back.png'),
+(1, '../assets/images/products/watch/legacy-lunar-heritage/classic-elegance/front-face.png'),
+(1, '../assets/images/products/watch/legacy-lunar-heritage/classic-elegance/back-face.png'),
+(1, '../assets/images/products/watch/legacy-lunar-heritage/classic-elegance/strap.png'),
+
+-- Variant 2: Timeless White - Legacy Lunar Heritage
+(2, '../assets/images/products/watch/legacy-lunar-heritage/timeless-white/main.png'),
+(2, '../assets/images/products/watch/legacy-lunar-heritage/timeless-white/front.png'),
+(2, '../assets/images/products/watch/legacy-lunar-heritage/timeless-white/back.png'),
+(2, '../assets/images/products/watch/legacy-lunar-heritage/timeless-white/portrait.png'),
+(2, '../assets/images/products/watch/legacy-lunar-heritage/timeless-white/front-face.png'),
+(2, '../assets/images/products/watch/legacy-lunar-heritage/timeless-white/strap.png'),
+
+-- Variant 3: Midnight Blue - Legacy Lunar Heritage
+(3, '../assets/images/products/watch/legacy-lunar-heritage/midnight-blue/main.png'),
+(3, '../assets/images/products/watch/legacy-lunar-heritage/midnight-blue/front.png'),
+(3, '../assets/images/products/watch/legacy-lunar-heritage/midnight-blue/back.png'),
+(3, '../assets/images/products/watch/legacy-lunar-heritage/midnight-blue/portrait.png'),
+(3, '../assets/images/products/watch/legacy-lunar-heritage/midnight-blue/front-face.png'),
+(3, '../assets/images/products/watch/legacy-lunar-heritage/midnight-blue/strap.png'),
+
+-- Variant 4: Emerald Green - Legacy Lunar Heritage
+(4, '../assets/images/products/watch/legacy-lunar-heritage/emerald-green/main.png'),
+(4, '../assets/images/products/watch/legacy-lunar-heritage/emerald-green/front.png'),
+(4, '../assets/images/products/watch/legacy-lunar-heritage/emerald-green/back.png'),
+(4, '../assets/images/products/watch/legacy-lunar-heritage/emerald-green/front-face.png'),
+(4, '../assets/images/products/watch/legacy-lunar-heritage/emerald-green/back-face.png'),
+(4, '../assets/images/products/watch/legacy-lunar-heritage/emerald-green/strap.png'),
+
+-- Variant 5: Sleek Anthracite - Legacy Lunar Heritage
+(5, '../assets/images/products/watch/legacy-lunar-heritage/sleek-anthracite/main.png'),
+(5, '../assets/images/products/watch/legacy-lunar-heritage/sleek-anthracite/front.png'),
+(5, '../assets/images/products/watch/legacy-lunar-heritage/sleek-anthracite/back.png'),
+(5, '../assets/images/products/watch/legacy-lunar-heritage/sleek-anthracite/front-face.png'),
+(5, '../assets/images/products/watch/legacy-lunar-heritage/sleek-anthracite/back-face.png'),
+(5, '../assets/images/products/watch/legacy-lunar-heritage/sleek-anthracite/strap.png'),
+
+-- Variant 6: Bronze Charm - Legacy Lunar Heritage
+(6, '../assets/images/products/watch/legacy-lunar-heritage/bronze-charm/main.png'),
+(6, '../assets/images/products/watch/legacy-lunar-heritage/bronze-charm/front.png'),
+(6, '../assets/images/products/watch/legacy-lunar-heritage/bronze-charm/back.png'),
+(6, '../assets/images/products/watch/legacy-lunar-heritage/bronze-charm/front-face.png'),
+(6, '../assets/images/products/watch/legacy-lunar-heritage/bronze-charm/back-face.png'),
+(6, '../assets/images/products/watch/legacy-lunar-heritage/bronze-charm/strap.png'),
+
+-- Variant 7: Classic Black - Legacy Noble Classic
+(7, '../assets/images/products/watch/legacy-noble-classic/classic-black/main.png'),
+(7, '../assets/images/products/watch/legacy-noble-classic/classic-black/front.png'),
+(7, '../assets/images/products/watch/legacy-noble-classic/classic-black/back.png'),
+(7, '../assets/images/products/watch/legacy-noble-classic/classic-black/portrait.png'),
+(7, '../assets/images/products/watch/legacy-noble-classic/classic-black/front-face.png'),
+
+-- Variant 8: Elegant Charm - Legacy Noble Classic
+(8, '../assets/images/products/watch/legacy-noble-classic/elegant-charm/main.png'),
+(8, '../assets/images/products/watch/legacy-noble-classic/elegant-charm/front.png'),
+(8, '../assets/images/products/watch/legacy-noble-classic/elegant-charm/back.png'),
+(8, '../assets/images/products/watch/legacy-noble-classic/elegant-charm/portrait.png'),
+(8, '../assets/images/products/watch/legacy-noble-classic/elegant-charm/front-face.png'),
+(8, '../assets/images/products/watch/legacy-noble-classic/elegant-charm/back-face.png'),
+
+-- Variant 9: Mahogony Black - Adventurer Explorer Time
+(9, '../assets/images/products/watch/adventurer-explorer-time/mahogony-black/main.png'),
+(9, '../assets/images/products/watch/adventurer-explorer-time/mahogony-black/front.png'),
+(9, '../assets/images/products/watch/adventurer-explorer-time/mahogony-black/back.png'),
+(9, '../assets/images/products/watch/adventurer-explorer-time/mahogony-black/portrait.png'),
+(9, '../assets/images/products/watch/adventurer-explorer-time/mahogony-black/front-face.png'),
+(9, '../assets/images/products/watch/adventurer-explorer-time/mahogony-black/back-face.png'),
+(9, '../assets/images/products/watch/adventurer-explorer-time/mahogony-black/strap.png'),
+
+-- Variant 10: Midnight Blue - Adventurer Explorer Time
+(10, '../assets/images/products/watch/adventurer-explorer-time/midnight-blue/main.png'),
+(10, '../assets/images/products/watch/adventurer-explorer-time/midnight-blue/front.png'),
+(10, '../assets/images/products/watch/adventurer-explorer-time/midnight-blue/back.png'),
+(10, '../assets/images/products/watch/adventurer-explorer-time/midnight-blue/portrait.png'),
+(10, '../assets/images/products/watch/adventurer-explorer-time/midnight-blue/front-face.png'),
+(10, '../assets/images/products/watch/adventurer-explorer-time/midnight-blue/back-face.png'),
+(10, '../assets/images/products/watch/adventurer-explorer-time/midnight-blue/strap.png'),
+
+-- Variant 11: Ebony Classic - Adventurer Explorer Time
+(11, '../assets/images/products/watch/adventurer-explorer-time/ebony-classic/main.png'),
+(11, '../assets/images/products/watch/adventurer-explorer-time/ebony-classic/front.png'),
+(11, '../assets/images/products/watch/adventurer-explorer-time/ebony-classic/back.png'),
+(11, '../assets/images/products/watch/adventurer-explorer-time/ebony-classic/portrait.png'),
+(11, '../assets/images/products/watch/adventurer-explorer-time/ebony-classic/front-face.png'),
+(11, '../assets/images/products/watch/adventurer-explorer-time/ebony-classic/back-face.png'),
+
+-- Variant 12: Eclipse - Adventurer Voyager Chrono
+(12, '../assets/images/products/watch/adventurer-voyager-chrono/eclipse/main.png'),
+(12, '../assets/images/products/watch/adventurer-voyager-chrono/eclipse/front.png'),
+(12, '../assets/images/products/watch/adventurer-voyager-chrono/eclipse/back.png'),
+(12, '../assets/images/products/watch/adventurer-voyager-chrono/eclipse/portrait.png'),
+(12, '../assets/images/products/watch/adventurer-voyager-chrono/eclipse/front-face.png'),
+(12, '../assets/images/products/watch/adventurer-voyager-chrono/eclipse/back-face.png'),
+
+-- Variant 13: Solistice - Adventurer Voyager Chrono
+(13, '../assets/images/products/watch/adventurer-voyager-chrono/solistice/main.png'),
+(13, '../assets/images/products/watch/adventurer-voyager-chrono/solistice/front.png'),
+(13, '../assets/images/products/watch/adventurer-voyager-chrono/solistice/back.png'),
+(13, '../assets/images/products/watch/adventurer-voyager-chrono/solistice/portrait.png'),
+(13, '../assets/images/products/watch/adventurer-voyager-chrono/solistice/front-face.png'),
+(13, '../assets/images/products/watch/adventurer-voyager-chrono/solistice/back-face.png'),
+
+-- Variant 14: Halo - Adventurer Voyager Chrono
+(14, '../assets/images/products/watch/adventurer-voyager-chrono/halo/main.png'),
+(14, '../assets/images/products/watch/adventurer-voyager-chrono/halo/front.png'),
+(14, '../assets/images/products/watch/adventurer-voyager-chrono/halo/back.png'),
+(14, '../assets/images/products/watch/adventurer-voyager-chrono/halo/portrait.png'),
+(14, '../assets/images/products/watch/adventurer-voyager-chrono/halo/front-face.png'),
+(14, '../assets/images/products/watch/adventurer-voyager-chrono/halo/back-face.png'),
+
+-- Variant 15: Galaxy Blue - Adventurer Chrono Celestial
+(15, '../assets/images/products/watch/adventurer-chrono-celestial/galaxy-blue/main.png'),
+(15, '../assets/images/products/watch/adventurer-chrono-celestial/galaxy-blue/front.png'),
+(15, '../assets/images/products/watch/adventurer-chrono-celestial/galaxy-blue/back.png'),
+(15, '../assets/images/products/watch/adventurer-chrono-celestial/galaxy-blue/portrait.png'),
+(15, '../assets/images/products/watch/adventurer-chrono-celestial/galaxy-blue/front-face.png'),
+(15, '../assets/images/products/watch/adventurer-chrono-celestial/galaxy-blue/strap.png'),
+
+-- Variant 16: Celeste - Adventurer Chrono Celestial
+(16, '../assets/images/products/watch/adventurer-chrono-celestial/celeste/main.png'),
+(16, '../assets/images/products/watch/adventurer-chrono-celestial/celeste/front.png'),
+(16, '../assets/images/products/watch/adventurer-chrono-celestial/celeste/back.png'),
+(16, '../assets/images/products/watch/adventurer-chrono-celestial/celeste/portrait.png'),
+(16, '../assets/images/products/watch/adventurer-chrono-celestial/celeste/front-face.png'),
+(16, '../assets/images/products/watch/adventurer-chrono-celestial/celeste/back-face.png'),
+(16, '../assets/images/products/watch/adventurer-chrono-celestial/celeste/strap.png'),
+
+-- Variant 17: Midnight Black - Adventurer Chrono Celestial
+(17, '../assets/images/products/watch/adventurer-chrono-celestial/midnight-black/main.png'),
+(17, '../assets/images/products/watch/adventurer-chrono-celestial/midnight-black/front.png'),
+(17, '../assets/images/products/watch/adventurer-chrono-celestial/midnight-black/back.png'),
+(17, '../assets/images/products/watch/adventurer-chrono-celestial/midnight-black/portrait.png'),
+(17, '../assets/images/products/watch/adventurer-chrono-celestial/midnight-black/front-face.png'),
+(17, '../assets/images/products/watch/adventurer-chrono-celestial/midnight-black/back-face.png'),
+(17, '../assets/images/products/watch/adventurer-chrono-celestial/midnight-black/strap.png'),
+
+-- Variant 18: Vintage - Elegance BellaVita
+(18, '../assets/images/products/watch/elegance-bellavita/vintage/main.png'),
+(18, '../assets/images/products/watch/elegance-bellavita/vintage/front.png'),
+(18, '../assets/images/products/watch/elegance-bellavita/vintage/portrait.png'),
+(18, '../assets/images/products/watch/elegance-bellavita/vintage/front-face.png'),
+(18, '../assets/images/products/watch/elegance-bellavita/vintage/back-face.png'),
+(18, '../assets/images/products/watch/elegance-bellavita/vintage/strap.png'),
+
+-- Variant 19: Classic Brown - Elegance BellaVita
+(19, '../assets/images/products/watch/elegance-bellavita/classic-brown/main.png'),
+(19, '../assets/images/products/watch/elegance-bellavita/classic-brown/front.png'),
+(19, '../assets/images/products/watch/elegance-bellavita/classic-brown/back.png'),
+(19, '../assets/images/products/watch/elegance-bellavita/classic-brown/portrait.png'),
+(19, '../assets/images/products/watch/elegance-bellavita/classic-brown/front-face.png'),
+(19, '../assets/images/products/watch/elegance-bellavita/classic-brown/back-face.png'),
+(19, '../assets/images/products/watch/elegance-bellavita/classic-brown/strap.png'),
+
+-- Variant 20: Emerald Green - Elegance BellaVita
+(20, '../assets/images/products/watch/elegance-bellavita/emerald-green/main.png'),
+(20, '../assets/images/products/watch/elegance-bellavita/emerald-green/front.png'),
+(20, '../assets/images/products/watch/elegance-bellavita/emerald-green/back.png'),
+(20, '../assets/images/products/watch/elegance-bellavita/emerald-green/front-face.png'),
+(20, '../assets/images/products/watch/elegance-bellavita/emerald-green/back-face.png'),
+(20, '../assets/images/products/watch/elegance-bellavita/emerald-green/strap.png'),
+
+-- Variant 21: Argent - Elegance Virtuoso
+(21, '../assets/images/products/watch/elegance-virtuoso/argent/main.png'),
+(21, '../assets/images/products/watch/elegance-virtuoso/argent/front.png'),
+(21, '../assets/images/products/watch/elegance-virtuoso/argent/back.png'),
+(21, '../assets/images/products/watch/elegance-virtuoso/argent/portrait.png'),
+(21, '../assets/images/products/watch/elegance-virtuoso/argent/front-face.png'),
+(21, '../assets/images/products/watch/elegance-virtuoso/argent/strap.png'),
+
+-- Variant 22: Noir - Elegance Virtuoso
+(22, '../assets/images/products/watch/elegance-virtuoso/noir/main.png'),
+(22, '../assets/images/products/watch/elegance-virtuoso/noir/front.png'),
+(22, '../assets/images/products/watch/elegance-virtuoso/noir/back.png'),
+(22, '../assets/images/products/watch/elegance-virtuoso/noir/portrait.png'),
+(22, '../assets/images/products/watch/elegance-virtuoso/noir/front-face.png'),
+(22, '../assets/images/products/watch/elegance-virtuoso/noir/strap.png'),
+
+-- Variant 23: Perle - Elegance Virtuoso
+(23, '../assets/images/products/watch/elegance-virtuoso/perle/main.png'),
+(23, '../assets/images/products/watch/elegance-virtuoso/perle/front.png'),
+(23, '../assets/images/products/watch/elegance-virtuoso/perle/back.png'),
+(23, '../assets/images/products/watch/elegance-virtuoso/perle/portrait.png'),
+(23, '../assets/images/products/watch/elegance-virtuoso/perle/front-face.png'),
+(23, '../assets/images/products/watch/elegance-virtuoso/perle/strap.png'),
+
+-- Variant 24: Celeste - Elegance Virtuoso
+(24, '../assets/images/products/watch/elegance-virtuoso/celeste/main.png'),
+(24, '../assets/images/products/watch/elegance-virtuoso/celeste/front.png'),
+(24, '../assets/images/products/watch/elegance-virtuoso/celeste/back.png'),
+(24, '../assets/images/products/watch/elegance-virtuoso/celeste/portrait.png'),
+(24, '../assets/images/products/watch/elegance-virtuoso/celeste/front-face.png'),
+(24, '../assets/images/products/watch/elegance-virtuoso/celeste/strap.png'),
+
+-- Variant 25: Argent - Elegance Sovereign
+(25, '../assets/images/products/watch/elegance-sovereign/argent/main.png'),
+(25, '../assets/images/products/watch/elegance-sovereign/argent/front.png'),
+(25, '../assets/images/products/watch/elegance-sovereign/argent/back.png'),
+(25, '../assets/images/products/watch/elegance-sovereign/argent/portrait.png'),
+(25, '../assets/images/products/watch/elegance-sovereign/argent/front-face.png'),
+(25, '../assets/images/products/watch/elegance-sovereign/argent/back-face.png'),
+
+-- Variant 26: Rose Elegance - Elegance Sovereign
+(26, '../assets/images/products/watch/elegance-sovereign/rose-elegance/main.png'),
+(26, '../assets/images/products/watch/elegance-sovereign/rose-elegance/front.png'),
+(26, '../assets/images/products/watch/elegance-sovereign/rose-elegance/back.png'),
+(26, '../assets/images/products/watch/elegance-sovereign/rose-elegance/portrait.png'),
+(26, '../assets/images/products/watch/elegance-sovereign/rose-elegance/front-face.png'),
+(26, '../assets/images/products/watch/elegance-sovereign/rose-elegance/back-face.png'),
+
+-- Urban Odyssey Tote Bag - Black
+(27, '../assets/images/products/bag/urban-odyssey-tote-bag/black/main.png'),
+(27, '../assets/images/products/bag/urban-odyssey-tote-bag/black/side.png'),
+(27, '../assets/images/products/bag/urban-odyssey-tote-bag/black/top.png'),
+(27, '../assets/images/products/bag/urban-odyssey-tote-bag/black/portrait.png'),
+
+-- Urban Odyssey Tote Bag - White
+(28, '../assets/images/products/bag/urban-odyssey-tote-bag/white/main.png'),
+(28, '../assets/images/products/bag/urban-odyssey-tote-bag/white/side.png'),
+(28, '../assets/images/products/bag/urban-odyssey-tote-bag/white/top.png'),
+(28, '../assets/images/products/bag/urban-odyssey-tote-bag/white/portrait.png'),
+
+-- Urban Odyssey Hobo Bag - Black
+(29, '../assets/images/products/bag/urban-odyssey-hobo-bag/black/main.png'),
+(29, '../assets/images/products/bag/urban-odyssey-hobo-bag/black/side.png'),
+(29, '../assets/images/products/bag/urban-odyssey-hobo-bag/black/top.png'),
+(29, '../assets/images/products/bag/urban-odyssey-hobo-bag/black/portrait.png'),
+
+-- Urban Odyssey Hobo Bag - White
+(30, '../assets/images/products/bag/urban-odyssey-hobo-bag/white/main.png'),
+(30, '../assets/images/products/bag/urban-odyssey-hobo-bag/white/side.png'),
+(30, '../assets/images/products/bag/urban-odyssey-hobo-bag/white/top.png'),
+(30, '../assets/images/products/bag/urban-odyssey-hobo-bag/white/portrait.png'),
+
+-- Urban Odyssey Hobo Bag - Green
+(31, '../assets/images/products/bag/urban-odyssey-hobo-bag/green/main.png'),
+(31, '../assets/images/products/bag/urban-odyssey-hobo-bag/green/side.png'),
+(31, '../assets/images/products/bag/urban-odyssey-hobo-bag/green/top.png'),
+(31, '../assets/images/products/bag/urban-odyssey-hobo-bag/green/portrait.png'),
+
+-- Urban Odyssey Hobo Bag - Pink
+(32, '../assets/images/products/bag/urban-odyssey-hobo-bag/pink/main.png'),
+(32, '../assets/images/products/bag/urban-odyssey-hobo-bag/pink/side.png'),
+(32, '../assets/images/products/bag/urban-odyssey-hobo-bag/pink/top.png'),
+(32, '../assets/images/products/bag/urban-odyssey-hobo-bag/pink/portrait.png'),
+
+-- Urban Odyssey Crossbody Bag - Black
+(33, '../assets/images/products/bag/urban-odyssey-crossbody-bag/black/main.png'),
+(33, '../assets/images/products/bag/urban-odyssey-crossbody-bag/black/side.png'),
+(33, '../assets/images/products/bag/urban-odyssey-crossbody-bag/black/top.png'),
+(33, '../assets/images/products/bag/urban-odyssey-crossbody-bag/black/portrait.png'),
+
+-- Urban Odyssey Crossbody Bag - White
+(34, '../assets/images/products/bag/urban-odyssey-crossbody-bag/white/main.png'),
+(34, '../assets/images/products/bag/urban-odyssey-crossbody-bag/white/side.png'),
+(34, '../assets/images/products/bag/urban-odyssey-crossbody-bag/white/top.png'),
+(34, '../assets/images/products/bag/urban-odyssey-crossbody-bag/white/portrait.png'),
+
+-- Urban Odyssey Crossbody Bag - Navy
+(35, '../assets/images/products/bag/urban-odyssey-crossbody-bag/navy/main.png'),
+(35, '../assets/images/products/bag/urban-odyssey-crossbody-bag/navy/side.png'),
+(35, '../assets/images/products/bag/urban-odyssey-crossbody-bag/navy/top.png'),
+(35, '../assets/images/products/bag/urban-odyssey-crossbody-bag/navy/portrait.png'),
+
+-- Urban Odyssey Crossbody Bag - Ruby
+(36, '../assets/images/products/bag/urban-odyssey-crossbody-bag/ruby/main.png'),
+(36, '../assets/images/products/bag/urban-odyssey-crossbody-bag/ruby/side.png'),
+(36, '../assets/images/products/bag/urban-odyssey-crossbody-bag/ruby/top.png'),
+(36, '../assets/images/products/bag/urban-odyssey-crossbody-bag/ruby/portrait.png'),
+
+-- Timeless Verve Shoulder Bag - Black
+(37, '../assets/images/products/bag/timeless-verve-shoulder-bag/black/main.png'),
+(37, '../assets/images/products/bag/timeless-verve-shoulder-bag/black/side.png'),
+(37, '../assets/images/products/bag/timeless-verve-shoulder-bag/black/top.png'),
+(37, '../assets/images/products/bag/timeless-verve-shoulder-bag/black/portrait.png'),
+
+-- Timeless Verve Shoulder Bag - White
+(38, '../assets/images/products/bag/timeless-verve-shoulder-bag/white/main.png'),
+(38, '../assets/images/products/bag/timeless-verve-shoulder-bag/white/side.png'),
+(38, '../assets/images/products/bag/timeless-verve-shoulder-bag/white/top.png'),
+(38, '../assets/images/products/bag/timeless-verve-shoulder-bag/white/portrait.png'),
+
+-- Timeless Verve Quilted Backpack - Black
+(39, '../assets/images/products/bag/timeless-verve-quilted-backpack/black/main.png'),
+(39, '../assets/images/products/bag/timeless-verve-quilted-backpack/black/side.png'),
+(39, '../assets/images/products/bag/timeless-verve-quilted-backpack/black/top.png'),
+(39, '../assets/images/products/bag/timeless-verve-quilted-backpack/black/portrait.png'),
+
+-- Timeless Verve Quilted Backpack - White
+(40, '../assets/images/products/bag/timeless-verve-quilted-backpack/white/main.png'),
+(40, '../assets/images/products/bag/timeless-verve-quilted-backpack/white/side.png'),
+(40, '../assets/images/products/bag/timeless-verve-quilted-backpack/white/top.png'),
+(40, '../assets/images/products/bag/timeless-verve-quilted-backpack/white/portrait.png'),
+
+-- Timeless Verve Quilted Backpack - Brown
+(41, '../assets/images/products/bag/timeless-verve-quilted-backpack/brown/main.png'),
+(41, '../assets/images/products/bag/timeless-verve-quilted-backpack/brown/side.png'),
+(41, '../assets/images/products/bag/timeless-verve-quilted-backpack/brown/top.png'),
+(41, '../assets/images/products/bag/timeless-verve-quilted-backpack/brown/back.png'),
+
+-- Timeless Verve Pouch - Black
+(42, '../assets/images/products/bag/timeless-verve-pouch/black/main.png'),
+(42, '../assets/images/products/bag/timeless-verve-pouch/black/side.png'),
+(42, '../assets/images/products/bag/timeless-verve-pouch/black/top.png'),
+(42, '../assets/images/products/bag/timeless-verve-pouch/black/portrait.png'),
+
+-- Timeless Verve Pouch - White
+(43, '../assets/images/products/bag/timeless-verve-pouch/white/main.png'),
+(43, '../assets/images/products/bag/timeless-verve-pouch/white/side.png'),
+(43, '../assets/images/products/bag/timeless-verve-pouch/white/top.png'),
+(43, '../assets/images/products/bag/timeless-verve-pouch/white/portrait.png'),
+
+-- Timeless Verve Pouch - Blueberry
+(44, '../assets/images/products/bag/timeless-verve-pouch/blueberry/main.png'),
+(44, '../assets/images/products/bag/timeless-verve-pouch/blueberry/side.png'),
+(44, '../assets/images/products/bag/timeless-verve-pouch/blueberry/top.png'),
+(44, '../assets/images/products/bag/timeless-verve-pouch/blueberry/portrait.png'),
+
+
+-- Heritage Aura Shoulder Bag - Dark Stone
+(45, '../assets/images/products/bag/heritage-aura-shoulder-bag/dark-stone/main.png'),
+(45, '../assets/images/products/bag/heritage-aura-shoulder-bag/dark-stone/side.png'),
+(45, '../assets/images/products/bag/heritage-aura-shoulder-bag/dark-stone/top.png'),
+(45, '../assets/images/products/bag/heritage-aura-shoulder-bag/dark-stone/portrait.png'),
+
+-- Heritage Aura Shoulder Bag - Light Brown
+(46, '../assets/images/products/bag/heritage-aura-shoulder-bag/light-brown/main.png'),
+(46, '../assets/images/products/bag/heritage-aura-shoulder-bag/light-brown/side.png'),
+(46, '../assets/images/products/bag/heritage-aura-shoulder-bag/light-brown/top.png'),
+(46, '../assets/images/products/bag/heritage-aura-shoulder-bag/light-brown/portrait.png'),
+
+-- Heritage Aura Shoulder Bag - Dark Brown
+(47, '../assets/images/products/bag/heritage-aura-shoulder-bag/dark-brown/main.png'),
+(47, '../assets/images/products/bag/heritage-aura-shoulder-bag/dark-brown/side.png'),
+(47, '../assets/images/products/bag/heritage-aura-shoulder-bag/dark-brown/top.png'),
+(47, '../assets/images/products/bag/heritage-aura-shoulder-bag/dark-brown/portrait.png'),
+
+-- Heritage Aura Graphic Crossbody Bag - Army Green
+(48, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/army-green/main.png'),
+(48, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/army-green/side.png'),
+(48, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/army-green/top.png'),
+(48, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/army-green/portrait.png'),
+
+-- Heritage Aura Graphic Crossbody Bag - Grey Blue
+(49, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/grey-blue/main.png'),
+(49, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/grey-blue/side.png'),
+(49, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/grey-blue/top.png'),
+(49, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/grey-blue/portrait.png'),
+
+-- Heritage Aura Graphic Crossbody Bag - Blueberry
+(50, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/blueberry/main.png'),
+(50, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/blueberry/side.png'),
+(50, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/blueberry/top.png'),
+(50, '../assets/images/products/bag/heritage-aura-graphic-crossbody-bag/blueberry/portrait.png');
+
+
+
+
+
+
+
+
+
 
 
