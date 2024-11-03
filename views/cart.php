@@ -29,31 +29,34 @@ $prices = [
 $cartItems = [
     [
         'cartId' => 1,
-        'name' => 'Leather Backpack',
-        'price' => 79.99,
-        'variantId' => 101,
+        'name' => 'Aventurer Explorer Time',
+        'price' => 600,
+        'variantId' => 10,
         'quantity' => 2,
-        'image' => '../assets/product-image.png',
-        'variantName' => 'Brown'
+        'maxQuantity' => 10,
+        'image' => '../assets/images/products/watch/adventurer-explorer-time/ebony-classic/main.png',
+        'variantName' => 'Ebony Classic'
     ],
     [
         'cartId' => 2,
-        'name' => 'Smartwatch',
-        'price' => 199.99,
-        'variantId' => 102,
+        'name' => 'Legacy Noble Classic',
+        'price' => 700,
+        'variantId' => 6,
         'quantity' => 1,
-        'image' => '../assets/product-image.png',
-        'variantName' => 'Black'
+        'maxQuantity' => 10,
+        'image' => '../assets/images/products/watch/legacy-noble-classic/classic-black/main.png',
+        'variantName' => 'Classic Black'
     ],
     [
         'cartId' => 3,
-        'name' => 'Wireless Earbuds',
-        'price' => 49.99,
-        'variantId' => 103,
+        'name' => 'Legacy Lunar Heritage',
+        'price' => 750,
+        'variantId' => 0,
         'quantity' => 3,
-        'image' => '../assets/product-image.png',
-        'variantName' => 'White'
-    ],
+        'maxQuantity' => 10,
+        'image' => '../assets/images/products/watch/legacy-lunar-heritage/midnight-blue/main.png',
+        'variantName' => 'Midnight Blue'
+    ]
 ];
 
 ?>
@@ -63,16 +66,20 @@ $cartItems = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/serene-logo.svg">
+    <title>SERENE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
 <body class="m-0">
     <?php
        navbar(true);
     ?>
-    <div class="content mb-2">
+    <main class="content mb-2">
         <div class="cart container">
             <div class="row">
                 <h2 class="emphasized">Shopping Cart</h2>
@@ -88,7 +95,7 @@ $cartItems = [
                 <div class="col">
                     <div class="short-content">
                         <?php
-                            orderSummary(true, $prices);
+                            orderSummary($prices);
                         ?>
                         <a href="checkout.php">                    
                             <button class="btn btn-primary full my-2">
@@ -104,7 +111,7 @@ $cartItems = [
                 </div>
             </div>
         </div>
-    </div>
+    </main>
     <?php
         footer(true);
     ?>

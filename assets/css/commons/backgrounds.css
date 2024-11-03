@@ -28,3 +28,16 @@ body {
   background-size: 300% 300%;
   animation: gradientAnimation 8s ease infinite;
 }
+
+/* Danger Button */
+.danger {
+  background-color: var(--error-color); /* Danger color (error) */
+  color: var(--on-error-color); /* Text color for error button */
+}
+
+.success {
+  background-color: var(--success-color); /* Use defined success color */
+  color: var(
+    --on-success-color
+  ); /* Use a text color that contrasts with the success button */
+}

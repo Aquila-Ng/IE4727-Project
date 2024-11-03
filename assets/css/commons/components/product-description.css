@@ -22,3 +22,12 @@
   width: var(--spacing-xl);
   height: var(--spacing-xl);
 }
+
+.product-description-gallery.selected,
+.variant-description.selected {
+  display: block;
+}
+.product-description-gallery,
+.variant-description {
+  display: none;
+}

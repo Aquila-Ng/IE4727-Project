@@ -1,31 +1,27 @@
 <?php
-function orderSummary($isCheckout,$prices) {
+function orderSummary($prices) {
     ?>
     <div class="order-summary">
             <div class="row justify-between">
-            <h3 class="emphasized ">Order Summary</h3>
-            <h3 class="emphasized "><?php echo $prices['item']; ?> items</h3>
+            <h3 class="emphasized">Order Summary</h3>
+            <h3 id="orderItems" class="emphasized"><?php echo $prices['item']; ?> items</h3>
         </div>
         <div class="row justify-between">
             <h4 class="mb-0">Subtotal</h4>
-            <h4 class="mb-0">$<?php echo number_format($prices['subtotal'], 2); ?></h4>
+            <h4 id="orderSubtotal" class="mb-0">$<?php echo number_format($prices['subtotal'], 2); ?></h4>
         </div>
-        <?php
-        if($isCheckout){
-            ?>
+
         <div class="row justify-between">
             <h4 class="mb-0">Delivery</h4>
-            <h4 class="mb-0">$<?php echo number_format($prices['delivery'], 2); ?></h4>
+            <h4 id="delivery" class="mb-0">$<?php echo number_format($prices['delivery'], 2); ?></h4>
         </div>
-        <?php }
-            ?>
         <div class="row justify-between">
             <h4>GST (Included)</h4>
-            <h4>$<?php echo number_format($prices['gst'], 2); ?></h4>
+            <h4 id="gst">$<?php echo number_format($prices['gst'], 2); ?></h4>
         </div>
         <div class="row justify-between">
             <h4 class="emphasized">Order Total</h4>
-            <h4 class="emphasized">$<?php echo number_format($prices['total'], 2); ?></h4>
+            <h4 id="orderTotal" class="emphasized">$<?php echo number_format($prices['total'], 2); ?></h4>
         </div>
     </div>
     <?php
@@ -52,7 +48,7 @@ function orderHistoryRow($orderId, $name, $price, $variantId, $quantity, $image,
                 </div>
             </div>
             <div class="row d-flex justify-end mb-0">
-                <button class="btn btn-transparent"><h4 class="emphasized my-0">View Product</h4></button>
+                <button data-variantId="<?php echo htmlspecialchars($variantId); ?>" class="btn btn-transparent"><h4 class="emphasized my-0">View Product</h4></button>
             </div>
         </div>
     </div>

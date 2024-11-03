@@ -447,5 +447,20 @@
 
 .short-content {
   position: sticky;
-  top: 20px; /* Starts sticking at 20px from the top */
+  top: 108px; /* Starts sticking at 20px from the top */
+}
+
+/* Justify Content (Horizontal Alignment) */
+.text-left {
+  text-align: left !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-right {
+  text-align: right !important;
+}
+
+.height-viewport {
+  height: 100vh;
 }

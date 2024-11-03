@@ -1,10 +1,12 @@
-/* General navbar styling */
-.navbar {
-  background-color: var(--background-color);
+header {
   position: sticky; /* Sticky positioning */
   top: 0; /* Stick to the top */
+  z-index: 500;
+}
+
+.navbar {
+  background-color: var(--background-color);
   width: 100%;
-  z-index: 10;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -43,7 +45,10 @@
   gap: var(--spacing-xs);
   color: var(--logo-color);
 }
-
+.logo-font {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+}
 /* Middle column styling */
 .navbar .col-middle {
   justify-content: center;
@@ -68,15 +73,15 @@
 .navbar-menu a::after {
   content: "";
   position: absolute;
-  left: var(--spacing-none);
+  left: 0; /* Start the line from the left */
   bottom: -4px; /* Position the line just below the text */
-  width: var(--spacing-none); /* Start with no width */
+  width: 0; /* Start with no width */
   height: 2px; /* Line thickness */
   background-color: var(--primary-text-color); /* Line color */
   transition: width 0.3s ease; /* Animate the width */
 }
 
-/* On hover, expa nd the line from left to right */
+/* On hover, expand the line from left to right */
 .navbar-menu a:hover::after {
   width: 100%; /* Expand the line to full width */
 }
@@ -122,51 +127,6 @@
   outline: none;
   background-color: transparent;
   width: 100%;
-}
-
-/* Dropdown container */
-.navbar .profile-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown content */
-.navbar .dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background-color: var(--background-color);
-  min-width: 200px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: var(--spacing-xs);
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.navbar .dropdown-content a {
-  display: flex;
-  align-items: center;
-  padding: var(--spacing-sm);
-  text-decoration: none;
-  color: var(--primary-text-color);
-  border-bottom: 1px solid var(--border-color);
-}
-.navbar .dropdown-content a:hover {
-  background-color: var(--secondary-background-color);
-}
-.navbar .dropdown-content a:last-child {
-  display: flex;
-  align-items: center;
-  padding: var(--spacing-sm);
-  text-decoration: none;
-  color: var(--primary-text-color);
-  border-bottom: 1px solid var(--border-color);
-}
-
-/* Show the dropdown on hover */
-.navbar .profile-dropdown:hover .dropdown-content {
-  display: block;
 }
 
 /* Responsive adjustments */

@@ -26,9 +26,11 @@
   --base-white: #ffffff;
   --base-black: #1e1f20;
   --base-red: #ff3b2f;
+  --base-red-light: #ff9e98;
   --base-orange: #ff9500;
   --base-yellow: #ffcc02;
   --base-green: #35c759;
+  --base-green-light: #aedbb9;
   --base-mint: #04c7be;
   --base-teal: #30b0c7;
   --base-cyan: #31ade6;
@@ -145,7 +147,7 @@
     --beige-300
   ); /* Light Gray for the main background */
   --border-color: var(--gray-300); /* Light Gray for borders */
-  --border-color-dark: var(--gray-900);
+  --border-color-dark: var(--gray-500);
   --divider-color: var(--gray-200); /* Lighter Gray for dividers */
 
   /* Text Colors */
@@ -160,8 +162,10 @@
   --logo-color: var(--beige-800); /* Gold Color */
 
   /* Alert and Status Colors */
-  --success-color: var(--base-green); /* Green for success messages */
-  --error-color: var(--base-red); /* Red for error messages */
+  --success-color: var(--base-green-light); /* Green for success messages */
+  --on-success-color: var(--base-green); /* Green for success messages */
+  --error-color: var(--base-red-light); /* Red for error messages */
+  --on-error-color: var(--base-red); /* Red for error messages */
   --warning-color: var(--base-yellow); /* Yellow for warnings */
 
   /* Link Colors */
@@ -173,6 +177,9 @@
     --base-orange
   ); /* Bright Orange for promotional highlights */
   --sale-color: var(--base-red); /* Red for sale tags */
+
+  --disabled-color: var(--gray-200);
+  --disabled-text-color: var(--gray-500)
 
   /* Spacing Unit */
   --spacing-none: var(--spacing-0);

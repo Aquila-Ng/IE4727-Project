@@ -9,8 +9,15 @@
 @import url("./components/table.css");
 @import url("./components/product-description.css");
 @import url("./components/quantity-control.css");
+@import url("./components/filter-and-sort.css");
+@import url("./components/dropdown.css");
+@import url("./components/modal.css");
 
 a {
   color: var(--primary-text-color);
   text-decoration: none;
+}
+
+.inactive {
+  cursor: not-allowed;
 }

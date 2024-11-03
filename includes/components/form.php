@@ -36,9 +36,13 @@ function renderSectionDescription($title, $description) {
 //Function to generate both sign up and login form
 function authForm($formType) {
     $isLogin = $formType === 'login';
+    $isInvalid=false;
+    $isSuccessful=true;
+    $errorMessage="Error Message";
+    $successMessage="Account has been successfully registered.";
 
     $title = $isLogin ? 'Login' : 'Create Account';
-    $backgroundUrl = $isLogin ? '../assets/images/hero-banner-image-1.png': '../assets/images/hero-banner-image-7.png'; // Update if needed for different backgrounds
+    $backgroundUrl = $isLogin ? '../assets/images/banner/hero-banner-image-1.png': '../assets/images/banner/hero-banner-image-7.png'; // Update if needed for different backgrounds
     $submitButtonText = $isLogin ? 'Login' : 'Sign Up';
     $alternateText = $isLogin ? 'Do not have an account?' : 'Already have an account?';
     $alternateLinkText = $isLogin ? 'Sign Up' : 'Login';
@@ -52,8 +56,16 @@ function authForm($formType) {
         <div class="col">
             <form action="<?php echo $isLogin ? 'login.php' : 'sign-up.php'; ?>" method="POST">
                 <h2 class="emphasized"><?php echo $title; ?></h2>
-                
-                <?php if (!$isLogin): ?>
+                <?php if($isInvalid||$isSuccessful){
+                    $class=$isInvalid?"danger":"success";
+                    $message=$isInvalid?$errorMessage:$successMessage;
+                    ?>
+                    <div class="row mt-2 p-1 <?php echo $class?>">
+                        <p class="m-0"><?php echo $message?></p>
+                    </div>
+                <?php
+                    }
+                    if (!$isLogin): ?>
                     <?php renderInputFieldRow([
                         ['id' => 'first_name', 'type' => 'text', 'label' => 'First Name', 'placeholder' => 'Enter first name', 'value' => '', 'required' => true],
                         ['id' => 'last_name', 'type' => 'text', 'label' => 'Last Name', 'placeholder' => 'Enter last name', 'value' => '', 'required' => true],
@@ -79,6 +91,7 @@ function authForm($formType) {
                         <h3 class="m-0"><?php echo $submitButtonText; ?></h3>
                     </button>
                 </div>
+                
                 <div class="form-group row mt-3">
                     <p class="mr-1"><?php echo $alternateText; ?></p>
                     <p class="emphasized"><a href="<?php echo $alternateLinkHref; ?>"><?php echo $alternateLinkText; ?></a></p>
@@ -95,6 +108,10 @@ function authForm($formType) {
 
 // Function to generate the profile detail form
 function profileForm($userDetails) {
+    $isInvalid=false;
+    $isSuccessful=true;
+    $errorMessage="Password is not in the correct format.";
+    $successMessage="Password has been changed successfully.";
     ?>
     <div class="row form-container">
         <div class="row px-4 pt-4">
@@ -152,7 +169,15 @@ function profileForm($userDetails) {
                     <p>Here you can change your password.</p>
                 </div>
                 <div class="col">
+                    <?php if($isInvalid||$isSuccessful){
+                        $class=$isInvalid?"danger":"success";
+                        $message=$isInvalid?$errorMessage:$successMessage;
+                        ?>
+                        <div class="row mt-2 p-1 <?php echo $class?>">
+                            <p class="m-0"><?php echo $message?></p>
+                        </div>
                     <?php
+                    }
                     renderInputFieldRow([
                         ['id' => 'password', 'type' => 'password', 'label' => 'Current Password', 'placeholder' => 'Enter your current password'],
                     ]);
@@ -163,6 +188,7 @@ function profileForm($userDetails) {
                         ['id' => 'confirm_password', 'type' => 'password', 'label' => 'Confirm Password', 'placeholder' => 'Confirm your new password'],
                     ]);
                     ?>
+                    
                     <div class="form-group row">
                         <button type="submit" class="btn btn-primary full mt-2"><h3 class="m-0">Change Password</h3></button>
                     </div>
@@ -206,7 +232,7 @@ function checkoutForm($userDetails) {
                         ]);
                     ?>
                     <div class="form-group row">
-                        <button type="submit" class="btn btn-primary full mt-2"><h3 class="m-0">Place Order</h3></button>
+                        <button type="submit" class="open-modal btn btn-primary full mt-2"><h3 class="m-0">Place Order</h3></button>
                     </div>
                 </form>
             </div>

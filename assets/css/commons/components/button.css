@@ -75,6 +75,7 @@ button:disabled,
   background-color: var(
     --disabled-color
   ); /* Light gray color for disabled buttons */
+  color: var(--disabled-text-color);
   cursor: not-allowed; /* Cursor change on disabled buttons */
   opacity: 0.6; /* Reduce opacity for disabled state */
 }

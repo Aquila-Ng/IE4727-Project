@@ -35,3 +35,36 @@ export function productCard() {
     });
   });
 }
+
+export function productCardAnimation() {
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".product-card");
+
+    // Create an intersection observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const card = entry.target;
+            const index = Array.from(cards).indexOf(card); // Get the index of the card
+
+            // Set a timeout based on the index to create the staggered effect
+            setTimeout(() => {
+              card.classList.add("fade-in");
+            }, index * 200); // Adjust the timing (300ms) as needed
+
+            observer.unobserve(card); // Stop observing after the card has faded in
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 10% of the card is visible
+      }
+    );
+
+    // Observe each card
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+}

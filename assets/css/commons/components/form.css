@@ -96,3 +96,139 @@ form a:hover::after {
 .form-group textarea.is-valid {
   border-color: var(--success-color); /* Bootstrap success color */
 }
+
+/* Checkbox container for styling */
+.form-group .checkbox-container {
+  display: flex; /* Arrange items in a row */
+  align-items: center; /* Center vertically */
+  margin-bottom: var(--spacing-xs); /* Space below each checkbox */
+}
+
+/* Hide the default checkbox */
+.form-group input[type="checkbox"] {
+  opacity: 0; /* Make it invisible */
+}
+
+/* Custom checkbox styling */
+.form-group .custom-checkbox {
+  position: relative; /* Needed for positioning the custom checkbox */
+  display: inline-block; /* Inline element for proper layout */
+  width: var(--spacing-sm); /* Custom checkbox width */
+  height: var(--spacing-sm); /* Custom checkbox height */
+  border: 2px solid var(--border-color); /* Border color */
+  border-radius: 3px; /* Slightly rounded corners */
+  background-color: var(--background-color); /* Background color */
+  margin-right: var(--spacing-xs); /* Space between checkbox and label */
+  cursor: pointer; /* Change cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background */
+}
+
+/* Checked state */
+.form-group input[type="checkbox"]:checked + .custom-checkbox {
+  background-color: var(--primary-color); /* Background when checked */
+  border-color: var(--primary-color); /* Border color when checked */
+}
+
+/* Checkmark icon */
+.form-group input[type="checkbox"]:checked + .custom-checkbox::after {
+  content: ""; /* Empty content */
+  position: absolute;
+  left: 4px; /* Position the checkmark */
+  top: 1px; /* Position the checkmark */
+  width: 6px; /* Checkmark width */
+  height: 10px; /* Checkmark height */
+  border: solid white; /* Checkmark color */
+  border-width: 0 2px 2px 0; /* Shape of checkmark */
+  transform: rotate(45deg); /* Rotate to form a checkmark */
+}
+
+/* Label styling for checkboxes */
+.form-group .custom-checkbox-label {
+  cursor: pointer; /* Change cursor to pointer */
+  color: var(--primary-text-color); /* Text color */
+}
+
+/* Container styling for alignment */
+.slider-container {
+  width: 100%;
+  max-width: 300px; /* Adjust max width as needed */
+  margin: var(--spacing-xs) auto;
+  text-align: center;
+}
+
+/* Container and label styling */
+.price-range-container {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  text-align: left;
+}
+
+.price-label {
+  font-weight: bold;
+  color: var(--primary-text-color);
+  margin-bottom: var(--spacing-xs);
+  display: block;
+}
+
+/* Styling for the range sliders */
+.slider {
+  position: relative;
+  height: var(--spacing-lg);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  position: absolute;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  background: var(--background-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  background: var(--background-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Price values styling */
+.price-values {
+  color: var(--primary-color);
+  margin: var(--spacing-xs) 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 300px; /* Adjust max width as needed */
+  margin: var(--spacing-xs) auto;
+}
+
+.price-values input[type="number"] {
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid var(--primary-color);
+  margin: 0 var(--spacing-xs);
+}

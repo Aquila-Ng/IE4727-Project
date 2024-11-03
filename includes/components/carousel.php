@@ -1,6 +1,8 @@
+
 <?php
 function carousel($isBanner, $carouselItems) {
     $imageClass = $isBanner ? "banner-image" : "product-description-image";
+    $selectedClass = $isBanner ? "selected" : "";
     
     if (empty($carouselItems)) {
         return ''; // Return an empty string if no items are provided
@@ -36,8 +38,8 @@ function carousel($isBanner, $carouselItems) {
             }
         } else {
             // Use <img> tag for non-banner items
-            $carouselInner .= "<div class='carousel-image $imageClass $activeClass' data-variant-id='" . htmlspecialchars($item['variantId']) . "'>
-                      <img src='" . htmlspecialchars($item['image']) . "' alt='Carousel Image' />";
+            $carouselInner .= "<div class='carousel-image $imageClass $activeClass'>
+                      <img src='" . htmlspecialchars($item) . "' alt='Carousel Image' />";
 
         }
 
@@ -46,7 +48,7 @@ function carousel($isBanner, $carouselItems) {
 
     // Build the complete carousel HTML
     $carousel .= "<div class='carousel'>
-                    <div class='carousel-inner'>
+                    <div class='carousel-inner $selectedClass '>
                         $carouselInner
                     </div>
                     $prevButton

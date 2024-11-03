@@ -32,3 +32,13 @@
   max-width: var(--spacing-xl); /* Limit the maximum width */
   margin: 0; /* Reset margin to avoid excess width */
 }
+
+.quantity-container.inactive {
+  opacity: 0.5; /* Makes the container semi-transparent */
+  pointer-events: none; /* Disables all interactions */
+}
+
+.quantity-btn[disabled],
+.quantity-input[disabled] {
+  cursor: not-allowed; /* Shows a not-allowed cursor */
+}
