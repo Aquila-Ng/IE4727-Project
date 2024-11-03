@@ -57,16 +57,16 @@ function filterAndSort($minPrice, $maxPrice){
                 
                 <div class="slider-container">
                     <div class="slider">
-                    <input type="range" id="minRange" name="minRange" min="<?php echo (int)htmlspecialchars($minPrice); ?>" max="<?php echo (int)htmlspecialchars($maxPrice); ?>" step="100" value="<?php echo (int)htmlspecialchars($minPrice); ?>" oninput="updateMinMax()">
-                    <input type="range" id="maxRange" name="maxRange" min="<?php echo (int)htmlspecialchars($minPrice); ?>" max="<?php echo (int)htmlspecialchars($maxPrice); ?>" step="100" value="<?php echo (int)htmlspecialchars($maxPrice); ?>" oninput="updateMinMax()">
+                    <input type="range" id="minRange" name="minRange" min="175" max="780" step="5" value="<?php echo (int)htmlspecialchars($minPrice); ?>" oninput="updateMinMax()">
+                    <input type="range" id="maxRange" name="maxRange" min="175" max="780" step="5" value="<?php echo (int)htmlspecialchars($maxPrice); ?>" oninput="updateMinMax()">
                     </div>
                 </div>
                 
                 <div class="price-values">
                     <span>From $</span>
-                    <input type="number" id="minPriceInput" value="<?php echo (int)htmlspecialchars($minPrice); ?>" min="<?php echo $minPrice; ?>" max="<?php echo (int)htmlspecialchars($maxPrice); ?>" step="100" onchange="syncSliderWithInput('min')">
+                    <input type="number" id="minPriceInput" value="<?php echo (int)htmlspecialchars($minPrice); ?>" min="175" max="780" step="5" onchange="syncSliderWithInput('min')">
                     <span> to $</span>
-                    <input type="number" id="maxPriceInput" value="<?php echo (int)htmlspecialchars($maxPrice); ?>" min="<?php echo (int)htmlspecialchars($minPrice); ?>" max="<?php echo (int)htmlspecialchars($maxPrice); ?>" step="100" onchange="syncSliderWithInput('max')">
+                    <input type="number" id="maxPriceInput" value="<?php echo (int)htmlspecialchars($maxPrice); ?>"min="175" max="780" step="5" onchange="syncSliderWithInput('max')">
                 </div>
             </div>
 

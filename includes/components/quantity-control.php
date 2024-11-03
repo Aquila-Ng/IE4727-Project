@@ -8,14 +8,16 @@
                 type="number" 
                 id="quantity-<?php echo htmlspecialchars($variantId); ?>" 
                 class="quantity-input" 
+                name="quantity"
                 value="<?php echo (int)$quantity; ?>" 
                 min="1" 
                 max="<?php echo (int)$maxQuantity; ?>" 
-                onchange="updateSubtotal(<?php echo htmlspecialchars($variantId); ?>)"
+                onchange="updateSubtotal(<?php echo htmlspecialchars($variantId); ?>); "
                 <?php if ($quantity == 0) echo 'disabled'; ?> 
             >
             <div class="quantity-btns">
                 <button 
+                    type="button"
                     class="quantity-btn increase" 
                     onclick="updateQuantity(1, <?php echo htmlspecialchars($variantId); ?>)"
                     <?php if ($quantity == 0) echo 'disabled'; ?> 
@@ -25,6 +27,7 @@
                     </svg>
                 </button>
                 <button 
+                    type="button"
                     class="quantity-btn decrease" 
                     onclick="updateQuantity(-1, <?php echo htmlspecialchars($variantId); ?>)"
                     <?php if ($quantity == 0) echo 'disabled'; ?> 

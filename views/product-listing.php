@@ -119,7 +119,10 @@ $errorMessage="error Message";
         <div class="container pt-2">
             <h2 class="emphasized">Category</h2>
                 <?php
-                    filterAndSort(100,6000);
+                    filterAndSort(
+                        isset($minPrice) ? $minPrice : 175,
+                        isset($maxPrice) ? $maxPrice : 780
+                    );
                 ?>
         </div>
         <?php

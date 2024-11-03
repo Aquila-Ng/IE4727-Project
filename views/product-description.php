@@ -120,13 +120,16 @@ if ($result->num_rows > 0) {
                             foreach ($allProductDescriptionItems[0]['variants'] as $index => $variant) {
                                 ?>
                                 <div class="variant-description" data-variant-id=<?php echo htmlspecialchars($variant['variantId']); ?>>
-                                    <?php
-                                        $isQuantityNotZero = ($variant['quantity'] != 0); 
-                                        renderQuantityControl($variant['variantId'], ($isQuantityNotZero ? 1 : 0), $variant['quantity']);
-                                    ?>
-                                    <button class="<?php echo ($isQuantityNotZero ? 'open-modal' : '') ?> btn btn-primary full mt-3" <?php echo ($isQuantityNotZero ? '' : 'disabled') ?>>
-                                        <h4 class="my-1"><?php echo ($isQuantityNotZero ? "Add to Cart" : "Out of Stock") ?></h4>
-                                    </button>
+                                    <form class="m-0 p-0" action="" method="POST">
+                                        <input type="hidden" name="variantId" value="<?php echo htmlspecialchars($variant['variantId']); ?>">
+                                        <?php
+                                            $isQuantityNotZero = ($variant['quantity'] != 0); 
+                                            renderQuantityControl($variant['variantId'], ($isQuantityNotZero ? 1 : 0), $variant['quantity']);
+                                        ?>
+                                        <button type="submit" class="<?php echo ($isQuantityNotZero ? 'open-modal' : '') ?> btn btn-primary full mt-3" <?php echo ($isQuantityNotZero ? '' : 'disabled') ?>>
+                                            <h4 class="my-1"><?php echo ($isQuantityNotZero ? "Add to Cart" : "Out of Stock") ?></h4>
+                                        </button>
+                                     </form>
                                 </div>
                                 <?php
                             }
