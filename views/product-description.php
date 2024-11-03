@@ -4,43 +4,81 @@ include('../includes/components/product-description-card.php');
 include('../includes/components/color-variants.php');
 include('../includes/components/quantity-control.php');
 include('../includes/components/footer.php');
-$allProductDescriptionItems = [
-    [
-        'id' => 1,
-        'name' => "Legacy Noble Classic",
-        'description' => "Embrace the celestial beauty of the Legacy Lunar Majesty. This exquisite timepiece features a stunning moonphase complication, allowing you to track the moon's cycles as you navigate life's adventures. Its elegant design, complemented by refined details, makes it the perfect companion for those who appreciate the harmony of time and nature.",
-        'price' => 750,
-        'variants' => [
-            [
-                'variantId' => 1,
-                'variantName' => "Classic Black",
-                'variantColor' => "#322f2e",
-                'quantity' => 0,
-                'galleryImages' => [
-                    '../assets/images/products/watch/legacy-noble-classic/classic-black/main.png',
-                    '../assets/images/products/watch/legacy-noble-classic/classic-black/front.png',
-                    '../assets/images/products/watch/legacy-noble-classic/classic-black/portrait.png',
-                    '../assets/images/products/watch/legacy-noble-classic/classic-black/front-face.png',
-                    '../assets/images/products/watch/legacy-noble-classic/classic-black/back.png',
-                ],
-            ],
-            [
-                'variantId' => 2,
-                'variantName' => "Elegant Charm",
-                'variantColor' => "#ece8e1",
-                'quantity' => 4,
-                'galleryImages' => [
-                    '../assets/images/products/watch/legacy-noble-classic/elegant-charm/main.png',
-                    '../assets/images/products/watch/legacy-noble-classic/elegant-charm/front.png',
-                    '../assets/images/products/watch/legacy-noble-classic/elegant-charm/back.png',
-                    '../assets/images/products/watch/legacy-noble-classic/elegant-charm/front-face.png',
-                    '../assets/images/products/watch/legacy-noble-classic/elegant-charm/back-face.png',
-                ],
-            ],
-        ],
-    ],
-];
+include("../includes/db_connect.php");
 
+$productId=1;
+$sql = "
+    SELECT 
+        p.id AS productId,
+        p.name AS productName,
+        p.description AS productDescription,
+        p.price AS productPrice,
+        v.id AS variantId,
+        v.name AS variantName,
+        v.color AS variantColor,
+        v.quantity AS variantQuantity,
+        vi.image AS variantImage
+    FROM 
+        products p
+    JOIN 
+        variants v ON p.id = v.product_id
+    JOIN 
+        variant_images vi ON v.id = vi.variant_id
+    WHERE 
+        p.id= $productId
+    ORDER BY 
+        p.id, v.id, vi.id;
+";
+
+$result = $conn->query($sql);
+
+$allProductDescriptionItems = [];
+$currentProductId = null;
+$currentVariantId = null;
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        // Check if we are on a new product
+        if ($currentProductId !== $row['productId']) {
+            $currentProductId = $row['productId'];
+            $currentVariantId = null;
+
+            // Add a new product entry
+            $allProductDescriptionItems[] = [
+                'id' => $row['productId'],
+                'name' => $row['productName'],
+                'description' => $row['productDescription'],
+                'price' => $row['productPrice'],
+                'variants' => [],
+            ];
+        }
+
+        // Reference to the last added product for variant insertion
+        $currentProduct = &$allProductDescriptionItems[count($allProductDescriptionItems) - 1];
+
+        // Check if we are on a new variant
+        if ($currentVariantId !== $row['variantId']) {
+            $currentVariantId = $row['variantId'];
+
+            // Add a new variant entry
+            $currentProduct['variants'][] = [
+                'variantId' => $row['variantId'],
+                'variantName' => $row['variantName'],
+                'variantColor' => $row['variantColor'],
+                'quantity' => $row['variantQuantity'],
+                'galleryImages' => [],
+            ];
+        }
+
+        // Reference to the last added variant for image insertion
+        $currentVariant = &$currentProduct['variants'][count($currentProduct['variants']) - 1];
+
+        // Append image to the current variant's gallery
+        $currentVariant['galleryImages'][] = $row['variantImage'];
+    }
+} else {
+    echo "No products found.";
+}
 ?>
 
 <!DOCTYPE html>

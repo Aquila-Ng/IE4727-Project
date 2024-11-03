@@ -1,15 +1,15 @@
 <?php
  include('../includes/components/navbar.php');
-include('../includes/components/product-card.php');
-include('../includes/components/footer.php');
-include('../includes/components/filter-and-sort.php');
+ include('../includes/components/product-card.php');
+ include('../includes/components/footer.php');
+ include('../includes/components/filter-and-sort.php');
 include("../includes/db_connect.php");
 
 // Define dynamic parameters for filtering
 $categoryId = 1;          // Set this to the desired category ID
 $minPrice = 200;          // Set to the minimum price, or leave null if no lower bound
 $maxPrice = 760;          // Set to the maximum price, or leave null if no upper bound
-$sortOrder = "ASC";       // Use "ASC" for ascending and "DESC" for descending
+// $sortOrder = "ASC";       // Use "ASC" for ascending and "DESC" for descending
 
 // Base SQL query
 $sql = "
@@ -90,10 +90,12 @@ foreach ($results as $row) {
     ];
 }
 
-$inValid=true;
-$errorMessage="error Message";
-
+// // Output the result (for testing purposes)
+// echo "<pre>";
+// print_r($allProductItems);
+// echo "</pre>";
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -146,4 +148,3 @@ $errorMessage="error Message";
         </script>
 </body>
 </html>
-
