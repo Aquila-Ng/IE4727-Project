@@ -1,5 +1,68 @@
 <?php
  include('../includes/components/navbar.php');
+ include('../includes/components/admin-table.php');
+ include("../includes/db_connect.php");
+// Categories Query
+$categoryItems = [];
+$result = $conn->query("SELECT id, name FROM categories");
+while ($row = $result->fetch_assoc()) {
+    $categoryItems[] = [
+        'id' => $row['id'],
+        'name' => $row['name']
+    ];
+}
+
+// Products Query
+$productItems = [];
+$result = $conn->query("
+    SELECT 
+        p.id, 
+        p.name, 
+        p.category_id, 
+        c.name AS category_name,
+        p.description,
+        p.price
+    FROM products p
+    JOIN categories c ON p.category_id = c.id
+");
+while ($row = $result->fetch_assoc()) {
+    $productItems[] = [
+        'id' => $row['id'],
+        'name' => $row['name'],
+        'category_id' => $row['category_id'],
+        'category_name' => $row['category_name'],
+        'description' => $row['description'],
+        'price' => $row['price']
+    ];
+}
+
+// Variants Query
+$variantItems = [];
+$result = $conn->query("
+    SELECT 
+        v.id,
+        v.name,
+        v.product_id,
+        p.name AS product_name,
+        v.color,
+        v.quantity,
+        v.image
+    FROM variants v
+    JOIN products p ON v.product_id = p.id
+");
+while ($row = $result->fetch_assoc()) {
+    $variantItems[] = [
+        'id' => $row['id'],
+        'name' => $row['name'],
+        'product_id' => $row['product_id'],
+        'product_name' => $row['product_name'],
+        'color' => $row['color'],
+        'quantity' => $row['quantity'],
+        'image' => $row['image']
+    ];
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -21,102 +84,23 @@
        navbar(false);
     ?>
     <main>
-        <div class="container-fluid p-0">
-          
-            </div>
         <div class="container pt-2">
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tables with Pagination and Actions</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-  <!-- Category Table -->
-  <h2>Category Table</h2>
-  <table class="table" id="category-table">
-    <thead>
-      <tr>
-        <th>Category ID</th>
-        <th>Category Name</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Table rows go here -->
-    </tbody>
-  </table>
-  <button class="add-new">Add New Category</button>
-
-  <!-- Product Table -->
-  <h2>Product Table</h2>
-  <table class="table" id="product-table">
-    <thead>
-      <tr>
-        <th>Product ID</th>
-        <th>Product Name</th>
-        <th>Category Name</th>
-        <th>Product Description</th>
-        <th>Price</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Table rows go here -->
-    </tbody>
-  </table>
-  <button class="add-new">Add New Product</button>
-
-  <!-- Variant Table -->
-  <h2>Variant Table</h2>
-  <table class="table"  id="variant-table">
-    <thead>
-      <tr>
-        <th>Variant ID</th>
-        <th>Variant Name</th>
-        <th>Variant Color</th>
-        <th>Variant Quantity</th>
-        <th>Product Name</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Table rows go here -->
-    </tbody>
-  </table>
-  <button class="add-new">Add New Variant</button>
-
-  <!-- Order Table -->
-  <h2>Order Table</h2>
-  <table class="table" id="order-table">
-    <thead>
-      <tr>
-        <th>Order ID</th>
-        <th>Date</th>
-        <th>Status</th>
-        <th>Customer</th>
-        <th>Billing Address</th>
-        <th>Shipping Address</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Table rows go here -->
-    </tbody>
-  </table>
-  <button class="add-new">Add New Order</button>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
+            <h2 class="emphasized">Categories</h2>
+            <?php
+                category_table($categoryItems);
+            ?>
         </div>
-
+        <div class="container pt-2">
+            <h2 class="emphasized">Products</h2>
+            <?php
+                product_table($productItems);
+            ?>
+        </div>
+        <?php
+             include('../includes/components/test-modal.php');
+        ?>
     </main>
-    <script type="module" src="../assets/js/pages/index.js"></script>
+    <script type="module" src="../assets/js/pages/admin.js"></script>
 </body>
 </html>
 
