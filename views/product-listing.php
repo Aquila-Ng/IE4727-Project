@@ -5,11 +5,27 @@ include('../includes/components/footer.php');
 include('../includes/components/filter-and-sort.php');
 include("../includes/db_connect.php");
 
-// Define dynamic parameters for filtering
-$categoryId = 1;          // Set this to the desired category ID
-$minPrice = 200;          // Set to the minimum price, or leave null if no lower bound
-$maxPrice = 760;          // Set to the maximum price, or leave null if no upper bound
-$sortOrder = "ASC";       // Use "ASC" for ascending and "DESC" for descending
+
+$searchQuery = isset($_GET['searchQuery']) ? $_GET['searchQuery'] : NULL;
+$sortOrder = isset($_GET['sortOrder']) ? "p.price " . $_GET['sortOrder'] : "p.id";
+$minPrice = isset($_GET['minPrice']) ? (int) $_GET['minPrice'] : NULL;
+$maxPrice = isset($_GET['maxPrice']) ? (int) $_GET['maxPrice'] : NULL;
+$categoryId = null; // Initialize categoryId as null
+
+if (isset($_GET['categoryId'])) {
+    if (is_array($_GET['categoryId'])) {
+        // Check if both category values are selected
+        if (in_array("1", $_GET['categoryId']) && in_array("2", $_GET['categoryId'])) {
+            $categoryId = null; // Set to null if both are selected
+        } else {
+            // If only one is selected, assign it to categoryId
+            $categoryId = (int) $_GET['categoryId'][0]; // Just take the first one if not both
+        }
+    } else {
+        // If it's a single value
+        $categoryId = (int) $_GET['categoryId'];
+    }
+}
 
 // Base SQL query
 $sql = "
@@ -28,32 +44,32 @@ $sql = "
     JOIN 
         variants v ON p.id = v.product_id
 ";
+
 // Check if any conditions are set and manage the WHERE clause
 $conditions = []; // Array to hold condition strings
 
-if (isset($categoryId)) {
+if (!is_null($categoryId)) {
     $conditions[] = "p.category_id = $categoryId"; // Add category condition
 }
 
-if (isset($minPrice)) {
+if (!is_null($minPrice)) {
     $conditions[] = "p.price >= $minPrice"; // Add min price condition
 }
 
-if (isset($maxPrice)) {
+if (!is_null($maxPrice)) {
     $conditions[] = "p.price <= $maxPrice"; // Add max price condition
+}
+
+if (!is_null($searchQuery)) {
+    $conditions[] = "p.name LIKE '%" . mysqli_real_escape_string($conn, $searchQuery) . "%'"; // Add search condition with sanitization
 }
 
 // If there are conditions, add them to the SQL query
 if (count($conditions) > 0) {
     $sql .= " WHERE " . implode(" AND ", $conditions);
 }
-if(isset($sortOrder)){
-    $sql .= " ORDER BY p.price $sortOrder, v.id";
-}else{
-    $sql .= " ORDER BY p.id, v.id";
-}
 
-
+$sql .= " ORDER BY $sortOrder, v.id";
 
 // Execute the query
 $results = $conn->query($sql);

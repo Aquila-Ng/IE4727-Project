@@ -6,7 +6,8 @@ include('../includes/components/quantity-control.php');
 include('../includes/components/footer.php');
 include("../includes/db_connect.php");
 
-$productId=1;
+$productId = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+
 $sql = "
     SELECT 
         p.id AS productId,
@@ -120,7 +121,7 @@ if ($result->num_rows > 0) {
                             foreach ($allProductDescriptionItems[0]['variants'] as $index => $variant) {
                                 ?>
                                 <div class="variant-description" data-variant-id=<?php echo htmlspecialchars($variant['variantId']); ?>>
-                                    <form class="m-0 p-0" action="" method="POST">
+                                    <form class="m-0 p-0" action="test.php" method="GET">
                                         <input type="hidden" name="variantId" value="<?php echo htmlspecialchars($variant['variantId']); ?>">
                                         <?php
                                             $isQuantityNotZero = ($variant['quantity'] != 0); 

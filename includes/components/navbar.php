@@ -21,15 +21,15 @@ function navbar($flag) {
                     <div class="col-middle">
                         <ul class="navbar-menu">
                             <li><h4><a href="product-listing.php">All</a></h4></li>
-                            <li><h4><a href="product-listing.php">Bags</a></h4></li>
-                            <li><h4><a href="product-listing.php">Watches</a></h4></li>
+                            <li><h4><a href="product-listing.php?categoryId=2">Bags</a></h4></li>
+                            <li><h4><a href="product-listing.php?categoryId=1">Watches</a></h4></li>
                         </ul>
                     </div>
                     <div class="col-right">
                         <div class="navbar-search">
                             <img src="../assets/icons/search.svg" alt="Search" />
-                            <form class="m-0 p-0" action="product-listing.php" method="POST">
-                              <input type="text" placeholder="Search" />
+                            <form class="m-0 p-0" action="product-listing.php" method="GET">
+                              <input type="text" name="searchQuery" placeholder="Search" />
                             </form>
                         </div>
                         <div class="dropdown">

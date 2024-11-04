@@ -17,15 +17,21 @@ function filterAndSort($minPrice, $maxPrice){
                 <h3 class="emphasized">Sort</h3>
             </button>
             <div id="sortOptions" class="dropdown-content">
-                <div data-value="default" class="item">
-                    <h5 class="m-1">Default</h5>
-                </div>
-                <div data-value="price-asc" class="item">
-                    <h5 class="m-1">Price Low to High</h5>
-                </div>
-                <div data-value="price-desc" class="item">
-                    <h5 class="m-1">Price High to Low</h5>
-                </div>
+                <a href="product-listing.php">
+                    <div data-value="default" class="item">
+                        <h5 class="m-1">Default</h5>
+                    </div>
+                </a>
+                <a href="product-listing.php?sortOrder=ASC">
+                    <div data-value="price-asc" class="item">
+                        <h5 class="m-1">Price Low to High</h5>
+                    </div>
+                </a>
+                <a href="product-listing.php?sortOrder=DESC">
+                    <div data-value="price-desc" class="item">
+                        <h5 class="m-1">Price High to Low</h5>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -38,16 +44,16 @@ function filterAndSort($minPrice, $maxPrice){
                 </svg>
             </button>
         </div>
-        <form class="p-0">
+        <form action="product-listing.php" METHOD="GET" class="p-0">
             <div class="form-group category">
                 <h3 class="emphasized">Category</h3>
                 <div class="checkbox-container">
-                    <input type="checkbox" id="watch" name="category" value="watch">
+                    <input type="checkbox" id="watch" name="categoryId[]" value="1">
                     <label class="custom-checkbox" for="watch"></label>
                     <label class="custom-checkbox-label" for="watch"><h4 class="m-1">Watch</h4></label>
                 </div>
                 <div class="checkbox-container">
-                    <input type="checkbox" id="bag" name="category" value="bag">
+                    <input type="checkbox" id="bag" name="categoryId[]" value="2">
                     <label class="custom-checkbox" for="bag"></label>
                     <label class="custom-checkbox-label" for="bag"><h4 class="m-1">Bag</h4></label>
                 </div>
@@ -58,21 +64,24 @@ function filterAndSort($minPrice, $maxPrice){
                 <div class="slider-container">
                     <div class="slider">
                     <input type="range" id="minRange" name="minRange" min="175" max="780" step="5" value="<?php echo (int)htmlspecialchars($minPrice); ?>" oninput="updateMinMax()">
-                    <input type="range" id="maxRange" name="maxRange" min="175" max="780" step="5" value="<?php echo (int)htmlspecialchars($maxPrice); ?>" oninput="updateMinMax()">
+                    <input type="range" id="maxRange" name="maxPrice" min="175" max="780" step="5" value="<?php echo (int)htmlspecialchars($maxPrice); ?>" oninput="updateMinMax()">
                     </div>
                 </div>
                 
                 <div class="price-values">
                     <span>From $</span>
-                    <input type="number" id="minPriceInput" value="<?php echo (int)htmlspecialchars($minPrice); ?>" min="175" max="780" step="5" onchange="syncSliderWithInput('min')">
+                    <input type="number" name="minPrice" id="minPriceInput" value="<?php echo (int)htmlspecialchars($minPrice); ?>" min="175" max="780" step="5" onchange="syncSliderWithInput('min')">
                     <span> to $</span>
-                    <input type="number" id="maxPriceInput" value="<?php echo (int)htmlspecialchars($maxPrice); ?>"min="175" max="780" step="5" onchange="syncSliderWithInput('max')">
+                    <input type="number" mame="maxPrice" id="maxPriceInput" value="<?php echo (int)htmlspecialchars($maxPrice); ?>"min="175" max="780" step="5" onchange="syncSliderWithInput('max')">
                 </div>
             </div>
 
 
             <button type="submit" class="btn btn-primary full mt-2"><h3 class="emphasized m-0">Apply</h3></button>
         </form>
+            <a href="product-listing.php">
+                <button type="button" class="btn btn-transparent full mt-2"><h3 class="emphasized m-0">Clear Filter</h3></button>
+            </a>
     </div>
 <?php
     }

@@ -3,6 +3,7 @@
 include('../includes/components/product-card.php');
 include('../includes/components/carousel.php');
 include('../includes/components/footer.php');
+include("../includes/db_connect.php");
 
 $carouselItems = [
     [
@@ -26,136 +27,73 @@ $carouselItems = [
         'description' => 'Timeless sophistication with the sleek black shoulder bag',
     ]
 ];
-$allProductItems = [
-    [
-        'id' => 0,
-        'name' => 'Legacy Lunar Heritage',
-        'price' => 750,
-        'variants' => [
-            [
-                'variantId' => 0,
-                'variantName' => 'Classic Elegance',
-                'variantColor' => '#dcd7d1',
-                'quantity' => 0,
-                'image' => '../assets/images/products/watch/legacy-lunar-heritage/classic-elegance/main.png',
-            ],
-            [
-                'variantId' => 1,
-                'variantName' => 'Timeless White',
-                'variantColor' => '#e0e0e0',
-                'quantity' => 5,
-                'image' => '../assets/images/products/watch/legacy-lunar-heritage/timeless-white/main.png',
-            ],
-            [
-                'variantId' => 2,
-                'variantName' => 'Midnight Blue',
-                'variantColor' => '#004678',
-                'quantity' => 10,
-                'image' => '../assets/images/products/watch/legacy-lunar-heritage/midnight-blue/main.png',
-            ],
-            [
-                'variantId' => 3,
-                'variantName' => 'Emerald Green',
-                'variantColor' => '#025a38',
-                'quantity' => 11,
-                'image' => '../assets/images/products/watch/legacy-lunar-heritage/emerald-green/main.png',
-            ],
-            [
-                'variantId' => 4,
-                'variantName' => 'Sleek Anthracite',
-                'variantColor' => '#9c9e9d',
-                'quantity' => 12,
-                'image' => '../assets/images/products/watch/legacy-lunar-heritage/sleek-anthracite/main.png',
-            ],
-            [
-                'variantId' => 5,
-                'variantName' => 'Bronze Charm',
-                'variantColor' => '#d9ad7c',
-                'quantity' => 13,
-                'image' => '../assets/images/products/watch/legacy-lunar-heritage/bronze-charm/main.png',
-            ],
-        ],
-    ],
-    [
-        'id' => 1,
-        'name' => 'Legacy Noble Classic',
-        'price' => 700,
-        'variants' => [
-            [
-                'variantId' => 6,
-                'variantName' => 'Classic Black',
-                'variantColor' => '#322f2e',
-                'quantity' => 5,
-                'image' => '../assets/images/products/watch/legacy-noble-classic/classic-black/main.png',
-            ],
-            [
-                'variantId' => 7,
-                'variantName' => 'Elegant Charm',
-                'variantColor' => '#ece8e1',
-                'quantity' => 10,
-                'image' => '../assets/images/products/watch/legacy-noble-classic/elegant-charm/main.png',
-            ],
-        ],
-    ],
-    [
-        'id' => 12,
-        'name' => "Timeless Verve Quilted Backpack",
-        'description' => "The Timeless Verve Quilted Backpack combines elegance with practicality, offering ample space and a quilted design that stands out.",
-        'price' => 345,
-        'variants' => [
-            [
-                'variantId' => 38,
-                'variantName' => "Classic Black",
-                'variantColor' => "#000000",
-                'quantity' => 11,
-                'image' => '../assets/images/products/bag/timeless-verve-quilted-backpack/black/main.png',
-            ],
-            [
-                'variantId' => 39,
-                'variantName' => "Elegant White",
-                'variantColor' => "#ece8e1",
-                'quantity' => 12,
-                'image' => '../assets/images/products/bag/timeless-verve-quilted-backpack/white/main.png',
-            ],
-            [
-                'variantId' => 40,
-                'variantName' => "Vintage Brown",
-                'variantColor' => "#5A4036",
-                'quantity' => 13,
-                'image' => '../assets/images/products/bag/timeless-verve-quilted-backpack/brown/main.png',
-            ],
-        ],
-    ],
-    [
-        'id' => 13,
-        'name' => "Timeless Verve Pouch",
-        'description' => "The Timeless Verve Pouch is a compact yet stylish accessory, ideal for keeping essentials within easy reach.",
-        'price' => 175,
-        'variants' => [
-            [
-                'variantId' => 41,
-                'variantName' => "Classic Black",
-                'variantColor' => "#000000",
-                'quantity' => 11,
-                'image' => '../assets/images/products/bag/timeless-verve-pouch/black/main.png',
-            ],
-            [
-                'variantId' => 42,
-                'variantName' => "Elegant White",
-                'variantColor' => "#ece8e1",
-                'quantity' => 12,
-                'image' => '../assets/images/products/bag/timeless-verve-pouch/white/main.png',
-            ],
-            [
-                'variantId' => 43,
-                'variantName' => "Blueberry",
-                'variantColor' => "#2063a4",
-                'quantity' => 0,
-                'image' => '../assets/images/products/bag/timeless-verve-pouch/blueberry/main.png',
-            ],
-        ],
-    ],
-];
+
+$sql="
+WITH TopProducts AS (
+    SELECT 
+        p.id AS productId,
+        p.name AS productName,
+        p.price AS productPrice,
+        p.description AS productDescription,
+        p.category_id,
+        ROW_NUMBER() OVER (PARTITION BY p.category_id ORDER BY p.id) AS row_num
+    FROM 
+        products p
+)
+SELECT 
+    tp.productId,
+    tp.productName,
+    tp.productPrice,
+    tp.productDescription,
+    tp.category_id,
+    v.id AS variantId,
+    v.name AS variantName,
+    v.color AS variantColor,
+    v.quantity AS variantQuantity,
+    v.image AS variantImage
+FROM 
+    TopProducts tp
+JOIN 
+    variants v ON tp.productId = v.product_id
+WHERE 
+    tp.row_num <= 2
+ORDER BY 
+    tp.category_id, tp.productId, v.id;
+";
+// Execute the query
+$results = $conn->query($sql);
+
+// Check for errors
+if (!$results) {
+    die("Query Error: " . $conn->error);
+}
+
+// Process data into desired structure
+$allProductItems = [];
+$currentProductId = null;
+
+foreach ($results as $row) {
+    if ($row['productId'] !== $currentProductId) {
+        // New product entry
+        $currentProductId = $row['productId'];
+        $allProductItems[] = [
+            'id' => $row['productId'],
+            'name' => $row['productName'],
+            'price' => $row['productPrice'],
+            'description' => $row['productDescription'],
+            'variants' => []
+        ];
+    }
+    
+    // Add variant to the latest product entry
+    $allProductItems[count($allProductItems) - 1]['variants'][] = [
+        'variantId' => $row['variantId'],
+        'variantName' => $row['variantName'],
+        'variantColor' => $row['variantColor'],
+        'quantity' => $row['variantQuantity'],
+        'image' => $row['variantImage']
+    ];
+}
 
 ?>
 
