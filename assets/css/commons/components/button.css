@@ -1,0 +1,81 @@
+/* Base Button Styles */
+
+.btn {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: none;
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  background-color: var(--primary-color); /* Default Primary Color */
+  color: var(--on-primary-color); /* White text on Primary color */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-dark); /* Darker shade on hover */
+}
+.btn.full {
+  width: 100%;
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--on-primary-color);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--on-secondary-color); /* Text color for secondary button */
+}
+
+.btn-transparent {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--primary-text-color); /* Text color for secondary button */
+}
+.btn-transparent:hover {
+  background-color: var(--primary-color-light);
+  border-color: transparent;
+  color: var(--primary-text-color); /* Text color for secondary button */
+}
+
+.btn-secondary:hover {
+  background-color: darken(
+    var(--secondary-color),
+    10%
+  ); /* Slightly darken on hover */
+}
+
+/* Success Button */
+.btn-success {
+  background-color: var(--success-color); /* Use defined success color */
+  color: var(
+    --on-success-color
+  ); /* Use a text color that contrasts with the success button */
+}
+
+.btn-success:hover {
+  background-color: darken(var(--success-color), 10%);
+}
+
+/* Danger Button */
+.btn-danger {
+  background-color: var(--error-color); /* Danger color (error) */
+  color: var(--on-error-color); /* Text color for error button */
+}
+
+.btn-danger:hover {
+  background-color: darken(var(--error-color), 10%);
+}
+
+/* Optional: Disabled button state */
+button:disabled,
+.btn:disabled {
+  background-color: var(
+    --disabled-color
+  ); /* Light gray color for disabled buttons */
+  color: var(--disabled-text-color);
+  cursor: not-allowed; /* Cursor change on disabled buttons */
+  opacity: 0.6; /* Reduce opacity for disabled state */
+}

@@ -1,0 +1,61 @@
+/* Basic table styling */
+.table {
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+}
+
+/* Table cells */
+.table tr {
+  border-top: 1px solid var(--border-color);
+}
+
+.table td {
+  padding: var(--spacing-sm);
+  vertical-align: top;
+}
+
+.table tr:first-child {
+  vertical-align: top;
+  border: none;
+}
+
+/* Table header */
+.table thead th {
+  vertical-align: bottom;
+  text-align: left;
+}
+
+.table .hug-column {
+  width: auto;
+}
+
+/* Table striped rows */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Table bordered */
+.table-bordered {
+  border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6;
+}
+
+/* Table hover */
+.table-hover tbody tr:hover {
+  background-color: var(--secondary-background-color);
+}
+
+/* Table responsive */
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
