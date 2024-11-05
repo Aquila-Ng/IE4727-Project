@@ -20,7 +20,7 @@
             </td>
             <td class="hug-column">
                 <form class="p-0" id="cartQuantityChange-<?php echo htmlspecialchars($variantId); ?>" action="../scripts/cart_changes.php" method="GET">
-                    <input type="hidden" id="quantity-<?php echo htmlspecialchars($variantId); ?>" name="variantId" value="<?php echo (int)htmlspecialchars($variantId); ?>">
+                    <input type="hidden" id="hidden-quantity-<?php echo htmlspecialchars($variantId); ?>" name="variantId" value="<?php echo (int)htmlspecialchars($variantId); ?>">
                     <?php
                     renderQuantityControl($variantId, $quantity, $maxQuantity);
                     ?>

@@ -140,36 +140,35 @@
         // // Corrected template literals with backticks
         const quantityInputId = `quantity-${variantId}`;
         const formId = `cartQuantityChange-${variantId}`;
-        // console.log(`Attempting to access: ${quantityInputId}`);
+        console.log(`Attempting to access: ${quantityInputId}`);
         const quantityInput = document.getElementById(quantityInputId);
         const cartQuantityChangeForm = document.getElementById(formId);
 
-        // if (!quantityInput) {
-        //     console.error(`Element with ID ${quantityInputId} not found!`);
-        //     return; // Exit if the input is null
-        // }
+        if (!quantityInput) {
+            console.error(`Element with ID ${quantityInputId} not found!`);
+            return; // Exit if the input is null
+        }
 
         let currentQuantity = parseInt(quantityInput.value);
-        alert(currentQuantity);
+        
 
         let maxQuantity = parseInt(quantityInput.max);
 
-        // if (isNaN(currentQuantity)) {
-        //     console.error(`Current quantity is not a number: ${currentQuantity}`);
-        //     return; // Handle the case where the value is not a number
-        // }
+        if (isNaN(currentQuantity)) {
+            console.error(`Current quantity is not a number: ${currentQuantity}`);
+            return; // Handle the case where the value is not a number
+        }
 
-        // // Update the quantity while keeping it within limits
+        // Update the quantity while keeping it within limits
         currentQuantity = Math.max(1, currentQuantity + change); // Ensure quantity is at least 1
-        alert(currentQuantity);
+        
         if (currentQuantity > maxQuantity) {
             currentQuantity = maxQuantity;
         }
-        alert(currentQuantity);
-
-        // // Set the updated value in the input
         
-        // console.log("Updated quantity Input Value: " + quantityInput.value);
+        // Set the updated value in the input
+        quantityInput.value = currentQuantity;
+        console.log("Updated quantity Input Value: " + quantityInput.value);
 
         cartQuantityChangeForm.submit();
     }

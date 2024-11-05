@@ -64,12 +64,12 @@
                 while($row = $result->fetch_assoc()) {
                     $variant_id = $row['id'];
                     $cart =  [
-                        'cart_id' => 2,
+                        'cartId' => 2,
                         'name' => $row['name'],
                         'price' => (float)$row['price'],
                         'variantId' => $row['id'],
                         'quantity' => (int)$_SESSION['cart'][$variant_id]['quantity'],
-                        'max_quantity' => (int)$row['quantity'],
+                        'maxQuantity' => (int)$row['quantity'],
                         'image' => $row['image'],
                         'variantName' => $row['variant_name']
                     ];

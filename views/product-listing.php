@@ -3,8 +3,9 @@
     include('../includes/components/product-card.php');
     include('../includes/components/footer.php');
     include('../includes/components/filter-and-sort.php');
-    include("../includes/db_connect.php");
+    // include("../includes/db_connect.php");
 
+    include('../includes/config/db_connect.php');
 
 $searchQuery = isset($_GET['searchQuery']) ? $_GET['searchQuery'] : NULL;
 $sortOrder = isset($_GET['sortOrder']) ? "p.price " . $_GET['sortOrder'] : "p.id";

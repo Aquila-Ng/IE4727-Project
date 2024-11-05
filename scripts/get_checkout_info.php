@@ -46,16 +46,14 @@
             
             $result = $stmt -> get_result();
             
-            // Split the address into two lines based on a delimiter, e.g., a comma
-            $address_parts = explode(' ', $user['address'], 2);
-
-            // Handle cases where address might have only one part
-            $address_line1 = trim($address_parts[0]);
-            $address_line2 = isset($address_parts[1]) ? trim($address_parts[1]) : '';
-
             if ($result -> num_rows > 0) {
                 $user = $result -> fetch_assoc();
-                
+                // Split the address into two lines based on a delimiter, e.g., a comma
+                $address_parts = explode(' ', $user['address'], 2);
+
+                // Handle cases where address might have only one part
+                $address_line1 = trim($address_parts[0]);
+                $address_line2 = isset($address_parts[1]) ? trim($address_parts[1]) : '';
                 $userDetails = [
                     'first_name' => $user['first_name'],
                     'last_name' => $user['last_name'],
