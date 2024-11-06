@@ -9,27 +9,7 @@
     include('../includes/components/footer.php');
 
     include('../scripts/get_checkout_info.php');
-
-
-    // $userDetails = [
-    //     'first_name' => 'John',
-    //     'last_name' => 'Doe',
-    //     'email' => 'john.doe@example.com',
-    //     'contact_number' => '1234567890',
-    //     'address_line1' => '123 Main St',
-    //     'address_line2' => 'Apt 4B',
-    //     'country' => 'USA',
-    //     'postal_code' => '10001'
-    // ];
-
-    // // Example usage
-    // $prices = [
-    //     'item' => 3,
-    //     'subtotal' => 39.99,
-    //     'delivery' => 29.99,
-    //     'gst' => 19.99,
-    //     'total' => 89.99
-    // ];
+    include('../scripts/checkout_email.php');
 ?>
 
 <!DOCTYPE html>

@@ -53,7 +53,7 @@
                 $stmt->close();
                 
                 $role = ($user_count == 0) ? "admin" : "user"; // First user is "admin", others are "user"
-    
+                
                 // Hash the password
                 $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
