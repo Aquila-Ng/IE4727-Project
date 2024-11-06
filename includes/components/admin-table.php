@@ -164,7 +164,7 @@
     }
 ?>
 <?php
-    function renderOrderStatusSelect($orderStatuses, $selectedStatusId) {
+    function renderOrderStatusSelect($orderStatuses,$orderId, $selectedStatusId) {
         ?>
        <form class="form-group p-0" action="../includes/scripts/update_order_status.php" method="POST">
             <input type="hidden" name="orderId" value="<?php echo htmlspecialchars($orderId); ?>" />
@@ -191,7 +191,7 @@
                 <?php echo htmlspecialchars($date); ?>
             </td>
             <td>
-                <?php renderOrderStatusSelect($orderStatuses, $statusId); ?>
+                <?php renderOrderStatusSelect($orderStatuses,$orderId, $statusId); ?>
             </td>
             <td>
                 <?php echo htmlspecialchars($username); ?>
