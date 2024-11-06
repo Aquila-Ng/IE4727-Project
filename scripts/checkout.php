@@ -16,6 +16,9 @@
         update_user_profile();
         get_items_and_prices($cartItems, $prices);
         new_order($cartItems, $prices);
+        include('../scripts/checkout_email.php');
+        $_SESSION['cart'] = [];
+        header('Location: ../views/index.php');
     }
     
     function update_user_profile(){
@@ -182,7 +185,7 @@
                     }
                 }
 
-                echo "Order and items inserted successfully. <a href=../views/index.php>Return</a>";
+                // echo "Order and items inserted successfully. <a href=../views/index.php>Return</a>";
                 } 
             else {
                 echo "Error inserting order: " . $stmtOrder->error;
@@ -191,5 +194,4 @@
         }
             
     }
-        
 ?>

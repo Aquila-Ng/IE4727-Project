@@ -1,7 +1,8 @@
 <?php
  include('../includes/components/navbar.php');
  include('../includes/components/admin-table.php');
- include("../includes/db_connect.php");
+//  include("../includes/db_connect.php");
+include('../includes/config/db_connect.php');
 // Categories Query
 $categoryItems = [];
 $result = $conn->query("SELECT id, name FROM categories");

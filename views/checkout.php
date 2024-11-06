@@ -3,13 +3,13 @@
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = []; // Initialize the cart as an empty array
     }
+
     include('../includes/components/navbar.php');
     include('../includes/components/form.php');
     include('../includes/components/order.php');
     include('../includes/components/footer.php');
 
     include('../scripts/get_checkout_info.php');
-    include('../scripts/checkout_email.php');
 ?>
 
 <!DOCTYPE html>
