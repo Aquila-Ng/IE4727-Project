@@ -19,9 +19,11 @@
                 <h4 id="price-<?php echo htmlspecialchars($variantId); ?>">$<?php echo htmlspecialchars(number_format($price, 2)); ?></h4>
             </td>
             <td class="hug-column">
-                <?php
-                renderQuantityControl($variantId, $quantity, $maxQuantity);
-                ?>
+                <form class="p-0" id="cartQuantityChange-<?php echo htmlspecialchars($variantId); ?>" action="../scripts/cart_changes.php" method="GET">
+                    <?php
+                        renderQuantityControl($variantId, $quantity, $maxQuantity);
+                    ?>
+                </form>
             </td>
             <td>
                 <h4 id="subtotal-<?php echo htmlspecialchars($variantId); ?>">$<?php echo htmlspecialchars(number_format($price * $quantity, 2)); ?></h4>
