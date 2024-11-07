@@ -74,9 +74,6 @@ $orderItems = [
                 order_table($orderStatuses, $orderItems);
             ?>
         </div>
-        <?php
-             include('../includes/components/test-modal.php');
-        ?>
     </main>
     <script type="module" src="../assets/js/pages/admin.js"></script>
 </body>

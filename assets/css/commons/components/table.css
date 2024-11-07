@@ -26,11 +26,16 @@
   vertical-align: bottom;
   text-align: left;
 }
+.table tfoot {
+  background-color: var(--secondary-background-color);
+}
 
 .table .hug-column {
   width: auto;
 }
-
+.table .last-column {
+  display: inline-block;
+}
 /* Table striped rows */
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: rgba(0, 0, 0, 0.05);

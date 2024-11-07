@@ -2,22 +2,26 @@
 function navbar($flag) {
     // Start the session to access session variables
     session_start();
-    
-    // Check if the user is logged in
+    $isAdmin = false;
+    // Check if the user is logged in and their role is admin
     $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+
+    if ($isLoggedIn && isset($_SESSION['role']) && $_SESSION['role'] === "admin") {
+        $isAdmin = true;
+    }
     ?>
     <header>
         <nav class="navbar">
             <div class="container navbar-container">
                 <div class="col-left">
-                    <a href="index.php">
+                  <a href="<?php echo !$isAdmin ? htmlspecialchars("index.php") : htmlspecialchars("admin-order.php"); ?>">
                         <div class="logo-container">
                             <img src="../assets/icons/serene-logo.svg" alt="Logo" />
                             <h2 class="logo-font">Serene & Co</h2>
                         </div>
                     </a>
                 </div>
-                <?php if ($flag) { ?>
+                <?php if ($flag && !$isAdmin) { ?>
                     <div class="col-middle">
                         <ul class="navbar-menu">
                             <li><h4><a href="product-listing.php">All</a></h4></li>
@@ -86,7 +90,17 @@ function navbar($flag) {
                           </button>
                         </a>
                     </div>
+                <?php } else {?>
+                  <div class="col-middle">
+                        <ul class="navbar-menu">
+                             <li><h4><a href="admin-order.php">Orders</a></h4></li>
+                            <li><h4><a href="admin-category.php">Categories</a></h4></li>
+                            <li><h4><a href="admin-product.php">Products</a></h4></li>
+                            <li><h4><a href="admin-variant.php">Variants</a></h4></li>
+                        </ul>
+                  </div>
                 <?php } ?>
+
             </div>
         </nav>
     </header>
