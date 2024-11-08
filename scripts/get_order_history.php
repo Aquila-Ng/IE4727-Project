@@ -37,6 +37,7 @@
                     oi.id AS cartId,
                     p.name AS productName,
                     p.price,
+                    p.id AS productId,
                     v.id AS variantId,
                     oi.quantity,
                     v.image,
@@ -55,7 +56,7 @@
                 WHERE
                     email = ?   
                 ORDER BY 
-                    o.id, oi.id;
+                    o.id DESC, oi.id;
             ";
 
             $stmt = $conn -> prepare($query);
@@ -87,6 +88,7 @@
                     'cartId' => $row['cartId'],
                     'name' => $row['productName'],
                     'price' => $row['price'],
+                    'productId' => $row['productId'],
                     'variantId' => $row['variantId'],
                     'quantity' => $row['quantity'],
                     'image' => $row['image'],

@@ -27,7 +27,7 @@ function orderSummary($prices) {
     <?php
 }
 
-function orderHistoryRow($orderId, $name, $price, $variantId, $quantity, $image, $variantName) {
+function orderHistoryRow($orderId, $name, $price, $productId, $variantId, $quantity, $image, $variantName) {
     ?>
     <div class="row gap-3 my-3">
         <div class="col-2">
@@ -48,7 +48,9 @@ function orderHistoryRow($orderId, $name, $price, $variantId, $quantity, $image,
                 </div>
             </div>
             <div class="row d-flex justify-end mb-0">
-                <button data-variantId="<?php echo htmlspecialchars($variantId); ?>" class="btn btn-transparent"><h4 class="emphasized my-0">View Product</h4></button>
+                <a href="product-description.php?id=<?php echo htmlspecialchars($productId); ?>">
+                    <button data-variantId="<?php echo htmlspecialchars($variantId); ?>" class="btn btn-transparent"><h4 class="emphasized my-0">View Product</h4></button>
+                </a>
             </div>
         </div>
     </div>
@@ -80,6 +82,7 @@ function orderHistory($orderItems, $orderId, $date, $totalAmt) {
                 $item['orderId'],
                 $item['name'],
                 $item['price'],
+                $item['productId'],
                 $item['variantId'],
                 $item['quantity'],
                 $item['image'],

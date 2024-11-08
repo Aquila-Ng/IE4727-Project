@@ -1,5 +1,6 @@
 <?php
 // Check if constants are already defined before defining them
+
 if (!defined('MAILHOST')) {
     define('MAILHOST', "smtp.gmail.com");
 }
@@ -27,4 +28,5 @@ if (!defined('REPLY_TO')) {
 if (!defined('REPLY_TO_NAME')) {
     define('REPLY_TO_NAME', "Serene&Co.donotreply");
 }
+
 ?>

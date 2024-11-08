@@ -2,14 +2,24 @@
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-
 // Require the config.php file to use our Gmail account login details.
 
-require '../php_mail/config.php';
-// Require the path to the PHPMailer classes.
-require '../php_mail/PHPMailer-master/PHPMailer-master/src/Exception.php';
-require '../php_mail/PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
-require '../php_mail/PHPMailer-master/PHPMailer-master/src/SMTP.php';
+if (!include '../php_mail/config.php'){
+    require '../../php_mail/config.php';
+
+    // Require the path to the PHPMailer classes.
+    require '../../php_mail/PHPMailer-master/PHPMailer-master/src/Exception.php';
+    require '../../php_mail/PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
+    require '../../php_mail/PHPMailer-master/PHPMailer-master/src/SMTP.php';
+} 
+else {
+    require '../php_mail/config.php';
+
+    // Require the path to the PHPMailer classes.
+    require '../php_mail/PHPMailer-master/PHPMailer-master/src/Exception.php';
+    require '../php_mail/PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
+    require '../php_mail/PHPMailer-master/PHPMailer-master/src/SMTP.php';
+}
 
 function sendMail($email, $subject, $message) {
     $mail = new PHPMailer(true);

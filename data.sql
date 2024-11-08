@@ -17,7 +17,7 @@ CREATE TABLE `users` (
 CREATE TABLE `orders` (
   `id` integer PRIMARY KEY AUTO_INCREMENT,
   `user_id` integer NOT NULL,
-  `status` varchar(50) NOT NULL,
+  `status` integer NOT NULL,
   `total_amount` varchar(60) NOT NULL,
   `shipping_address` varchar(255) NOT NULL,
   `country` varchar(50) NOT NULL,
@@ -87,11 +87,11 @@ ALTER TABLE `variant_images` ADD FOREIGN KEY (`variant_id`) REFERENCES `variants
 
 -- Populate orders table with sample orders
 INSERT INTO orders (id, user_id, status, total_amount, shipping_address, country, postal_code, date_time) VALUES
-(1, 1, 'completed', '1425.00', '123 Main St, Apt 4B', 'USA', '10001', '2024-11-04 19:42:08'),
-(2, 2, 'processing', '875.00', '456 Elm St, Suite 300', 'Canada', 'M5V 2T6', '2024-11-04 19:42:08'),
-(3, 3, 'shipped', '1350.00', '789 Oak Rd, Floor 2', 'UK', 'SW1A 1AA', '2024-11-04 19:42:08'),
-(4, 1, 'completed', '925.00', '321 Pine Ave, Unit 5', 'USA', '94107', '2024-11-04 19:42:08'),
-(5, 4, 'processing', '600.00', '654 Maple Dr, Room 12', 'Australia', '3000', '2024-11-04 19:42:08');
+(1, 1, 4, '1425.00', '123 Main St, Apt 4B', 'USA', '10001', '2024-11-04 19:42:08'),
+(2, 2, 2, '875.00', '456 Elm St, Suite 300', 'Canada', 'M5V 2T6', '2024-11-04 19:42:08'),
+(3, 3, 5, '1350.00', '789 Oak Rd, Floor 2', 'UK', 'SW1A 1AA', '2024-11-04 19:42:08'),
+(4, 1, 4, '925.00', '321 Pine Ave, Unit 5', 'USA', '94107', '2024-11-04 19:42:08'),
+(5, 4, 2, '600.00', '654 Maple Dr, Room 12', 'Australia', '3000', '2024-11-04 19:42:08');
 
 INSERT INTO categories (id, name) VALUES 
 (1, 'Watches'), 

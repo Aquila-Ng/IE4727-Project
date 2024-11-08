@@ -2,7 +2,7 @@
     session_start();
 
     include "../includes/config/db_connect.php";
-
+    $old_email = $_SESSION['email'];
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $email = strtolower(filter_var($email, FILTER_VALIDATE_EMAIL));
@@ -39,11 +39,12 @@
                 $address,
                 $country,
                 $postal_code,
-                $email
+                $old_email
             );
             
             $stmt -> execute();
             $stmt -> close();
+            $_SESSION['email'] = $email;
         }
     }      
     header('Location: ../views/profile.php');
