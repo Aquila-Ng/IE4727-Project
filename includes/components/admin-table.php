@@ -4,16 +4,23 @@
         ?>
         <tr>
             <td class="hug-column">
-                <?php echo htmlspecialchars($categoryId); ?>
+                <p class="emphasized m-0"><?php echo htmlspecialchars($categoryId); ?></p>
             </td>
             <td>
-                <?php echo htmlspecialchars($categoryName); ?>
+                <p class="emphasized m-0"><?php echo htmlspecialchars($categoryName); ?></p>
             </td>
-            <td class="hug-column">
-            <a href="admin.php?categoryId=<?php echo htmlspecialchars($categoryId); ?>&categoryName=<?php echo htmlspecialchars($categoryName); ?>">
-                <button class='btn btn-warning btn-sm' onclick="openEditCategoryModal(<?php echo $categoryId; ?>, '<?php echo addslashes($categoryName); ?>')">Edit</button>
-             </a>
-                <button class='btn btn-danger btn-sm' onclick="deleteItem('deleteCategory', <?php echo $categoryId; ?>)">Delete</button>
+            <td class="hug-column flex-row gap-1">
+                <button class='btn btn-warning btn-sm' 
+                    onclick="openEditModal('editCategoryModal', this)"
+                    data-id="<?php echo htmlspecialchars($categoryId); ?>"
+                    data-name="<?php echo htmlspecialchars($categoryName); ?>">
+                    Edit
+                </button>
+                <form class="m-0 p-0" action="../includes/scripts/delete.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this category?');">
+                    <input type="hidden" name="id" value="<?php echo $categoryId; ?>">
+                    <input type="hidden" name="action" value="deleteCategory">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
             </td>
         </tr>
         <?php
@@ -38,6 +45,12 @@
                     category_row($categoryItem['id'], $categoryItem['name']);
                 } ?>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><button class='btn btn-success btn-sm' onclick="openAddModal('addCategoryModal')">Add Category</button></td>
+                    </tr>
+                </tfoot>
             </table>
             <?php
         }
@@ -50,25 +63,34 @@
         ?>
         <tr>
             <td class="hug-column">
-                <?php echo htmlspecialchars($productId); ?>
+                <p class="emphasized m-0"><?php echo htmlspecialchars($productId); ?></p>
             </td>
             <td>
-                <?php echo htmlspecialchars($productName); ?>
+                <p class="emphasized m-0"><?php echo htmlspecialchars($productName); ?></p>
             </td>
             <td>
-                <?php echo htmlspecialchars($categoryName); ?>
+                <p class="emphasized m-0"><?php echo htmlspecialchars($categoryName); ?></p>
             </td>
             <td>
                 <?php echo htmlspecialchars($productDescription); ?>
             </td>
             <td>
-                $<?php echo htmlspecialchars(number_format($productPrice, 2)); ?> <!-- Corrected number_format function -->
+                <p class="emphasized m-0">$<?php echo htmlspecialchars(number_format($productPrice, 2)); ?></p> <!-- Corrected number_format function -->
             </td>
-            <td class="hug-column">
-                <a href="admin.php?productId=<?php echo htmlspecialchars($productId); ?>&productName=<?php echo htmlspecialchars($productName); ?>&productPrice=<?php echo htmlspecialchars($productPrice); ?>&productCategoryId=<?php echo htmlspecialchars($categoryId); ?>">
-                    <button class='btn btn-warning btn-sm' onclick="openEditProductModal(<?php echo $productId; ?>, '<?php echo addslashes($productName); ?>', <?php echo $categoryId; ?>, '<?php echo addslashes($productDescription); ?>', <?php echo $productPrice; ?>)">Edit</button>
-                 </a>
-                <button class='btn btn-danger btn-sm' onclick="deleteItem('deleteProduct', <?php echo $productId; ?>)">Delete</button>
+            <td class="hug-column flex-row gap-1">
+                <button class='btn btn-warning btn-sm' 
+                    onclick="openEditModal('editProductModal', this)"
+                    data-id="<?php echo htmlspecialchars($productId); ?>" 
+                    data-name="<?php echo htmlspecialchars($productName); ?>" 
+                    data-description="<?php echo htmlspecialchars($productDescription); ?>"
+                    data-price="<?php echo htmlspecialchars($productPrice); ?>"
+                    data-categoryId="<?php echo htmlspecialchars($categoryId); ?>"
+                >Edit</button>
+                <form class="m-0 p-0" action="../includes/scripts/delete.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this category?');">
+                    <input type="hidden" name="id" value="<?php echo $productId; ?>">
+                    <input type="hidden" name="action" value="deleteProduct">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
             </td>
         </tr>
         <?php
@@ -85,7 +107,7 @@
                     <tr>
                         <th><h3 class="emphasized px-2">ID</h3></th>
                         <th><h3 class="emphasized px-2">Name</h3></th>
-                        <th><h3 class="emphasized px-2">Category Name</h3></th>
+                        <th><h3 class="emphasized px-2">Category</h3></th>
                         <th><h3 class="emphasized px-2">Description</h3></th>
                         <th><h3 class="emphasized px-2">Price</h3></th>
                         <th class="last-column"><h3 class="emphasized px-2">Action</h3></th>
@@ -96,6 +118,12 @@
                     product_row($productItem['id'], $productItem['name'], $productItem['category_id'], $productItem['category_name'], $productItem['description'], $productItem['price']);
                 } ?>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5"></td>
+                        <td><button class='btn btn-success btn-sm' onclick="openAddModal('addProductModal')">Add Product</button></td>
+                    </tr>
+                </tfoot>
             </table>
             <?php
         }
@@ -108,28 +136,37 @@
         ?>
         <tr>
             <td class="hug-column">
-                <?php echo htmlspecialchars($variantId); ?>
+                <p class="emphasized m-0"><?php echo htmlspecialchars($variantId); ?></p>
             </td>
             <td>
-                <?php echo htmlspecialchars($variantName); ?>
+                <p class="emphasized m-0"><?php echo htmlspecialchars($variantName); ?></p>
             </td>
             <td>
-                <?php echo htmlspecialchars($productName); ?>
+                <p class="emphasized m-0"><?php echo htmlspecialchars($productName); ?></p>
             </td>
             <td>
-                <?php echo htmlspecialchars($variantColor); ?>
+                <p class="emphasized m-0"><?php echo htmlspecialchars($variantColor); ?></p>
             </td>
             <td>
-                <?php echo htmlspecialchars($variantQuantity); ?>
+                <p class="emphasized m-0"><?php echo htmlspecialchars($variantQuantity); ?></p>
             </td>
             <td>
                 <?php echo htmlspecialchars($variantImage); ?>
             </td>
-            <td class="hug-column">
-                <a href="admin.php?variantId=<?php echo htmlspecialchars($variantId); ?>&variantName=<?php echo htmlspecialchars($variantName); ?>&variantColor=<?php echo htmlspecialchars($variantColor); ?>&variantQuantity=<?php echo (int)htmlspecialchars($variantQuantity); ?>&variantImage=<?php echo htmlspecialchars($variantImage); ?>&variantProductId=<?php echo htmlspecialchars($productId); ?>">
-                    <button class='btn btn-warning btn-sm' onclick="openEditVariantModal(<?php echo $variantId; ?>, '<?php echo addslashes($variantName); ?>', <?php echo $productId; ?>, '<?php echo addslashes($variantColor); ?>', <?php echo $variantQuantity; ?>)">Edit</button>
-                </a>
-                <button class='btn btn-danger btn-sm' onclick="deleteItem('deleteVariant', <?php echo $variantId; ?>)">Delete</button>
+            <td class="hug-column flex-row gap-1">
+                <button class='btn btn-warning btn-sm' 
+                    onclick="openEditModal('editVariantModal', this)" 
+                    data-id="<?php echo htmlspecialchars($variantId); ?>" 
+                    data-name="<?php echo htmlspecialchars($variantName); ?>" 
+                    data-productId="<?php echo htmlspecialchars($productId); ?>"
+                    data-variantColor="<?php echo htmlspecialchars($variantColor); ?>"
+                    data-variantQuantity="<?php echo htmlspecialchars($variantQuantity); ?>"
+                    data-variantImage="<?php echo htmlspecialchars($variantImage); ?>">Edit</button>
+                <form class="m-0 p-0" action="../includes/scripts/delete.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this category?');">
+                    <input type="hidden" name="id" value="<?php echo $variantId; ?>">
+                    <input type="hidden" name="action" value="deleteVariant">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
             </td>
         </tr>
         <?php
@@ -146,7 +183,7 @@
                     <tr>
                         <th><h3 class="emphasized px-2">ID</h3></th>
                         <th><h3 class="emphasized px-2">Name</h3></th>
-                        <th><h3 class="emphasized px-2">Product Name</h3></th>
+                        <th><h3 class="emphasized px-2">Product</h3></th>
                         <th><h3 class="emphasized px-2">Color</h3></th>
                         <th><h3 class="emphasized px-2">Quantity</h3></th>
                         <th><h3 class="emphasized px-2">Image Url</h3></th>
@@ -158,6 +195,12 @@
                     variant_row($variantItem['id'], $variantItem['name'], $variantItem['product_id'], $variantItem['product_name'], $variantItem['color'], $variantItem['quantity'],  $variantItem['image']);
                 } ?>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6"></td>
+                        <td><button class='btn btn-success btn-sm' onclick="openAddModal('addVariantModal')">Add Variant</button></td>
+                    </tr>
+                </tfoot>
             </table>
             <?php
         }

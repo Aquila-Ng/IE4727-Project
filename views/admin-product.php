@@ -1,17 +1,7 @@
 <?php
  include('../includes/components/navbar.php');
  include('../includes/components/admin-table.php');
-//  include("../includes/db_connect.php");
-include('../includes/config/db_connect.php');
-// Categories Query
-$categoryItems = [];
-$result = $conn->query("SELECT id, name FROM categories");
-while ($row = $result->fetch_assoc()) {
-    $categoryItems[] = [
-        'id' => $row['id'],
-        'name' => $row['name']
-    ];
-}
+ include("../includes/config/db_connect.php");
 
 // Products Query
 $productItems = [];
@@ -37,31 +27,6 @@ while ($row = $result->fetch_assoc()) {
     ];
 }
 
-// Variants Query
-$variantItems = [];
-$result = $conn->query("
-    SELECT 
-        v.id,
-        v.name,
-        v.product_id,
-        p.name AS product_name,
-        v.color,
-        v.quantity,
-        v.image
-    FROM variants v
-    JOIN products p ON v.product_id = p.id
-");
-while ($row = $result->fetch_assoc()) {
-    $variantItems[] = [
-        'id' => $row['id'],
-        'name' => $row['name'],
-        'product_id' => $row['product_id'],
-        'product_name' => $row['product_name'],
-        'color' => $row['color'],
-        'quantity' => $row['quantity'],
-        'image' => $row['image']
-    ];
-}
 
 
 ?>
@@ -86,22 +51,16 @@ while ($row = $result->fetch_assoc()) {
     ?>
     <main>
         <div class="container pt-2">
-            <h2 class="emphasized">Categories</h2>
-            <?php
-                category_table($categoryItems);
-            ?>
-        </div>
-        <div class="container pt-2">
             <h2 class="emphasized">Products</h2>
             <?php
                 product_table($productItems);
             ?>
         </div>
         <?php
-             include('../includes/components/test-modal.php');
+             include('../includes/components/product-modal.php');
         ?>
     </main>
-    <script type="module" src="../assets/js/pages/admin.js"></script>
+    <script type="module" src="../assets/js/pages/admin-product.js"></script>
 </body>
 </html>
 

@@ -107,7 +107,7 @@ foreach ($results as $row) {
     ];
 }
 
-$inValid=true;
+$inValid=false;
 $errorMessage="error Message";
 
 ?>

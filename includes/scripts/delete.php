@@ -1,10 +1,11 @@
 <?php
-include 'db_connect.php';
+include '../config/db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['action'])) {
         $action = $_POST['action'];
         $id = $_POST['id'];
+        echo "$id $action";
         if ($action == 'deleteCategory') {
             // First, delete all variants associated with products in the category
             $stmt = $conn->prepare("DELETE FROM variants WHERE product_id IN (SELECT id FROM products WHERE category_id = ?)");
@@ -23,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt3->bind_param("i", $id);
             $stmt3->execute();
             $stmt3->close();
+            header('Location: ../../views/admin-category.php');
 
         }
         if ($action == 'deleteProduct') {
@@ -37,6 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt2->bind_param("i", $id);
             $stmt2->execute();
             $stmt2->close();
+
+            header('Location: ../../views/admin-product.php');
+
         }
 
         if ($action == 'deleteVariant') {
@@ -45,6 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $stmt->close();
+
+            header('Location: ../../views/admin-variant.php');
+
         }
     }
 }

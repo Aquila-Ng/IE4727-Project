@@ -13,7 +13,7 @@
         }
         else {
             // User is logged in as admin
-            header("Location: ./admin.php"); // Redirect to admin page
+            header("Location: ./admin-order.php"); // Redirect to admin page
             exit; // Stop further execution after redirect
         }
     } 
@@ -48,7 +48,7 @@
                     $_SESSION['role'] = $user['role'];
 
                     if ($user["role"] === 'admin'){
-                        header('Location: ./admin.php');
+                        header('Location: ./admin-order.php');
                     }
                     else {
                         header('Location: ./index.php');

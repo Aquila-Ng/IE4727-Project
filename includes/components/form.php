@@ -37,7 +37,7 @@ function renderSectionDescription($title, $description) {
 function authForm($formType) {
     $isLogin = $formType === 'login';
     $isInvalid=false;
-    $isSuccessful=true;
+    $isSuccessful=false;
     $errorMessage="Error Message";
     $successMessage="Account has been successfully registered.";
 
@@ -109,7 +109,7 @@ function authForm($formType) {
 // Function to generate the profile detail form
 function profileForm($userDetails) {
     $isInvalid=false;
-    $isSuccessful=true;
+    $isSuccessful=false;
     $errorMessage="Details is not in the correct format.";
     $successMessage="Details has been changed successfully.";
     $isPasswordInvalid=false;

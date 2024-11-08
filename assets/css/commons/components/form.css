@@ -173,7 +173,11 @@ form a:hover::after {
 
 /* Styling for the range sliders */
 .slider {
+  -webkit-appearance: none;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: var(--spacing-lg);
 }
 
@@ -182,6 +186,7 @@ input[type="range"] {
   width: 100%;
   background: transparent;
   position: absolute;
+  left: 0px;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
@@ -191,6 +196,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
   -webkit-appearance: none;
   height: 16px;
   width: 16px;

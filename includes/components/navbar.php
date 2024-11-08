@@ -2,22 +2,27 @@
 function navbar($flag) {
     // Start the session to access session variables
     session_start();
-    
-    // Check if the user is logged in
+    $isAdmin = false;
+    // Check if the user is logged in and their role is admin
     $isLoggedIn = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+
+    if ($isLoggedIn && isset($_SESSION['role']) && $_SESSION['role'] === "admin") {
+        $isAdmin = true; 
+    }
     ?>
     <header>
         <nav class="navbar">
             <div class="container navbar-container">
                 <div class="col-left">
-                    <a href="index.php">
+                  <a href="<?php echo !$isAdmin ? htmlspecialchars("index.php") : htmlspecialchars("admin-order.php"); ?>">
                         <div class="logo-container">
                             <img src="../assets/icons/serene-logo.svg" alt="Logo" />
                             <h2 class="logo-font">Serene & Co</h2>
                         </div>
                     </a>
                 </div>
-                <?php if ($flag) { ?>
+                <?php if ($flag) { 
+                          if(!$isAdmin){?>
                     <div class="col-middle">
                         <ul class="navbar-menu">
                             <li><h4><a href="product-listing.php">All</a></h4></li>
@@ -86,7 +91,36 @@ function navbar($flag) {
                           </button>
                         </a>
                     </div>
-                <?php } ?>
+                <?php } else {?>
+                  <div class="col-middle">
+                        <ul class="navbar-menu">
+                             <li><h4><a href="admin-order.php">Orders</a></h4></li>
+                            <li><h4><a href="admin-category.php">Categories</a></h4></li>
+                            <li><h4><a href="admin-product.php">Products</a></h4></li>
+                            <li><h4><a href="admin-variant.php">Variants</a></h4></li>
+                        </ul>
+                  </div>
+                  <div class="col-right justify-end">
+                    <div class="dropdown">
+                        <button class="icon-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                              <a href="../scripts/logout.php" class="item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                                  <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                                  <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                                </svg>
+                                <h5 class="m-1">Logout</h5>
+                              </a>
+                        </div>
+                    </div>
+                  </div>
+                <?php 
+                  } 
+                }?>
             </div>
         </nav>
     </header>

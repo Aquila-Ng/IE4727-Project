@@ -24,7 +24,7 @@
             get_price($cartItems, $prices);
         }
         else if ($_SESSION['role'] === "admin"){
-            header("Location: ./admin.php"); // Redirect to admin page
+            header("Location: ./admin-order.php"); // Redirect to admin page
         }
     }
     else {

@@ -3,18 +3,18 @@
     include('../includes/components/footer.php');
     include('../includes/components/admin-table.php');
     include('../scripts/admin_get_order.php');
-    
-    // Sample order statuses array
-    $orderStatuses = [
-        1 => 'Pending',
-        2 => 'Processing',
-        3 => 'On Hold',
-        4 => 'Completed',
-        5 => 'Shipped',
-        6 => 'Cancelled',
-        7 => 'Refunded',
-        8 => 'Failed'
-    ];
+
+ // Sample order statuses array
+$orderStatuses = [
+    1 => 'Pending',
+    2 => 'Processing',
+    3 => 'On Hold',
+    4 => 'Completed',
+    5 => 'Shipped',
+    6 => 'Cancelled',
+    7 => 'Refunded',
+    8 => 'Failed'
+];
 
 // Sample order items array
 // $orderItems = [
@@ -75,9 +75,6 @@
                 order_table($orderStatuses, $orderItems);
             ?>
         </div>
-        <?php
-             include('../includes/components/test-modal.php');
-        ?>
     </main>
     <script type="module" src="../assets/js/pages/admin.js"></script>
 </body>

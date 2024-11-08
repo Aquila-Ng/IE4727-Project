@@ -67,7 +67,7 @@
     //     ]
     // ];
 
-    $isInValid=true;
+    $isInValid=false;
     $errorMessage="Nothing in the cart.";
 ?>
 
