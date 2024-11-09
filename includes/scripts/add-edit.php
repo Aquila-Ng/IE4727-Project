@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Add Category
         if ($action == 'addCategory') {
             $name = $_POST['name'];
-            $add_query = "INSERT INTO categories (NAME) VALUES (?)";
+            $add_query = "INSERT INTO categories (name) VALUES (?)";
             $stmt = $conn -> prepare($add_query);
             $stmt -> bind_param('s', $name);
             $stmt -> execute();
@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt -> bind_param('si', $name, $id);
             $stmt -> execute();
             $stmt -> close();
+
             header('Location: ../../views/admin-category.php');
         }
 
@@ -66,6 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bind_param("issis", $product_id, $name, $color, $quantity, $image); // Corrected binding types and added imageUrl as a string
             $stmt->execute();
             $stmt->close();
+            $stmt = $conn->prepare("INSERT INTO variant_images (variant_id, image) VALUES ((SELECT id FROM variants ORDER BY id DESC LIMIT 1), ?);");
+            $stmt->bind_param("s", $image); // Corrected binding types and added imageUrl as a string
+            $stmt->execute();
+            $stmt->close();
             header('Location: ../../views/admin-variant.php');
         }
 
@@ -79,6 +84,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $product_id = $_POST['product_id'];
             $stmt = $conn->prepare("UPDATE variants SET product_id = ?, name = ?, color = ?, quantity = ?, image = ? WHERE id = ?");
             $stmt->bind_param("issisi", $product_id, $name, $color, $quantity, $image, $id); // Corrected binding types
+            $stmt->execute();
+            $stmt->close();
+
+            // Update `variant_images` table for the latest variant
+            $stmt = $conn->prepare("UPDATE variant_images SET image = ? WHERE variant_id = ?");
+            $stmt->bind_param("si", $image, $id); // Binding `image` as the updated image URL
             $stmt->execute();
             $stmt->close();
             header('Location: ../../views/admin-variant.php');

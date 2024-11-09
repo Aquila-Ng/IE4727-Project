@@ -113,7 +113,7 @@ function profileForm($userDetails) {
     $errorMessage="Details is not in the correct format.";
     $successMessage="Details has been changed successfully.";
     $isPasswordInvalid=false;
-    $isPasswordSuccessful=true;
+    $isPasswordSuccessful=false;
     $passwordErrorMessage="Password is not in the correct format.";
     $passwordSuccessMessage="Password has been changed successfully.";
     ?>
@@ -214,7 +214,7 @@ function profileForm($userDetails) {
 
 // Function to generate the checkout form
 function checkoutForm($userDetails) {
-    $isInvalid=true;
+    $isInvalid=false;
     $errorMessage="Details is not in the correct format.";
     ?>
         <div class="col-9">

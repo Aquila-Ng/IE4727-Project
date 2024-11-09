@@ -47,7 +47,7 @@ while ($row = $result->fetch_assoc()) {
 </head>
 <body class="m-0">
     <?php
-       navbar(false);
+       navbar(true);
     ?>
     <main>
         <div class="container pt-2">

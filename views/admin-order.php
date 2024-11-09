@@ -66,7 +66,7 @@ $orderStatuses = [
 </head>
 <body class="m-0">
     <?php
-       navbar(false);
+       navbar(true);
     ?>
     <main>
         <div class="container pt-2">

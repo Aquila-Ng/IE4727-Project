@@ -39,22 +39,22 @@
             if ($variant_id_count) {
                 
                 $query = "
-                SELECT 
-                    products.name, 
-                    products.price, 
-                    variants.id,
-                    variants.quantity, 
-                    variants.image, 
-                    variants.name AS variant_name 
-                FROM 
-                    variants
-                JOIN 
-                    products
-                ON 
-                    products.id = variants.product_id 
-                WHERE 
-                    variants.id 
-                IN ( $variant_id_count )";
+                    SELECT 
+                        products.name, 
+                        products.price, 
+                        variants.id,
+                        variants.quantity, 
+                        variants.image, 
+                        variants.name AS variant_name 
+                    FROM 
+                        variants
+                    JOIN 
+                        products
+                    ON 
+                        products.id = variants.product_id 
+                    WHERE 
+                        variants.id 
+                    IN ( $variant_id_count )";
                 
                 $stmt = $conn->prepare($query);
                 $stmt-> execute($variant_ids);

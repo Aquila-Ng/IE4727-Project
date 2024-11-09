@@ -153,12 +153,11 @@
                 $total_amount = (float)$prices['total'];
                 
                 // Insert into `orders` table
-                $orderQuery = "INSERT INTO orders (user_id, status, total_amount, shipping_address, country, postal_code) VALUES (?, 'processing', ?, ?, ?, ?)";
+                $orderQuery = "INSERT INTO orders (user_id, status, total_amount, shipping_address, country, postal_code) VALUES (?, 1, ?, ?, ?, ?)";
                 $stmtOrder = $conn->prepare($orderQuery);
                 $stmtOrder->bind_param("idsss", $user_id, $total_amount, $shipping_address, $country, $postal_code);
-
+                
                 if ($stmtOrder->execute()) {
-                    
                     // Get the last inserted `order_id`
                     $order_id = $conn->insert_id;
 
@@ -182,6 +181,7 @@
                         // Bind parameters and execute the statement to update stock
                         $stmtStock->bind_param("ii", $quantity, $variant_id);
                         $stmtStock->execute();
+                        echo "Order Updated";
                     }
                 }
 

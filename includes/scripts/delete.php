@@ -5,8 +5,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['action'])) {
         $action = $_POST['action'];
         $id = $_POST['id'];
-        echo "$id $action";
+        // echo "$id $action";
         if ($action == 'deleteCategory') {
+            // First, delete all variants associated with product
+            $stmt = $conn->prepare("DELETE FROM variant_images WHERE variant_id IN ( SELECT id FROM variants WHERE product_id IN (SELECT id FROM products WHERE category_id = ?))");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $stmt->close();
+
             // First, delete all variants associated with products in the category
             $stmt = $conn->prepare("DELETE FROM variants WHERE product_id IN (SELECT id FROM products WHERE category_id = ?)");
             $stmt->bind_param("i", $id);
@@ -29,6 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         if ($action == 'deleteProduct') {
             // First, delete all variants associated with product
+            $stmt = $conn->prepare("DELETE FROM variant_images WHERE variant_id IN (SELECT id FROM variants WHERE product_id = ?);");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $stmt->close();
+
+            // First, delete all variants associated with product
             $stmt = $conn->prepare("DELETE FROM variants WHERE product_id =?");
             $stmt->bind_param("i", $id);
             $stmt->execute();
@@ -45,14 +57,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         if ($action == 'deleteVariant') {
-            // Delete variant
-            $stmt = $conn->prepare("DELETE FROM variants WHERE id =?");
+            // Delete variant_image
+            $stmt = $conn->prepare("DELETE FROM variant_images WHERE variant_id = ?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $stmt->close();
+
+            // Delete variant 
+            $stmt = $conn->prepare("DELETE FROM variants WHERE id = ?");
             $stmt->bind_param("i", $id);
             $stmt->execute();
             $stmt->close();
 
             header('Location: ../../views/admin-variant.php');
-
         }
     }
 }
