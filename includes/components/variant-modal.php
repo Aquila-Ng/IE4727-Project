@@ -126,7 +126,7 @@ renderModal(
         'action' => 'editVariant',           // Hidden action field for form processing
         'hidden_id' => 'editVariantId',      // Hidden input for the variant ID
         'actions' => [
-            ['type' => 'submit', 'class' => 'btn-warning', 'label' => 'Edit'],
+            ['type' => 'submit', 'class' => 'btn-warning', 'label' => 'Update'],
             ['type' => 'button', 'class' => 'btn-transparent', 'label' => 'Cancel', 'onclick' => 'closeModal("editVariantModal");']
         ]
     ]

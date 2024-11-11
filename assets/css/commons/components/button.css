@@ -56,7 +56,7 @@
 }
 
 .btn-success:hover {
-  background-color: darken(var(--success-color), 10%);
+  background-color: color-mix(in srgb, var(--success-color), black 10%);
 }
 
 /* Danger Button */
@@ -66,7 +66,7 @@
 }
 
 .btn-danger:hover {
-  background-color: darken(var(--error-color), 10%);
+  background-color: color-mix(in srgb, var(--error-color), black 10%);
 }
 
 /* Optional: Disabled button state */

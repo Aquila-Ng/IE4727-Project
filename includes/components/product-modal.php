@@ -105,7 +105,7 @@ renderModal(
         'action' => 'editProduct',          // Hidden action field for form processing
         'hidden_id' => 'editProductId',    // Hidden input for the product ID
         'actions' => [
-            ['type' => 'submit', 'class' => 'btn-warning', 'label' => 'Edit'],
+            ['type' => 'submit', 'class' => 'btn-warning', 'label' => 'Update'],
             ['type' => 'button', 'class' => 'btn-transparent', 'label' => 'Cancel', 'onclick' => 'closeModal("editProductModal")']
         ]
     ]

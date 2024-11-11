@@ -33,8 +33,12 @@
         } else {
             ?>
             <table class="table mb-2">
-                <thead style="background-color: var(--secondary-background-color);">
+                <thead>
                     <tr>
+                        <td colspan="2"></td>
+                        <td><button class='btn btn-success btn-sm' onclick="openAddModal('addCategoryModal')">Add Category</button></td>
+                    </tr>
+                    <tr style="background-color: var(--secondary-background-color);">
                         <th><h3 class="emphasized px-2">ID</h3></th>
                         <th><h3 class="emphasized px-2">Name</h3></th>
                         <th class="last-column"><h3 class="emphasized px-2">Action</h3></th>
@@ -45,12 +49,6 @@
                     category_row($categoryItem['id'], $categoryItem['name']);
                 } ?>
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2"></td>
-                        <td><button class='btn btn-success btn-sm' onclick="openAddModal('addCategoryModal')">Add Category</button></td>
-                    </tr>
-                </tfoot>
             </table>
             <?php
         }
@@ -103,8 +101,12 @@
         } else {
             ?>
             <table class="table">
-                <thead style="background-color: var(--secondary-background-color);">
+                <thead>
                     <tr>
+                        <td colspan="5"></td>
+                        <td><button class='btn btn-success btn-sm' onclick="openAddModal('addProductModal')">Add Product</button></td>
+                    </tr>
+                    <tr  style="background-color: var(--secondary-background-color);">
                         <th><h3 class="emphasized px-2">ID</h3></th>
                         <th><h3 class="emphasized px-2">Name</h3></th>
                         <th><h3 class="emphasized px-2">Category</h3></th>
@@ -118,12 +120,6 @@
                     product_row($productItem['id'], $productItem['name'], $productItem['category_id'], $productItem['category_name'], $productItem['description'], $productItem['price']);
                 } ?>
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="5"></td>
-                        <td><button class='btn btn-success btn-sm' onclick="openAddModal('addProductModal')">Add Product</button></td>
-                    </tr>
-                </tfoot>
             </table>
             <?php
         }
@@ -179,8 +175,12 @@
         } else {
             ?>
             <table class="table">
-                <thead style="background-color: var(--secondary-background-color);">
+                <thead>
                     <tr>
+                        <td colspan="6"></td>
+                        <td><button class='btn btn-success btn-sm' onclick="openAddModal('addVariantModal')">Add Variant</button></td>
+                    </tr>
+                    <tr style="background-color: var(--secondary-background-color);">
                         <th><h3 class="emphasized px-2">ID</h3></th>
                         <th><h3 class="emphasized px-2">Name</h3></th>
                         <th><h3 class="emphasized px-2">Product</h3></th>
@@ -195,12 +195,6 @@
                     variant_row($variantItem['id'], $variantItem['name'], $variantItem['product_id'], $variantItem['product_name'], $variantItem['color'], $variantItem['quantity'],  $variantItem['image']);
                 } ?>
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="6"></td>
-                        <td><button class='btn btn-success btn-sm' onclick="openAddModal('addVariantModal')">Add Variant</button></td>
-                    </tr>
-                </tfoot>
             </table>
             <?php
         }

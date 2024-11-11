@@ -31,7 +31,7 @@ renderModal(
         'action' => 'editCategory', // Hidden action field for form processing
         'hidden_id' => 'editCategoryId', // Hidden input for the category ID
         'actions' => [
-            ['type' => 'submit', 'class' => 'btn-warning', 'label' => 'Edit'],
+            ['type' => 'submit', 'class' => 'btn-warning', 'label' => 'Update'],
             ['type' => 'button', 'class' => 'btn-transparent', 'label' => 'Cancel', 'onclick' => 'closeModal("editCategoryModal")']
         ]
     ]
