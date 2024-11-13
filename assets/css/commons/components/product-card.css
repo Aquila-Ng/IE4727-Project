@@ -1,0 +1,85 @@
+/* Product Card Styles */
+.product-card {
+  width: 250px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  max-height: 400px;
+}
+.product-card.animated {
+  opacity: 0; /* Start invisible */
+  transform: translateY(20px); /* Move down slightly */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.product-card.animated.fade-in {
+  opacity: 1; /* Make visible */
+  transform: translateY(0); /* Move back to original position */
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* Product Image Wrapper */
+.product-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1;
+}
+
+/* Image inside the Wrapper */
+.cart-image,
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.product-image {
+  transition: transform 0.3s ease;
+}
+
+.variant-option {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.variant-option:hover {
+  transform: scale(1.1);
+}
+
+.variant-option.selected {
+  border: 2px solid var(--border-color-dark);
+  transition: var(--primary-color) 0.3s ease-in-out;
+}
+
+.variant-option.strikethrough::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 138%;
+  height: 1px; /* Adjust the thickness of the strikethrough line */
+  background-color: var(
+    --border-color-dark
+  ); /* Adjust the color of the strikethrough line */
+  transform: rotate(-45deg); /* Angle the line */
+  transform-origin: top left;
+}
+
+/* Product Name and Price */
+.product-title {
+  margin: var(--spacing-none) var(--spacing-none) var(--spacing-2xs)
+    var(--spacing-none);
+}

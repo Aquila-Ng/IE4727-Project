@@ -1,0 +1,56 @@
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay color */
+  z-index: 1000; /* Make sure it is above other content */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+}
+
+.modal-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1;
+}
+
+/* Image inside the Wrapper */
+.modal-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Button styling */
+.open-modal button,
+.close-modal button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}

@@ -1,0 +1,23 @@
+@import url("./components/button.css");
+@import url("./components/product-card.css");
+@import url("./components/cart.css");
+@import url("./components/order.css");
+@import url("./components/carousel.css");
+@import url("./components/footer.css");
+@import url("./components/form.css");
+@import url("./components/navbar.css");
+@import url("./components/table.css");
+@import url("./components/product-description.css");
+@import url("./components/quantity-control.css");
+@import url("./components/filter-and-sort.css");
+@import url("./components/dropdown.css");
+@import url("./components/modal.css");
+
+a {
+  color: var(--primary-text-color);
+  text-decoration: none;
+}
+
+.inactive {
+  cursor: not-allowed;
+}

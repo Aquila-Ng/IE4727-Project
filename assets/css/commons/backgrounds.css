@@ -1,0 +1,43 @@
+html,
+body {
+  height: 100%;
+  font-family: var(--font-text);
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(
+    45deg,
+    var(--beige-100),
+    var(--beige-500),
+    var(--beige-900)
+  );
+  background-size: 300% 300%;
+  animation: gradientAnimation 8s ease infinite;
+}
+
+/* Danger Button */
+.danger {
+  background-color: var(--error-color); /* Danger color (error) */
+  color: var(--on-error-color); /* Text color for error button */
+}
+
+.success {
+  background-color: var(--success-color); /* Use defined success color */
+  color: var(
+    --on-success-color
+  ); /* Use a text color that contrasts with the success button */
+}
