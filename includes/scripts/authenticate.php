@@ -31,26 +31,37 @@
         
         $email_bool = validate($email, $email_regex, $email_err);
         $password_bool = validate($password, $password_regex, $password_err);
-
+        
         if ($email_bool && $password_bool){
-            $stmt = $conn -> prepare("SELECT email, password, role FROM users WHERE email = ?");
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            $stmt = $conn->prepare("SELECT email, password, role FROM users WHERE email = ?");
+            if (!$stmt) {
+                die("Prepare failed: " . $conn->error);
+            }
             $stmt -> bind_param("s", $email);
             $stmt -> execute();
+            
             $result = $stmt->get_result();
+            
             if ($result -> num_rows == 1) {
                 $user = $result -> fetch_assoc();
-
+                
                 if (password_verify($password, $user["password"])){
                     session_start();
-
+                    
                     $_SESSION['logged_in'] = true;
                     $_SESSION['email'] = $user['email'];
                     $_SESSION['role'] = $user['role'];
-
+                    
                     if ($user["role"] === 'admin'){
+                        
                         header('Location: ./admin-order.php');
                     }
                     else {
+                        
+                        
                         header('Location: ./index.php');
                     }
                     exit;

@@ -2,7 +2,7 @@
     session_start();
     if ($_SERVER['REQUEST_METHOD'] == "GET"){
         add_to_cart($_GET["variantId"], $_GET["quantity"]);
-        header("Location: ../views/cart.php");
+        header("Location: ../../views/cart.php");
         // header("Location: {$_SERVER['HTTP_REFERER']}");
     }
     function add_to_cart($variant_id, $quantity) {

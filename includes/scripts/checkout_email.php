@@ -1,9 +1,8 @@
 <?php
     session_start();
-    
-    require '../php_mail/config.php';
-    require '../php_mail/script.php';
-    include "../includes/config/db_connect.php";
+    require '../../php_mail/config.php';
+    require '../../php_mail/script.php';
+    include "../config/db_connect.php";
     
     $email = $_SESSION['email'];
     
@@ -122,10 +121,9 @@
 
     // Send email
     if (sendMail($to, $subject, $message)) {
-        // echo "Receipt sent to $to.";
+        echo "Receipt sent to $to.";
     } else {
-        // echo "Error sending receipt.";
-        // Error Message here
+        echo "Error sending receipt.";
     }
 
     $conn->close();

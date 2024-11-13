@@ -8,7 +8,7 @@
         'gst' => 0,
         'total' => 0
     ];
-    
+
     if (isset($_SESSION['logged_in']) || ($_SESSION['logged_in'] == true)){
         if ($_SESSION['role'] === "user"){
             get_order_history($allOrderItems);
@@ -34,6 +34,7 @@
                     o.id AS orderId,
                     o.date_time AS date,
                     o.total_amount AS totalAmt,
+                    o.status AS status,
                     oi.id AS cartId,
                     p.name AS productName,
                     p.price,
@@ -62,7 +63,7 @@
             $stmt = $conn -> prepare($query);
             $stmt -> bind_param('s', $email);
             $stmt -> execute();
-
+            
             $result = $stmt -> get_result();
 
             $currentOrderId = null;

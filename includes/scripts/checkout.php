@@ -1,7 +1,6 @@
 <?php
     session_start();
-
-    include "../includes/config/db_connect.php";
+    include "../config/db_connect.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cartItems = [];
@@ -16,14 +15,14 @@
         update_user_profile();
         get_items_and_prices($cartItems, $prices);
         new_order($cartItems, $prices);
-        include('../scripts/checkout_email.php');
+        include "../scripts/checkout_email.php";
         $_SESSION['cart'] = [];
-        header('Location: ../views/index.php');
+        header('Location: ../../views/index.php');
     }
     
     function update_user_profile(){
-        include "../includes/config/db_connect.php";
-
+        include "../config/db_connect.php";
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
             $email = filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -65,12 +64,13 @@
                 
                 $stmt -> execute();
                 $stmt -> close();
+                
             }
         }      
     }
 
     function get_items_and_prices(&$cartItems, &$prices){
-        include '../includes/config/db_connect.php';
+        include '../config/db_connect.php';
         
         if (!empty($_SESSION['cart'])) {
             $variant_ids = array_column($_SESSION['cart'], 'variant_id');
@@ -129,7 +129,7 @@
     }
 
     function new_order(&$cartItems, &$prices){
-        include '../includes/config/db_connect.php';
+        include '../config/db_connect.php';
 
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $email = filter_var($email, FILTER_VALIDATE_EMAIL);

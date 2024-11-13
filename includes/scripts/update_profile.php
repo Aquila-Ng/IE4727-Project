@@ -1,7 +1,7 @@
 <?php 
     session_start();
-
-    include "../includes/config/db_connect.php";
+    
+    include "../config/db_connect.php";
     $old_email = $_SESSION['email'];
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
@@ -28,7 +28,7 @@
                         postal_code = ?
                     WHERE 
                         email = ?";
-            
+
             $stmt = $conn -> prepare($update_query);
             
             $stmt -> bind_param("ssssssss",
@@ -47,7 +47,7 @@
             $_SESSION['email'] = $email;
         }
     }      
-    header('Location: ../views/profile.php');
+    header('Location: ../../views/profile.php');
     // Might need to include messages to note the successful change in details.
     // Error Handling for this also need to be accounted for.
 ?>

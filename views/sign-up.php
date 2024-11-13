@@ -3,7 +3,7 @@
     include('../includes/components/form.php');
     include('../includes/components/footer.php');
     
-    include('../scripts/register.php');
+    include('../includes/scripts/register.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

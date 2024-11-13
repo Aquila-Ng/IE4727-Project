@@ -1,7 +1,7 @@
 <?php 
     session_start();
 
-    include "../includes/config/db_connect.php";
+    include "../config/db_connect.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $email = filter_var($_SESSION['email'],FILTER_SANITIZE_EMAIL);
@@ -68,7 +68,7 @@
         else{
             exit("Error: Error getting email from session token");
         }
-        header("Location: ../views/profile.php");
+        header("Location: ../../views/profile.php");
     }
 
     function validate_password($password_regex, $password){

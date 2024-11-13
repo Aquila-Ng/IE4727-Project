@@ -128,7 +128,7 @@
                             foreach ($allProductDescriptionItems[0]['variants'] as $index => $variant) {
                                 ?>
                                 <div class="variant-description" data-variant-id=<?php echo htmlspecialchars($variant['variantId']); ?>>
-                                    <form class="m-0 p-0" action="../scripts/add_to_cart.php" method="GET">
+                                    <form class="m-0 p-0" action="../includes/scripts/add_to_cart.php" method="GET">
                                         <input type="hidden" name="variantId" value="<?php echo htmlspecialchars($variant['variantId']); ?>">
                                         <?php
                                             $isQuantityNotZero = ($variant['quantity'] != 0); 

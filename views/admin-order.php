@@ -2,7 +2,7 @@
     include('../includes/components/navbar.php');
     include('../includes/components/footer.php');
     include('../includes/components/admin-table.php');
-    include('../scripts/admin_get_order.php');
+    include('../includes/scripts/admin_get_order.php');
 
  // Sample order statuses array
 $orderStatuses = [
