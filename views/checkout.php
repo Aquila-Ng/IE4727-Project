@@ -9,7 +9,7 @@
     include('../includes/components/order.php');
     include('../includes/components/footer.php');
 
-    include('../scripts/get_checkout_info.php');
+    include('../includes/scripts/get_checkout_info.php');
 ?>
 
 <!DOCTYPE html>

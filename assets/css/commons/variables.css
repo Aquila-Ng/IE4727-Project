@@ -162,10 +162,10 @@
   --logo-color: var(--beige-800); /* Gold Color */
 
   /* Alert and Status Colors */
-  --success-color: var(--base-green-light); /* Green for success messages */
-  --on-success-color: var(--base-green); /* Green for success messages */
-  --error-color: var(--base-red-light); /* Red for error messages */
-  --on-error-color: var(--base-red); /* Red for error messages */
+  --success-color: var(--base-green); /* Green for success messages */
+  --on-success-color: var(--base-white); /* Green for success messages */
+  --error-color: var(--base-red); /* Red for error messages */
+  --on-error-color: var(--base-white); /* Red for error messages */
   --warning-color: var(--base-yellow); /* Yellow for warnings */
 
   /* Link Colors */

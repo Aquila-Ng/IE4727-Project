@@ -5,7 +5,7 @@
     //     1 => ['variant_id' => 1, 'quantity' => 5],
     //     2 => ['variant_id' => 2, 'quantity' => 4]
     // ]; 
-
+    
     $cartItems = [];
     $prices = [
         'item' => 0,
@@ -14,14 +14,13 @@
         'gst' => 0,
         'total' => 0
     ];
-    
     if (isset($_SESSION['logged_in']) || ($_SESSION['logged_in'] == true)){
         if ($_SESSION['role'] === "user"){
             
             get_items_and_prices($cartItems, $prices);
         }
         else if ($_SESSION['role'] === "admin"){
-            header("Location: ./admin.php"); // Redirect to admin page
+            header("Location: ./admin-order.php"); // Redirect to admin page
         }
     }
     else {
@@ -39,22 +38,22 @@
             if ($variant_id_count) {
                 
                 $query = "
-                SELECT 
-                    products.name, 
-                    products.price, 
-                    variants.id,
-                    variants.quantity, 
-                    variants.image, 
-                    variants.name AS variant_name 
-                FROM 
-                    variants
-                JOIN 
-                    products
-                ON 
-                    products.id = variants.product_id 
-                WHERE 
-                    variants.id 
-                IN ( $variant_id_count )";
+                    SELECT 
+                        products.name, 
+                        products.price, 
+                        variants.id,
+                        variants.quantity, 
+                        variants.image, 
+                        variants.name AS variant_name 
+                    FROM 
+                        variants
+                    JOIN 
+                        products
+                    ON 
+                        products.id = variants.product_id 
+                    WHERE 
+                        variants.id 
+                    IN ( $variant_id_count )";
                 
                 $stmt = $conn->prepare($query);
                 $stmt-> execute($variant_ids);

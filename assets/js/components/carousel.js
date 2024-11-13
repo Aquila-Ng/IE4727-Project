@@ -33,6 +33,8 @@ export function carousel() {
     nextButton.addEventListener("click", showNextImage);
     prevButton.addEventListener("click", showPrevImage);
 
+    setInterval(showNextImage, 3000)
+
     updateCarousel();
     window.updateCarousel = updateCarousel;
   });

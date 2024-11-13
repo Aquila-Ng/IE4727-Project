@@ -3,7 +3,7 @@
     include('../includes/components/form.php');
     include('../includes/components/footer.php');
 
-    include('../scripts/get_profile_info.php');
+    include('../includes/scripts/get_profile_info.php');
 ?>
 
 <!DOCTYPE html>

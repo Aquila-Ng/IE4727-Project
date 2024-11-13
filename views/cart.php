@@ -3,7 +3,7 @@
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = []; // Initialize the cart as an empty array
     }
-    include('../scripts/cart.php');
+    include('../includes/scripts/cart.php');
 
     include('../includes/components/navbar.php');
     include('../includes/components/form.php');
@@ -67,7 +67,7 @@
     //     ]
     // ];
 
-    $isInValid=true;
+    $isInValid=false;
     $errorMessage="Nothing in the cart.";
 ?>
 

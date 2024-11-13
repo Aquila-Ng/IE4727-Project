@@ -1,6 +1,5 @@
 <?php
     session_start();
-    
     if (isset($_SESSION['logged_in']) || ($_SESSION['logged_in'] == true)){
         if ($_SESSION['role'] === "admin"){
             $orderItems = get_orders();

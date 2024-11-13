@@ -9,7 +9,6 @@
     include('../includes/components/product-card.php');
     include('../includes/components/carousel.php');
     include('../includes/components/footer.php');
-    // include("../includes/db_connect.php");
 
     include('../includes/config/db_connect.php');
 

@@ -7,109 +7,108 @@
 
     include('../includes/config/db_connect.php');
 
-$searchQuery = isset($_GET['searchQuery']) ? $_GET['searchQuery'] : NULL;
-$sortOrder = isset($_GET['sortOrder']) ? "p.price " . $_GET['sortOrder'] : "p.id";
-$minPrice = isset($_GET['minPrice']) ? (int) $_GET['minPrice'] : NULL;
-$maxPrice = isset($_GET['maxPrice']) ? (int) $_GET['maxPrice'] : NULL;
-$categoryId = null; // Initialize categoryId as null
+    $searchQuery = isset($_GET['searchQuery']) ? $_GET['searchQuery'] : NULL;
+    $sortOrder = isset($_GET['sortOrder']) ? "p.price " . $_GET['sortOrder'] : "p.id";
+    $minPrice = isset($_GET['minPrice']) ? (int) $_GET['minPrice'] : NULL;
+    $maxPrice = isset($_GET['maxPrice']) ? (int) $_GET['maxPrice'] : NULL;
+    $categoryId = null; // Initialize categoryId as null
 
-if (isset($_GET['categoryId'])) {
-    if (is_array($_GET['categoryId'])) {
-        // Check if both category values are selected
-        if (in_array("1", $_GET['categoryId']) && in_array("2", $_GET['categoryId'])) {
-            $categoryId = null; // Set to null if both are selected
+    if (isset($_GET['categoryId'])) {
+        if (is_array($_GET['categoryId'])) {
+            // Check if both category values are selected
+            if (in_array("1", $_GET['categoryId']) && in_array("2", $_GET['categoryId'])) {
+                $categoryId = null; // Set to null if both are selected
+            } else {
+                // If only one is selected, assign it to categoryId
+                $categoryId = (int) $_GET['categoryId'][0]; // Just take the first one if not both
+            }
         } else {
-            // If only one is selected, assign it to categoryId
-            $categoryId = (int) $_GET['categoryId'][0]; // Just take the first one if not both
+            // If it's a single value
+            $categoryId = (int) $_GET['categoryId'];
         }
-    } else {
-        // If it's a single value
-        $categoryId = (int) $_GET['categoryId'];
     }
-}
 
-// Base SQL query
-$sql = "
-    SELECT 
-        p.id AS productId,
-        p.name AS productName,
-        p.price AS productPrice,
-        p.description AS productDescription,
-        v.id AS variantId,
-        v.name AS variantName,
-        v.color AS variantColor,
-        v.quantity AS variantQuantity,
-        v.image AS variantImage
-    FROM 
-        products p
-    JOIN 
-        variants v ON p.id = v.product_id
-";
+    // Base SQL query
+    $sql = "
+        SELECT 
+            p.id AS productId,
+            p.name AS productName,
+            p.price AS productPrice,
+            p.description AS productDescription,
+            v.id AS variantId,
+            v.name AS variantName,
+            v.color AS variantColor,
+            v.quantity AS variantQuantity,
+            v.image AS variantImage
+        FROM 
+            products p
+        JOIN 
+            variants v ON p.id = v.product_id
+    ";
 
-// Check if any conditions are set and manage the WHERE clause
-$conditions = []; // Array to hold condition strings
+    // Check if any conditions are set and manage the WHERE clause
+    $conditions = []; // Array to hold condition strings
 
-if (!is_null($categoryId)) {
-    $conditions[] = "p.category_id = $categoryId"; // Add category condition
-}
+    if (!is_null($categoryId)) {
+        $conditions[] = "p.category_id = $categoryId"; // Add category condition
+    }
 
-if (!is_null($minPrice)) {
-    $conditions[] = "p.price >= $minPrice"; // Add min price condition
-}
+    if (!is_null($minPrice)) {
+        $conditions[] = "p.price >= $minPrice"; // Add min price condition
+    }
 
-if (!is_null($maxPrice)) {
-    $conditions[] = "p.price <= $maxPrice"; // Add max price condition
-}
+    if (!is_null($maxPrice)) {
+        $conditions[] = "p.price <= $maxPrice"; // Add max price condition
+    }
 
-if (!is_null($searchQuery)) {
-    $conditions[] = "p.name LIKE '%" . mysqli_real_escape_string($conn, $searchQuery) . "%'"; // Add search condition with sanitization
-}
+    if (!is_null($searchQuery)) {
+        $conditions[] = "p.name LIKE '%" . mysqli_real_escape_string($conn, $searchQuery) . "%'"; // Add search condition with sanitization
+    }
 
-// If there are conditions, add them to the SQL query
-if (count($conditions) > 0) {
-    $sql .= " WHERE " . implode(" AND ", $conditions);
-}
+    // If there are conditions, add them to the SQL query
+    if (count($conditions) > 0) {
+        $sql .= " WHERE " . implode(" AND ", $conditions);
+    }
 
-$sql .= " ORDER BY $sortOrder, v.id";
+    $sql .= " ORDER BY $sortOrder, v.id";
 
-// Execute the query
-$results = $conn->query($sql);
+    // Execute the query
+    $results = $conn->query($sql);
 
-// Check for errors
-if (!$results) {
-    die("Query Error: " . $conn->error);
-}
+    // Check for errors
+    if (!$results) {
+        die("Query Error: " . $conn->error);
+    }
 
-// Process data into desired structure
-$allProductItems = [];
-$currentProductId = null;
+    // Process data into desired structure
+    $allProductItems = [];
+    $currentProductId = null;
 
-foreach ($results as $row) {
-    if ($row['productId'] !== $currentProductId) {
-        // New product entry
-        $currentProductId = $row['productId'];
-        $allProductItems[] = [
-            'id' => $row['productId'],
-            'name' => $row['productName'],
-            'price' => $row['productPrice'],
-            'description' => $row['productDescription'],
-            'variants' => []
+    foreach ($results as $row) {
+        if ($row['productId'] !== $currentProductId) {
+            // New product entry
+            $currentProductId = $row['productId'];
+            $allProductItems[] = [
+                'id' => $row['productId'],
+                'name' => $row['productName'],
+                'price' => $row['productPrice'],
+                'description' => $row['productDescription'],
+                'variants' => []
+            ];
+        }
+        
+        // Add variant to the latest product entry
+        $allProductItems[count($allProductItems) - 1]['variants'][] = [
+            'variantId' => $row['variantId'],
+            'variantName' => $row['variantName'],
+            'variantColor' => $row['variantColor'],
+            'quantity' => $row['variantQuantity'],
+            'image' => $row['variantImage']
         ];
     }
-    
-    // Add variant to the latest product entry
-    $allProductItems[count($allProductItems) - 1]['variants'][] = [
-        'variantId' => $row['variantId'],
-        'variantName' => $row['variantName'],
-        'variantColor' => $row['variantColor'],
-        'quantity' => $row['variantQuantity'],
-        'image' => $row['variantImage']
-    ];
-}
 
-$inValid=true;
-$errorMessage="error Message";
-
+    $inValid=false;
+    $errorMessage="error Message";
 ?>
 
 <!DOCTYPE html>

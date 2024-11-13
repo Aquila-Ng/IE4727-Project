@@ -37,7 +37,7 @@ function renderSectionDescription($title, $description) {
 function authForm($formType) {
     $isLogin = $formType === 'login';
     $isInvalid=false;
-    $isSuccessful=true;
+    $isSuccessful=false;
     $errorMessage="Error Message";
     $successMessage="Account has been successfully registered.";
 
@@ -109,11 +109,11 @@ function authForm($formType) {
 // Function to generate the profile detail form
 function profileForm($userDetails) {
     $isInvalid=false;
-    $isSuccessful=true;
+    $isSuccessful=false;
     $errorMessage="Details is not in the correct format.";
     $successMessage="Details has been changed successfully.";
     $isPasswordInvalid=false;
-    $isPasswordSuccessful=true;
+    $isPasswordSuccessful=false;
     $passwordErrorMessage="Password is not in the correct format.";
     $passwordSuccessMessage="Password has been changed successfully.";
     ?>
@@ -121,7 +121,7 @@ function profileForm($userDetails) {
         <div class="row px-4 pt-4">
             <h2 class="emphasized mb-0">Profile Details</h2>
         </div>
-        <form action="../scripts/update_profile.php" method="POST">
+        <form action="../includes/scripts/update_profile.php" method="POST">
             <input type="hidden" name="form_type" value="update_account">
             <div class="row gap-4">
                 <?php 
@@ -175,7 +175,7 @@ function profileForm($userDetails) {
             </div>
         </form>
 
-        <form action='../scripts/update_password.php' method='POST'>
+        <form action='../includes/scripts/update_password.php' method='POST'>
             <div class="row gap-4">
                 <div class="col">
                     <h3 class="emphasized">Password</h3>
@@ -214,12 +214,12 @@ function profileForm($userDetails) {
 
 // Function to generate the checkout form
 function checkoutForm($userDetails) {
-    $isInvalid=true;
+    $isInvalid=false;
     $errorMessage="Details is not in the correct format.";
     ?>
         <div class="col-9">
             <div class="long-content">
-                <form action="../scripts/checkout.php" method="POST">
+                <form action="../includes/scripts/checkout.php" method="POST">
                     <h2 class="emphasized my-1">Shipping Information</h2>
                     <?php
                         if($isInvalid){

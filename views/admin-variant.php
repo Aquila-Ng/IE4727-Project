@@ -1,41 +1,7 @@
 <?php
  include('../includes/components/navbar.php');
  include('../includes/components/admin-table.php');
-//  include("../includes/db_connect.php");
-include('../includes/config/db_connect.php');
-// Categories Query
-$categoryItems = [];
-$result = $conn->query("SELECT id, name FROM categories");
-while ($row = $result->fetch_assoc()) {
-    $categoryItems[] = [
-        'id' => $row['id'],
-        'name' => $row['name']
-    ];
-}
-
-// Products Query
-$productItems = [];
-$result = $conn->query("
-    SELECT 
-        p.id, 
-        p.name, 
-        p.category_id, 
-        c.name AS category_name,
-        p.description,
-        p.price
-    FROM products p
-    JOIN categories c ON p.category_id = c.id
-");
-while ($row = $result->fetch_assoc()) {
-    $productItems[] = [
-        'id' => $row['id'],
-        'name' => $row['name'],
-        'category_id' => $row['category_id'],
-        'category_name' => $row['category_name'],
-        'description' => $row['description'],
-        'price' => $row['price']
-    ];
-}
+ include("../includes/config/db_connect.php");
 
 // Variants Query
 $variantItems = [];
@@ -82,26 +48,20 @@ while ($row = $result->fetch_assoc()) {
 </head>
 <body class="m-0">
     <?php
-       navbar(false);
+       navbar(true);
     ?>
     <main>
         <div class="container pt-2">
-            <h2 class="emphasized">Categories</h2>
-            <?php
-                category_table($categoryItems);
-            ?>
-        </div>
-        <div class="container pt-2">
             <h2 class="emphasized">Products</h2>
             <?php
-                product_table($productItems);
+                variant_table($variantItems);
             ?>
         </div>
         <?php
-             include('../includes/components/test-modal.php');
+             include('../includes/components/variant-modal.php');
         ?>
     </main>
-    <script type="module" src="../assets/js/pages/admin.js"></script>
+    <script type="module" src="../assets/js/pages/admin-variant.js"></script>
 </body>
 </html>
 

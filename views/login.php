@@ -7,7 +7,7 @@
     include('../includes/components/navbar.php');
     include('../includes/components/form.php');
     include('../includes/components/footer.php');
-    include('../scripts/authenticate.php');
+    include('../includes/scripts/authenticate.php');
 ?>
 
 <!DOCTYPE html>

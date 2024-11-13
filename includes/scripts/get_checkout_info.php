@@ -1,12 +1,6 @@
 <?php 
     session_start();
 
-    // Initialise cart array in session (Dummy Data)
-    // $_SESSION['cart'] = [
-    //     1 => ['variant_id' => 1, 'quantity' => 5],
-    //     2 => ['variant_id' => 2, 'quantity' => 4]
-    // ]; 
-
     $userDetails = [];
     $cartItems = [];
     $prices = [
@@ -17,14 +11,13 @@
         'total' => 0
     ];
     
-    
     if (isset($_SESSION['logged_in']) || ($_SESSION['logged_in'] == true)){
         if ($_SESSION['role'] === "user"){
             get_profile_details($userDetails);
             get_price($cartItems, $prices);
         }
         else if ($_SESSION['role'] === "admin"){
-            header("Location: ./admin.php"); // Redirect to admin page
+            header("Location: ./admin-order.php"); // Redirect to admin page
         }
     }
     else {
@@ -124,4 +117,10 @@
             }
         }
     }
+
+    // Initialise cart array in session (Dummy Data)
+    // $_SESSION['cart'] = [
+    //     1 => ['variant_id' => 1, 'quantity' => 5],
+    //     2 => ['variant_id' => 2, 'quantity' => 4]
+    // ]; 
 ?>
